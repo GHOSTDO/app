@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget id="A6054987224696">
+	<name>chickenApp</name>
+	<content src="./register.html"/>
+	<preference name="windowBackground" value="#fff"/>
+	<preference name="autoUpdate" value="true"/>
+<feature name="baiduLocation">
+    <param name="apiKey" value="DF3sGW3FC7qhDtg6miAAbHG0TTBsk6bD"/>
+</feature>
+</widget>

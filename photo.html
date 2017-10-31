@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+	</head>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		
+		.box {
+			width: 100%;
+			height: 100%;
+		}
+		
+		.top {
+			width: 100%;
+			height: 50px;
+			background: #FFCF09;
+		}
+		
+		.top1 {
+			width: 10%;
+			height: 30px;
+			float: left;
+			margin-left: 5%;
+			margin-top: 10px;
+		}
+		
+		.top1 img {
+			width: 30px;
+			height: 30px;
+		}
+		
+		.top2 {
+			width: 70%;
+			height: 50px;
+			text-align: center;
+			line-height: 50px;
+			float: left;
+		}
+		
+		.box2 {
+			width: 100%;
+			height: 30px;
+			position: absolute;
+			bottom: 0;
+			text-align: center;
+			z-index: 999;
+		}
+		
+		.box4 {
+			width: 100%;
+			height: 30px;
+			position: fixed;
+			bottom: 0;
+			text-align: center;
+			z-index: 999;
+			background: #FFCF09;
+			line-height: 30px;
+			display: none;
+		}
+		
+		.box3 {
+			margin: 0 auto;
+			display: none;
+		}
+		
+		.img {
+			width: 28px;
+			height: 28px;
+		}
+		
+		.box41 {
+			width: 100px;
+			margin: 0 auto;
+			height: 30px;
+			line-height: 30px;
+		}
+	</style>
+
+	<body>
+		<div class="box">
+			<div class="top">
+				<div class="top1"><img src="image/back.png" alt=""></div>
+				<div class="top2">
+					<h3>点击拍照</h3></div>
+			</div>
+			<div class="box3"><img src="" alt="" class="img1"></div>
+			<div class="box2"><img src="image/camera.png" alt="" class="img" width="100%" height="500"></div>
+			<div class="box4">
+				<div onclick="tijiao()" class="box41">确认提交</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="js/local.js"></script>
+	<script type="text/javascript" src="js/APICloud-rest.js"></script>
+	<script type="text/javascript" src="js/api.js"></script>
+	<script type="text/javascript">
+		user = $api.getStorage('user');
+		var tel = user.tel;
+		var pwd = user.pwd;
+		var lorry_id = user.lorry_id;
+		var a = null;
+		(function($) {
+			$.getUrlParam = function(name) {
+				var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+				var r = window.location.search.substr(1).match(reg);
+				if(r != null) return decodeURI(r[2]);
+				return null;
+			}
+		})(jQuery);
+		var qid = $.getUrlParam('id');
+		apiready = function() {
+			api.addEventListener({
+				name: 'keyback'
+			}, function(ret, err) {
+				//alert('按了返回键');
+				var FNPhotograph = api.require('FNPhotograph');
+				FNPhotograph.closeCameraView(
+					function(ret) {
+						if(ret) {
+							alert(JSON.stringify(ret));
+						}
+					})
+			});
+			$(".box2").css("background", "rgba(0, 0, 0, 0.2)")
+			$(".box3").css("display", "none");
+			$(".box4").css("display", "none");
+			$(".box2").css("display", "block");
+			var FNPhotograph = api.require('FNPhotograph');
+			FNPhotograph.openCameraView({
+				rect: {
+					x: 0,
+					y: 50,
+					w: 400,
+					h: 500
+				},
+				orientation: 'portrait',
+				fixedOn: api.frameName,
+				fixed: true
+			}, function(ret) {});
+		}
+		$(".img").on("click", function() {
+			var FNPhotograph = api.require('FNPhotograph');
+			FNPhotograph.takePhoto({
+				quality: 'low',
+				path: 'fs://FNPhotograph/01.jpg',
+				album: true
+			}, function(ret) {
+				alert(JSON.stringify(ret));
+				$(".img1").attr("src", api.fsDir + '/' + 'FNPhotograph' + '/' + '01.jpg');
+				$(".box3").css("display", "block");
+				$(".box2").css("display", "none");
+				$(".box4").css("display", "block");
+				var trans = api.require('trans');
+				trans.decodeImgToBase64({
+					imgPath: api.fsDir + '/' + 'FNPhotograph' + '/' + '01.jpg'
+				}, function(ret, err) {
+					if(ret.status) {
+						alert(JSON.stringify(ret));
+						a = "data:image/jpeg;base64," + JSON.stringify(ret.base64Str);
+						//alert(a);
+					} else {
+						alert(JSON.stringify(err));
+					};
+				})
+			
+				FNPhotograph.closeCameraView(
+					function(ret) {
+						if(ret) {
+							alert(JSON.stringify(ret));
+						}
+					})
+			})
+		});
+
+		function tijiao() {
+			$.ajax({
+				url: 'http://api.uminfo.cn/app_lorry.php/suresch',
+				dataType: 'json',
+				type: 'post',
+				ContentType: "application/json;charset=utf-8",
+				data: JSON.stringify({
+					schedule_id: qid,
+					lorry_id: lorry_id,
+					pic: a
+				}),
+				success: function(msg) {
+					if(msg.result==0){
+						alert("提交成功");
+					window.location.href = "first.html";
+					}else{
+						alert(mag.desc);
+						windows.location.reload();
+					}
+					
+					
+				},
+				error: function(xhr) {
+					alert("提交失败");
+				}
+			})
+		}
+
+		$(".top1").on("click", function() {
+			var FNPhotograph = api.require('FNPhotograph');
+			FNPhotograph.closeCameraView(
+				function(ret) {
+					if(ret) {
+						alert(JSON.stringify(ret));
+					}
+				})
+			window.history.back();
+		})
+	</script>
+
+</html>

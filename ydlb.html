@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+        <style>
+         *{
+        	margin: 0;
+        	padding: 0;
+        }
+        	.box{
+        		width:100%;
+        		height:100%;
+        		background:white;
+        	}
+        	.top{
+        		width:100%;
+        		height:50px;
+        		background:#FFCF09;
+        	}
+        	.top1{
+        		width:10%;
+        		height:30px;
+        		float:left;
+        		margin-left:5%;
+        		margin-top:10px;
+        	}
+        	.top1 img{
+        		width:30px;
+        		height:30px;
+        	}
+        	.top2{
+        		width:70%;
+        		height:50px;
+        		text-align:center;
+        		line-height:50px;
+        		float:left;
+        	}
+			.center{
+				width: 100%;
+			}
+			.c1{
+				width: 96%;
+				float: left;
+				margin-left: 2%;
+				margin-top: 5px;
+				height: 80px;
+			}
+			.xian{
+				width: 100%;
+				height: 1px;
+				background: #E5E5E5;
+				float: left;
+			}
+
+			.c1_1{
+				float: left;
+				width: 80%;
+				height: 50px;
+				line-height: 50px;
+			}
+			.c1_2{
+				float: right;
+				width: 15%;
+				height: 40px;
+				margin-top: 20px;
+			}
+			.c1_2 img{
+				width: 40px;
+				height: 40px;
+			}
+			.c1_3{
+				float: left;
+				width: 80%;
+				height: 30px;
+				line-height: 30px;
+				font-size: 14px;
+			}
+			
+
+        </style>
+    </head>
+    <body>
+    	<div class="box">
+    		<div class="top">
+    			<div class="top1"><img src="image/back.png" alt=""></div>
+    			<div class="top2"><h3>运单列表</h3></div>
+    		</div>
+    		<div class="center">
+    			
+    		</div>
+    	</div>
+    </body>
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="js/local.js"></script>
+<script type="text/javascript" src="js/APICloud-rest.js"></script>
+<script type="text/javascript" src="js/api.js"></script>
+<script type="text/javascript">
+       user=$api.getStorage('user');
+       var tel=user.tel;
+       var pwd=user.pwd;
+       var lorry_id=user.lorry_id;
+       if(lorry_id==null||lorry_id==""){
+         alert("用户未登录");
+       }else{
+        $.ajax({
+            url:"http://api.uminfo.cn/app_lorry.php/obycourier?lorry_id="+lorry_id,
+            dataType:'json',
+            type:'get',
+            ContentType: "application/json;charset=utf-8",
+            data: JSON.stringify({
+            }),
+            success:function(msg){
+                $(".center").html("");
+                if(msg.result==0){
+                    for(var i=0;i<msg.orders.length;i++){
+                        var a='<div class="c1" onclick="yd('+msg.orders[i].order_id
+                        +')"><div class="c1_1"><p>单号：<span>'+msg.orders[i].order_id
+                        +'</span></p></div><div class="c1_2"><img src="image/more.png" alt="">'
+                        +'</div><div class="c1_3"><p>收货人：<span>'+msg.orders[i].customer_name
+                        +'</span></p></div><div class="xian"></div></div>';
+                         $(".center").append(a); 
+                    }
+                }else{
+                    alert(msg.desc);
+                }
+            },
+            error:function(xhr){
+                alert("获取后台失败！")
+            }
+        })
+       }
+       
+       function yd(id){
+        window.location.href="ydh.html?id="+id;
+       }
+
+    $(".top1").on("click",function(){
+        window.history.back();
+    })
+    </script>
+</html>

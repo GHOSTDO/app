@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    </head>
+    <style>
+    	 *{
+        	margin: 0;
+        	padding: 0;
+        }
+        	.box{
+        		width:100%;
+        		height:100%;
+        		background:white;
+                position: absolute;
+        	}
+        	.top{
+        		width:100%;
+        		height:50px;
+        		background:#FFCF09;
+        	}
+        	.top1{
+        		width:10%;
+        		height:30px;
+        		float:left;
+        		margin-left:5%;
+        		margin-top:10px;
+        	}
+        	.top1 img{
+        		width:30px;
+        		height:30px;
+        	}
+        	.top2{
+        		width:70%;
+        		height:50px;
+        		text-align:center;
+        		line-height:50px;
+        		float:left;
+        	}
+        	.center{
+        		width: 90%;
+        		float: left;
+				margin-left: 5%;
+        	}
+        	.box1{
+        		width: 100%;
+        		height: 50px;
+        	}
+        	.xian{
+        		width: 100%;
+        		height: 1px;
+        		background: #D1D1D1;
+        	}
+        	.box1_1{
+        		width: 30%;
+        		height: 50px;
+        		float: left;
+        		line-height: 50px;
+        		margin-left: 2%;
+        	}
+        	.box1_2{
+                width: 50%;
+                height: 18px;
+                float: left;
+                margin-left: 10%;
+                margin-top: 15px;
+                text-align: center;
+                line-height: 18px;
+            }
+        	
+        	.box2{
+        		width: 100%;
+        		height: 100px;
+        	}
+        	.box2_1{
+        		width: 15%;
+        		height: 50px;
+        		float: left;
+        		line-height: 50px;
+        		margin-left: 2%;
+        	}
+        	.box2_2{
+        		width: 65%;
+        		height: 100px;
+        		float: left;
+        		margin-left: 5%;
+        		margin-top: 17px;
+        		border: 1px solid #A9A9A9;
+        	}
+        	
+        	.foot{
+        		width: 80%;
+        		height: 40px;
+        		text-align: center;
+        		line-height: 40px;
+        		float: left;
+        		margin-left: 10%;
+        		margin-top: 50px;
+        		background: #FFCF08;
+        		color: white;
+        		font-size: 18px;
+        		border-radius: 5px;
+        	}
+             select{
+                width: 60%;
+                text-align: center;
+                float: left;
+                margin-left: 20%;
+            }
+            .box10{
+                width: 70%;
+                height: 140px;
+                border: 2px solid black;
+                position: absolute;
+                left: 15%;
+                top: 30%;
+                background: white;
+                z-index: 100;
+            }
+            .box10_1{
+                width: 100%;
+                height: 100px;
+                text-align: center;
+                line-height: 100px;
+                border-bottom: 2px solid black;
+            }
+            .box10_2{
+                width: 50%;
+                height: 40px;
+                line-height: 40px;
+                text-align: center;
+                float: left;
+                border-right: 2px solid black;
+            }
+            .box10_3{
+                width: 49%;
+                height: 40px;
+                line-height: 40px;
+                text-align: center;
+                float: left;
+            }
+
+
+    </style>
+    <body>
+    	<div class="box">
+    		<div class="top">
+    			<div class="top1"><img src="image/back.png" alt=""></div>
+    			<div class="top2"><h3>车辆信息</h3></div>
+    		</div>
+    		<div class="center">
+    			<div class="box1">
+    				<div class="box1_1">车牌号</div>
+    				<div class="box1_2" id="chep"></div>
+    			</div>
+    			<div class="xian"></div>
+    			<div class="box1">
+    				<div class="box1_1">车型</div>
+    				<div class="box1_2"><select name="car" id="car" disabled="disabled"><option value="0">请选择</option></select></div>
+    			</div>
+    			<div class="xian"></div>
+    			<div class="box1">
+    				<div class="box1_1">车长</div>
+    				<div class="box1_2" id="chang"></div>
+    			</div>
+    			<div class="xian"></div>
+    			<div class="box1">
+    				<div class="box1_1">车重</div>
+    				<div class="box1_2" id="zhong"></div>
+    			</div>
+    			<div class="xian"></div>
+    			<div class="box1">
+    				<div class="box1_1">驾驶员年龄</div>
+    				<div class="box1_2" id="old"></div>
+    			</div>
+    			<div class="xian"></div>
+    			<div class="box2">
+    				<div class="box2_1">备注</div>
+    				<div class="box2_2" id="text"></div>
+    			</div>
+    		</div>
+    		<div class="foot">
+    			删除
+    		</div>
+    	</div>
+        <div class="box10" style="display: none;">
+            <div class="box10_1">确定删除该车辆吗？</div>
+            <div class="box10_2">确定</div>
+            <div class="box10_3">取消</div>
+        </div>
+    </body>
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="js/local.js"></script>
+<script type="text/javascript" src="js/APICloud-rest.js"></script>
+<script type="text/javascript" src="js/api.js"></script>
+<script type="text/javascript">
+     $.ajax({
+            url:"http://api.uminfo.cn/app_lorry.php/lorry_type",
+            dataType:'json',
+            type:'get',
+            ContentType: "application/json;charset=utf-8",
+            data: JSON.stringify({
+            }),
+            success:function(msg){
+                // $("#car").html();
+                if(msg.result==0){
+                    for(var i=0;i<msg.lorry_type.length;i++){
+                        var a='<option value="'+msg.lorry_type[i].lorry_type_id+'">'
+                        +msg.lorry_type[i].lorry_type_name+'</option>'
+                         $("#car").append(a);
+                    }
+                }
+            },
+            error:function(xhr){
+                alert("获取后台失败")
+            }
+
+        })
+</script>
+<script type="text/javascript">
+     user=$api.getStorage('user');
+    var tel=user.tel;
+    var pwd=user.pwd;
+    var lorry_id=user.lorry_id;
+  (function($) {
+      $.getUrlParam = function(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if(r != null) return decodeURI(r[2]);
+        return null;
+      }
+    })(jQuery);
+    var id=$.getUrlParam('id');
+    
+    $.ajax({
+        url:"http://api.uminfo.cn/app_lorry.php/lorrymessage?lorry_id="+id,
+        dataTpye:'json',
+        type:'get',
+        ContentType: "application/json;charset=utf-8",
+        data: JSON.stringify({
+        }),
+        success:function(msg){
+            console.log(msg);
+            if(msg.result==0){
+              $("#chep").html(msg.lorry.plate_number);
+              $('#car').val(msg.lorry.lorry_type_id);
+              $('#chang').html(msg.lorry.lorry_size);
+              $('#zhong').html(msg.lorry.lorry_weight);
+              $('#old').html(msg.lorry.lorry_age);
+              $('#text').html(msg.lorry.lorry_tx);  
+            }else{
+                alert(msg.desc);
+            }
+            
+        },
+        error:function(xhr){
+            alert(xhr.responseText);
+        }
+    })
+
+     $(".top1").on("click",function(){
+            window.history.back();
+        })
+
+     $(".foot").on("click",function(){
+        $(".box10").css("display","block");
+     })
+     $(".box10_3").on("click",function(){
+        $(".box10").css("display","none");
+     })
+
+     $(".box10_2").on("click",function(){
+        alert(lorry_id+id);
+        $.ajax({
+            url:"http://api.uminfo.cn/app_lorry.php/upplate",
+            dataTpye:'json',
+            type:'put',
+            ContentType:'application/json;charset=utf-8',
+            data:JSON.stringify({
+                lorry_id:lorry_id,
+                lorry_id2:id
+            }),
+            success:function(msg){
+                alert(msg.desc+msg.result);
+                window.location.href="car.html";
+            },
+            error:function(xhr){
+                alert("删除失败，请重试。")
+            }
+
+        })
+     })
+</script>
+</html>

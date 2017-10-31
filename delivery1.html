@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+        <style>
+         *{
+        	margin: 0;
+        	padding: 0;
+        }
+        	.box{
+        		width:100%;
+        		height:100%;
+        		background:white;
+                 position: absolute;
+        	}
+        	.top{
+        		width:100%;
+        		height:50px;
+        		background:#FFCF09;
+        	}
+        	.top1{
+        		width:10%;
+        		height:30px;
+        		float:left;
+        		margin-left:5%;
+        		margin-top:10px;
+        	}
+        	.top1 img{
+        		width:30px;
+        		height:30px;
+        	}
+        	.top2{
+        		width:70%;
+        		height:50px;
+        		text-align:center;
+        		line-height:50px;
+        		float:left;
+        	}
+        	.sb{
+        		width: 70%;
+        		height: 50px;
+        		background: #FFCF09;
+        		text-align: center;
+        		line-height: 50px;
+        		font-size: 18px;
+        		float: left;
+        		margin-top: 80px;
+        		margin-left: 15%;
+        	}
+        	.sb1{
+        		width: 70%;
+        		height: 50px;
+        		background: #FFCF09;
+        		text-align: center;
+        		line-height: 50px;
+        		font-size: 18px;
+        		float: left;
+        		margin-top: 80px;
+        		margin-left: 15%;
+        	}
+            .sb2{
+                width: 70%;
+                height: 50px;
+                background: #FFCF09;
+                text-align: center;
+                line-height: 50px;
+                font-size: 18px;
+                float: left;
+                margin-top: 80px;
+                margin-left: 15%;
+            }
+            .box2{
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                background:white;
+                z-index: 100;
+                display: none;
+            }
+            .box3{
+                width: 60%;
+                height: 100px;
+                border: 2px solid #FFCF09;
+                float: left;
+                margin-left: 20%;
+                margin-top: 100px;
+            }
+            .ming{
+                display: inline-block;
+                width: 100%;
+                height: 80px;
+                margin-top: 10px;
+                outline-style: none;
+                list-style: none;
+                border: 0;
+                text-align: center;
+                font-size: 20px;
+            }
+            .but{
+                width: 60%;
+                height: 40px;
+                float: left;
+                margin-left: 20%;
+                margin-top: 50px;
+                text-align: center;
+                line-height: 40px;
+                background: #FFCF09;
+                color: white;
+                font-size: 18px;
+            }
+        </style>
+    </head>
+    <body>
+    	<div class="box">
+    		<div class="top">
+    			<div class="top1"><img src="image/back.png" alt=""></div>
+    			<div class="top2"><h3>交付方式</h3></div>
+    		</div>
+			<div class="sb" onclick="saoma()">
+				扫码交付
+			</div>
+			<div class="sb1" onclick="ming()">
+				签字交付
+			</div>
+             <div class="sb2" onclick="pai()">
+                拍照交付
+            </div>
+    	</div>
+      
+    </body>
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/local.js"></script>
+    <script type="text/javascript" src="js/APICloud-rest.js"></script>
+    <script type="text/javascript" src="js/api.js"></script>
+     <script type="text/javascript">
+        window.onload=function(){
+            var drawingBoard = api.require('drawingBoard');
+            drawingBoard.close(); 
+            var FNPhotograph = api.require('FNPhotograph');
+             FNPhotograph.closeCameraView(
+           function(ret) {
+               if (ret) {
+           alert(JSON.stringify(ret));
+           }
+            })
+        }
+    </script>
+    <script type="text/javascript">
+    user=$api.getStorage('user');
+    var tel=user.tel;
+    var pwd=user.pwd;
+    var lorry_id=user.lorry_id;
+    (function($) {
+      $.getUrlParam = function(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if(r != null) return decodeURI(r[2]);
+        return null;
+      }
+    })(jQuery);
+        function ming(){
+        var id=$.getUrlParam('id');
+        alert(id);
+          window.location.href="test02.html?id="+id;
+    }
+         function saoma(){
+         var id=$.getUrlParam('id');
+           var scanner = api.require('scanner')
+      scanner.open(function(ret, err) {
+    if (ret) {
+        alert(JSON.stringify(ret));
+    } else {
+        alert(JSON.stringify(err));
+    }
+        })
+          
+        }
+       function pai(){
+           var id=$.getUrlParam('id');
+           alert(id);
+           window.location.href="photo1.html?id="+id;
+        }
+
+        $(".top1").on("click",function(){
+            window.history.back();
+        })
+    </script>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+		<style>
+            * {
+				margin: 0;
+				padding: 0;
+			}
+			.box {
+				width: 100%;
+				height: 100%;
+				background: white;
+			}
+			
+			.top {
+				width: 100%;
+				height: 50px;
+				background: #FFCF09;
+			}
+			
+			.top1 {
+				width: 10%;
+				height: 30px;
+				float: left;
+				margin-left: 5%;
+				margin-top: 10px;
+			}
+			
+			.top1 img {
+				width: 30px;
+				height: 30px;
+			}
+			
+			.top2 {
+				width: 70%;
+				height: 50px;
+				text-align: center;
+				line-height: 50px;
+				float: left;
+			}
+			
+			.sb {
+				width: 70%;
+				height: 50px;
+				background: #FFCF09;
+				text-align: center;
+				line-height: 50px;
+				font-size: 18px;
+				float: left;
+				margin-top: 80px;
+				margin-left: 15%;
+			}
+			.sb1{
+				width: 70%;
+				height: 50px;
+				background: #FFCF09;
+				text-align: center;
+				line-height: 50px;
+				font-size: 18px;
+				float: left;
+				margin-top: 80px;
+				margin-left: 15%;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="top">
+				<div class="top1"><img src="image/back.png" alt=""></div>
+				<div class="top2">
+					<h3>交付</h3></div>
+			</div>
+			<div class="sb" onclick="saoma1()">
+				清单扫码
+			</div>
+			<div class="sb1" onclick="saoma2()">
+				运单扫码
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="js/local.js"></script>
+    <script type="text/javascript" src="js/APICloud-rest.js"></script>
+    <script type="text/javascript" src="js/api.js"></script>
+	<script type="text/javascript">
+	user=$api.getStorage('user');
+    var tel=user.tel;
+    var pwd=user.pwd;
+    var lorry_id=user.lorry_id;
+
+		function saoma1() {
+			var scanner = api.require('scanner')
+			scanner.open(function(ret, err) {
+			if(ret) {
+			// alert(JSON.stringify(ret));
+			var id = JSON.stringify(ret.msg);
+			id = id.replace("\"","").replace("\"","");
+			alert(id);
+			  window.location.href="sqdh.html?id="+id;
+			}else{
+			alert(JSON.stringify(err));
+			}
+			})
+        } 
+        function saoma2(){
+			var scanner = api.require('scanner')
+			scanner.open(function(ret, err){
+			if(ret){
+			alert(JSON.stringify(ret));
+			var id = JSON.stringify(ret.msg);
+			id = id.replace("\"","").replace("\"","");
+			alert(id);
+			window.location.href="sydlb.html?id="+id;
+			}else{
+			alert(JSON.stringify(err));
+			}
+			})
+		}  
+
+		$(".top1").on("click", function(){
+			window.history.back();
+		})
+	</script>
+</html>

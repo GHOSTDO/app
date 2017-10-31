@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    </head>
+    <style>
+    	*{
+	    		margin: 0;
+	    		padding: 0;
+	    	}
+	    	.top{
+        		width:100%;
+        		height:50px;
+        		background:#FFCF09;
+        	}
+        	.top1{
+        		width:10%;
+        		height:30px;
+        		float:left;
+        		margin-left:5%;
+        		margin-top:10px;
+        	}
+        	.top1 img{
+        		width:30px;
+        		height:30px;
+        	}
+        	.top2{
+        		width:70%;
+        		height:50px;
+        		text-align:center;
+        		line-height:50px;
+        		float:left;
+        	}
+        	.center{
+        		width: 90%;
+        		float: left;
+        		margin-left: 5%;
+        	}
+        	.box1{
+        		width: 100%;
+        		height: 40px;
+        	}
+        	.box2{
+        		width: 100%;
+        		height: 180px;
+        		
+        	}
+        	.xian{
+        		width: 100%;
+        		height: 1px;
+        		background:#A7DCE2;
+        		float: left;
+        	}
+        	.box1_1{
+        		width: 40%;
+        		height: 40px;
+        		line-height: 40px;
+        		float: left;
+        		margin-left: 2%;
+        	}
+        	.box1_2{
+        		width: 58%;
+        		height: 40px;
+        		line-height: 40px;
+        		float: left;
+        	}
+        	.box1_3{
+        		width: 55%;
+        		height: 30px;
+        		text-align: right;
+        		float: left;
+        		margin-top: 5px;
+        	}
+        	.box1_3 img{
+        		width: 30px;
+        		height: 30px;
+        	}
+        	.box1_4{
+        		width: 80%;
+        		height: 140px;
+        		float: left;
+        		margin-left: 10%;
+        	}
+        	.box1_4 img{
+        		width: 100%;
+        		height: 140px;
+        	}
+        	
+        	.foot{
+        		width: 80%;
+        		height: 40px;
+        		line-height: 40px;
+        		text-align: center;
+        		background: #FFCF09;
+        		float: left;
+        		margin-left: 10%;
+        		margin-top: 30px;
+        		border-radius: 5px;
+        		color:white;
+        	}
+        	.foot10{
+	width: 100%;
+	height: 40px;
+	position: fixed;
+	bottom: 0;
+	background: black;
+}
+.foot10 img{
+	width: 40px;
+	height: 40px;
+}
+.foot10_1{
+	width: 33%;
+	height: 40px;
+	text-align: center;
+	line-height: 40px;
+	float: left;
+}
+.foot10_2{
+	width: 33%;
+	height: 40px;
+	text-align: center;
+	line-height: 40px;
+	float: left;
+}
+.foot10_3{
+	width: 34%;
+	height: 40px;
+	text-align: center;
+	line-height: 40px;
+	float: left;
+	background: #FFD00D;
+}
+input{
+	border-top: none;
+	border-right: none;
+	border-left: none;
+	background: white;
+	text-align: center;
+	width: 100%;
+	outline-style: none;
+}
+
+    </style>
+    <body>
+    	<div class="box">
+    		<div class="top">
+    			<div class="top1"><img src="image/back.png" alt=""></div>
+    			<div class="top2"><h3>个人信息</h3></div>
+    		</div>
+    		<div class="center">
+    			<div class="box1">
+    				<div class="box1_1">姓名:</div>
+    				<div class="box1_2"><input type="text" disabled="true" id="name"></div>
+    			</div>
+    			<div class="xian"></div>
+    			<div class="box1">
+    				<div class="box1_1">电话:</div>
+    				<div class="box1_2"><input type="text" disabled="true" id="tel"></div>
+    			</div>
+    			<div class="xian"></div>
+    			<div class="box1">
+    				<div class="box1_1">身份证:</div>
+    				<div class="box1_2"><input type="text" id="number"></div>
+    			</div>
+    			<div class="xian"></div>
+    			<div class="box1">
+    				<div class="box1_1">地址:</div>
+    				<div class="box1_2"><input type="text" id="dizhi"></div>
+    			</div>
+    			<div class="xian"></div>
+    			<div class="box2">
+    				<div class="box1_1">驾驶证照片</div>
+    				<div class="box1_3"><input type="file" class="uploading" name="file" id="uploadimg" accept="image/jpg,image/jpeg,image/gif,image/png"></div>
+    				<div class="box1_4"><img src="" alt="" id="preview"></div>
+    			</div>
+    			<div class="xian"></div>
+				<div class="box1">
+					<div class="box1_1">邮箱:</div>
+					<div class="box1_2"><input type="text" id="email"></div>
+				</div>
+				<div class="xian"></div>
+    		</div>
+    		<div class="foot">确认修改</div>
+    		<div class="foot10">
+				<div class="foot10_1"><img src="image/wxb.png" alt=""></div>
+				<div class="foot10_2"><img src="image/ys.png" alt=""></div>
+				<div class="foot10_3"><img src="image/gr.png" alt=""></div>
+			</div>
+    	</div>
+    	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    	 <script type="text/javascript" src="js/local.js"></script>
+    <script type="text/javascript" src="js/APICloud-rest.js"></script>
+    <script type="text/javascript" src="js/api.js"></script>
+    	<script type="text/javascript">
+    user=$api.getStorage('user');
+ var tel=user.tel;
+ var pwd=user.pwd;
+ var lorry_id=user.lorry_id;
+    		$(".foot10_2").on("click",function(){
+    		window.location.href="car.html";
+    	})
+    	$(".foot10_1").on("click",function(){
+          window.location.href="first.html";
+     })
+    	 $(".top1").on("click",function(){
+          window.history.back();
+      })
+    	 $.ajax({
+    	 	url:'http://api.uminfo.cn/app_lorry.php/lorrymessage?lorry_id='+lorry_id, 
+    	 	dataType:'json',
+    	 	type:'get',
+    	 	ContentType: "application/json;charset=utf-8",
+    	 	data:JSON.stringify({}),
+    	 	success:function(msg){
+    	 		console.log(msg);
+    	 		if(msg.result==0){
+    	 			$("#name").val(msg.lorry.driver_name);
+    	 			$("#tel").val(msg.lorry.driver_phone);
+    	 			$("#number").val(msg.lorry.driver_identycard);
+    	 			$("#dizhi").val(msg.lorry.driver_address);
+    	 			$("#email").val(msg.lorry.driver_email);
+    	 			$("#preview").attr("src",msg.lorry.driving_license);
+    	 		}
+    	 	},
+    	 	error:function(xhr){
+    	 		alert("获取后台失败");
+    	 	}
+    	 })
+    	
+    
+    document.getElementById('uploadimg').addEventListener('change',()=>{
+        const file = document.getElementById('uploadimg');
+        console.log(file);
+        const fileObj = file.files[0];
+        console.log(fileObj)
+        const windowURL = window.URL || window.webkitURL;
+        console.log(windowURL)
+        const img = document.getElementById('preview');
+        if(file && fileObj) {
+            const dataURl = windowURL.createObjectURL(fileObj);
+            img.setAttribute('src',dataURl);
+            console.log(dataURl)  
+        }
+    },false) 	
+    		$(".foot").on("click",function(){
+//  			alert(f);
+    			var c = $("#number").val();
+    			var d = $("#dizhi").val();
+    			var e = $("#email").val();
+				  var file1=$(".uploading")[0].files[0];
+				   alert(file1);
+				  if(file1!=null&&lorry_id!=null&&d!=null||c!=null&&e!=null){
+                      var formdata = new FormData();
+                      formdata.append('file1', file1);
+                      formdata.append('driver_address',d);
+                      formdata.append('idcard',c);
+                      formdata.append('email',e);
+                      var xhr = new XMLHttpRequest();
+                      xhr.open("POST" ,"http://api.uminfo.cn/app_lorry.php/updriver?lorry_id="+lorry_id , true);
+                      xhr.send(formdata);
+                      xhr.onload = function(e) {
+                          if (this.status == 200) {
+                             alert(e.desc);
+                          };
+                      };
+                      return;
+				  }else{
+                        alert("文件信息不全");
+				  }
+          
+
+    })
+    	</script>
+    </body>
