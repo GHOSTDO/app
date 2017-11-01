@@ -9,7 +9,8 @@
 			* {
 				margin: 0;
 				padding: 0;
-			}	
+			}
+			
 			.box {
 				width: 100%;
 				height: 100%;
@@ -294,6 +295,34 @@
 		var tel = user.tel;
 		var pwd = user.pwd;
 		var lorry_id = user.lorry_id;
+	</script>
+	<script type="text/javascript">
+		window.onload = function() {
+			$.ajax({
+				url: "http://api.uminfo.cn/app_lorry.php/tongji?lorry_id=" + lorry_id,
+				dataType: 'json',
+				type: 'get',
+				ContentType: "application/json;charset=utf-8",
+				data: JSON.stringify({
+				}),
+				success: function(msg) {
+					$(".title").html()
+					if(msg.result == 0) {
+						var a = msg.count;
+						if(a == 0) {
+							$(".title").css("display", "none");
+						} else {
+							$(".title").append(a);
+						}
+					} else {
+						alert(msg.desc);
+					}
+				},
+				error: function(xhr) {
+					alert("获取后台失败");
+				}
+			});
+
 			var bMap = api.require('bMap');
 			bMap.getLocation({
 				accuracy: '10m',
@@ -324,36 +353,6 @@
 					alert("请检查手机是否开启定位或网络");
 				}
 			});
-	
-	</script>
-	<script type="text/javascript">
-		window.onload = function() {
-			$.ajax({
-				url: "http://api.uminfo.cn/app_lorry.php/tongji?lorry_id=" + lorry_id,
-				dataType: 'json',
-				type: 'get',
-				ContentType: "application/json;charset=utf-8",
-				data: JSON.stringify({
-					
-				}),
-				success: function(msg) {
-					$(".title").html()
-					if(msg.result == 0) {
-						var a = msg.count;
-						alert(a);
-						if(a == 0) {
-							$(".title").css("display", "none");
-						} else {
-							$(".title").append(a);
-						}
-					} else {
-						alert(msg.desc);
-					}
-				},
-				error: function(xhr) {
-					alert("获取后台失败");
-				}
-			});
 		}
 	</script>
 	<script type="text/javascript">
@@ -381,8 +380,9 @@
 		function saoma() {
 			window.location.href = "saoma.html";
 		}
-		function message(){
-			window.location.href="chathall.html";
+
+		function message() {
+			window.location.href = "chathall.html";
 		}
 	</script>
 	<script type="text/javascript">
