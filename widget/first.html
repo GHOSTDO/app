@@ -295,9 +295,8 @@
 		var tel = user.tel;
 		var pwd = user.pwd;
 		var lorry_id = user.lorry_id;
-	</script>
-	<script type="text/javascript">
 		window.onload = function() {
+			alert("加载方法");
 			$.ajax({
 				url: "http://api.uminfo.cn/app_lorry.php/tongji?lorry_id=" + lorry_id,
 				dataType: 'json',
@@ -321,18 +320,19 @@
 					alert("获取后台失败");
 				}
 			});
-
 			var bMap = api.require('bMap');
+			alert("加载定位");
 			bMap.getLocation({
 				accuracy: '10m',
 				autoStop: true,
 				filter: 1
 			}, function(ret, err) {
+				alert("1111");
 				if(ret.status) {
 					alert(ret.lon);
 					alert(ret.lat);
 					$.ajax({
-						url: "http://api.uminfo.cn/mapselect.php//addmap",
+						url: "http://api.uminfo.cn/mapselect.php/addmap",
 						dataType: 'json',
 						type: 'post',
 						ContentType: "application/json;charset=utf-8",
