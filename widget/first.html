@@ -271,7 +271,7 @@
 					<div class="image1"><img src="image/rh.png" alt=""></div>
 					<div class="wenzi1">待交付</div>
 				</div>
-				<div class="center4">
+				<div class="center4" onclick="message()">
 					<div class="image"><img src="image/message.png" alt=""></div>
 					<div class="wenzi">消息</div>
 				</div>
@@ -294,14 +294,9 @@
 		var tel = user.tel;
 		var pwd = user.pwd;
 		var lorry_id = user.lorry_id;
-		//alert(lorry_id);
-	</script>
-
-	<script type="text/javascript">
-		
 			var bMap = api.require('bMap');
 			bMap.getLocation({
-				accuracy: '100m',
+				accuracy: '10m',
 				autoStop: true,
 				filter: 1
 			}, function(ret, err) {
@@ -309,7 +304,7 @@
 					alert(ret.lon + "//" + ret.lat);
 					//   alert(ret.lat);
 					$.ajax({
-						url: "http://api.uminfo.cn/mapselect.php//addmap",
+						url: "http://api.uminfo.cn/mapselect.php/addmap",
 						dataType: 'json',
 						type: 'post',
 						ContentType: "application/json;charset=utf-8",
@@ -326,8 +321,7 @@
 						}
 					})
 				} else {
-					alert(err.code);
-					alert("123");
+					alert("请检查手机是否开启定位或网络");
 				}
 			});
 	
@@ -339,7 +333,9 @@
 				dataType: 'json',
 				type: 'get',
 				ContentType: "application/json;charset=utf-8",
-				data: JSON.stringify({}),
+				data: JSON.stringify({
+					
+				}),
 				success: function(msg) {
 					$(".title").html()
 					if(msg.result == 0) {
@@ -384,6 +380,9 @@
 
 		function saoma() {
 			window.location.href = "saoma.html";
+		}
+		function message(){
+			window.location.href="chathall.html";
 		}
 	</script>
 	<script type="text/javascript">
