@@ -291,12 +291,46 @@
 	<script type="text/javascript" src="js/APICloud-rest.js"></script>
 	<script type="text/javascript" src="js/api.js"></script>
 	<script type="text/javascript">
+		apiready = function(){
+var bMap = api.require('bMap');
+bMap.getLocation({
+    accuracy: '100m',
+    autoStop: true,
+    filter: 1
+  }, function(ret, err) {
+    if (ret.status){
+        alert(ret.lon);
+        alert(ret.lat);
+        $.ajax({
+        	url:"http://api.uminfo.cn/mapselect.php//addmap",
+        	dataType:'json',
+        	type:'post',
+        	ContentType: "application/json;charset=utf-8",
+        	data:JSON.stringify({
+        		lorry_id:lorry_id,
+        		longitude:ret.lon,
+        		latitude:ret.lat
+            }),
+            success:function(msg){
+            	alert("成功"+msg);
+            },
+            error:function(xhr){
+            	alert(xhr.responseText);
+            }
+        })
+    }else{
+        alert("请检查手机是否开启定位");
+    }
+  });
+}
+var t2 = window.setInterval("apiready()",3600000); 
+	</script>
+	<script type="text/javascript">
 		user = $api.getStorage('user');
 		var tel = user.tel;
 		var pwd = user.pwd;
 		var lorry_id = user.lorry_id;
 		window.onload = function() {
-			alert("加载方法");
 			$.ajax({
 				url: "http://api.uminfo.cn/app_lorry.php/tongji?lorry_id=" + lorry_id,
 				dataType: 'json',
@@ -320,40 +354,7 @@
 					alert("获取后台失败");
 				}
 			});
-			var bMap = api.require('bMap');
-			alert("加载定位");
-			bMap.getLocation({
-				accuracy: '10m',
-				autoStop: true,
-				filter: 1
-			}, function(ret, err) {
-				alert("1111");
-				if(ret.status) {
-					alert(ret.lon);
-					alert(ret.lat);
-					$.ajax({
-						url: "http://api.uminfo.cn/mapselect.php/addmap",
-						dataType: 'json',
-						type: 'post',
-						ContentType: "application/json;charset=utf-8",
-						data: JSON.stringify({
-							lorry_id: lorry_id,
-							longitude: ret.lon,
-							latitude: ret.lat
-						}),
-						success: function(msg) {
-							alert("成功" + msg);
-						},
-						error: function(xhr) {
-							alert(xhr.responseText);
-						}
-					})
-				} else {
-					alert(err.code);
-					alert("123");
-				}
-			});
-
+			
 		}
 	</script>
 	<script type="text/javascript">
@@ -361,27 +362,22 @@
 			window.location.href = "history.html";
 		})
 		$(".center4").on("click", function() {
-			alert("此功能暂未开放");
-
+			window.location.href = "information.html";
 		})
 		$(".foot10_2").on("click", function() {
 			window.location.href = "car.html";
 		})
-
 		$(".foot10_3").on("click", function() {
 			window.location.href = "message.html";
 		})
-
 		// var val = user.type;
 		// alert(tel+" "+pwd+" "+val+" "+lorry_id);
 		function money() {
 			window.location.href = "list.html";
 		}
-
 		function saoma() {
 			window.location.href = "saoma.html";
 		}
-
 		function message() {
 			window.location.href = "chathall.html";
 		}
@@ -392,7 +388,6 @@
 			var width = $(".banner_box .imgs img").width();
 			var count = $(".banner_box .imgs img").length;
 			var timer = null;
-
 			points(0);
 			$(".banner_box .imgs img").eq(0).css({ 'display': 'block' });
 
@@ -441,5 +436,4 @@
 			});
 		});
 	</script>
-
 </html>

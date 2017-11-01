@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+	    <style>
+	    	*{
+	    		margin: 0;
+	    		padding: 0;
+	    		font-family: "宋体";
+	    	}
+	    	.top{
+        		width:100%;
+        		height:50px;
+        		background:#FFCF09;
+        	}
+        	.top1{
+        		width:10%;
+        		height:30px;
+        		float:left;
+        		margin-left:5%;
+        		margin-top:10px;
+        	}
+        	.top1 img{
+        		width:30px;
+        		height:30px;
+        	}
+        	.top2{
+        		width:70%;
+        		height:50px;
+        		text-align:center;
+        		line-height:50px;
+        		float:left;
+        	}
+        	.title{
+				float: left;
+				margin-top: 60px;
+				text-align: center;
+				width: 100%;
+        	}
+        	.sel{
+        		width: 30%;
+        		height: 100px;
+        		float: left;
+        		margin-left: 35%;
+        		margin-top: 50px;
+        	}
+        	.sel select {
+        		width: 100%;
+                border: none;
+                appearance:none;
+                -moz-appearance:none;
+                -webkit-appearance:none;
+                background: url("image/arrow.png") no-repeat scroll right center transparent;
+                height: 30px;
+                text-align: center;
+            }
+            .kong{
+            	height: 30px;
+            }
+            .foot{
+            	width: 50%;
+            	height: 30px;
+            	float: left;
+            	margin-left: 25%;
+            	margin-top: 60px;
+            	background: #FFCF09;
+            	border-radius: 5px;
+            	color: white;
+				text-align: center;
+				line-height: 30px;
+            }
+
+	    </style>
+    </head>
+    <body>
+    	<div class="box">
+    		<div class="top">
+    			<div class="top1"><img src="image/back.png" alt=""></div>
+    			<div class="top2"><h3>消息大厅</h3></div>
+    		</div>
+    		<div class="title">请选择您的接单大厅</div>
+    		<div class="sel">
+    			<select name="province" id="province1" onchange="getPro1()"><option value="">请选择省</option></select>
+    			<div class="kong"></div>
+    			<select name="city" id="city1"><option value="">请选择市</option></select>
+    		</div>
+    		<div class="foot">
+    			确定
+    		</div>
+    	</div>
+    </body>
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript">
+		//获取省份和城市列表1
+		$.ajax({
+			url: "http://api.uminfo.cn/city.php/province",
+			dataType: 'json',
+			type: 'get',
+			ContentType: "application/json;charset=utf-8",
+			data: JSON.stringify({}),
+			success: function(msg) {
+				for(var i = 0; i < msg.province.length; i++) {
+					$("#province1").append('<option value="' + msg.province[i].id + '">' + msg.province[i].name + '</option>');
+				}
+			},
+			error: function(e) {
+				alert("省份列表信息出错!");
+			}
+		});
+		function getPro1() {
+			$("#city1").empty();
+			var pid = $("#province1 option:selected").val();
+			$.ajax({
+				url: "http://api.uminfo.cn/city.php/city?pid=" + pid,
+				dataType: 'json',
+				type: 'get',
+				ContentType: "application/json;charset=utf-8",
+				data: JSON.stringify({}),
+				success: function(msg) {
+					for(var i = 0; i < msg.city.length; i++) {
+						$("#city1").append('<option value="' + msg.city[i].id + '">' + msg.city[i].name + '</option>');
+					}
+				},
+				error: function(e) {
+					alert("城市列表信息出错!");
+				}
+			});
+		}
+		$(".foot").on("click",function(){
+            var id = $("#city1").val();
+            alert(id);
+            window.location.href="message_list.html?id="+id;
+			
+		})
+         $(".top1").on("click", function(){
+            window.history.back();
+        })
+	</script>
+</html>
