@@ -303,8 +303,7 @@
 				dataType: 'json',
 				type: 'get',
 				ContentType: "application/json;charset=utf-8",
-				data: JSON.stringify({
-				}),
+				data: JSON.stringify({}),
 				success: function(msg) {
 					$(".title").html()
 					if(msg.result == 0) {
@@ -330,10 +329,10 @@
 				filter: 1
 			}, function(ret, err) {
 				if(ret.status) {
-					alert(ret.lon + "//" + ret.lat);
-					//   alert(ret.lat);
+					alert(ret.lon);
+					alert(ret.lat);
 					$.ajax({
-						url: "http://api.uminfo.cn/mapselect.php/addmap",
+						url: "http://api.uminfo.cn/mapselect.php//addmap",
 						dataType: 'json',
 						type: 'post',
 						ContentType: "application/json;charset=utf-8",
@@ -350,9 +349,11 @@
 						}
 					})
 				} else {
-					alert("请检查手机是否开启定位或网络");
+					alert(err.code);
+					alert("123");
 				}
 			});
+
 		}
 	</script>
 	<script type="text/javascript">
