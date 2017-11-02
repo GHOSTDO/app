@@ -198,7 +198,8 @@ input{
     user=$api.getStorage('user');
  var tel=user.tel;
  var pwd=user.pwd;
- var lorry_id=user.lorry_id;
+var lorry_id=user.lorry_id;
+var lorry_id=11;
     		$(".foot10_2").on("click",function(){
     		window.location.href="car.html";
     	})
@@ -251,7 +252,7 @@ input{
     			var d = $("#dizhi").val();
     			var e = $("#email").val();
 				  var file1=$(".uploading")[0].files[0];
-				   alert(file1);
+				   alert(file1+"请稍等");
 				  if(file1!=null&&lorry_id!=null&&d!=null||c!=null&&e!=null){
                       var formdata = new FormData();
                       formdata.append('file1', file1);
@@ -263,7 +264,7 @@ input{
                       xhr.send(formdata);
                       xhr.onload = function(e) {
                           if (this.status == 200) {
-                             alert(e.desc);
+                             alert("修改成功");
                           };
                       };
                       return;
