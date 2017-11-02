@@ -262,6 +262,8 @@ input{
                 name: 'keyback'
             }, function(ret, err) {
                 //alert('按了返回键');
+              $(".foot10").css("display","block");
+    	 	$(".box10").css("display","none");
                 var FNPhotograph = api.require('FNPhotograph');
                 FNPhotograph.closeCameraView(
                     function(ret) {
