@@ -149,7 +149,7 @@ input{
 }
 .box10{
 	width: 100%;
-	height: 30px;
+	height: 80px;
 	position: absolute;
 	bottom: 0;
 	text-align: center;
@@ -158,8 +158,11 @@ input{
 	background: rgba(0, 0, 0, 0.2);
 }
 .img10{
-	width: 28px;
-	height: 28px;
+	width: 40px;
+	height: 40px;
+}
+.kb{
+    height: 30px;
 }
 
     </style>
@@ -208,7 +211,10 @@ input{
 				<div class="foot10_2"><img src="image/ys.png" alt=""></div>
 				<div class="foot10_3"><img src="image/gr.png" alt=""></div>
 			</div>
-			<div class="box10"><img src="image/camera.png" alt="" class="img10"></div>
+			<div class="box10">
+                <div class="kb"></div>
+                <div><img src="image/camera.png" alt="" class="img10"></div>
+            </div>
     	</div>
     	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
     	 <script type="text/javascript" src="js/local.js"></script>
@@ -221,7 +227,7 @@ input{
     var lorry_id=user.lorry_id;
     var f = null;
     
-    		$(".foot10_2").on("click",function(){
+    	$(".foot10_2").on("click",function(){
     		window.location.href="car.html";
     	})
     	$(".foot10_1").on("click",function(){
@@ -251,7 +257,20 @@ input{
     	 		alert("获取后台失败");
     	 	}
     	 })
-
+         apiready = function() {
+            api.addEventListener({
+                name: 'keyback'
+            }, function(ret, err) {
+                //alert('按了返回键');
+                var FNPhotograph = api.require('FNPhotograph');
+                FNPhotograph.closeCameraView(
+                    function(ret) {
+                        if(ret) {
+                            alert(JSON.stringify(ret));
+                        }
+                    })
+            });
+         }
     	 $("#photo").on("click",function(){
     	 	$(".foot10").css("display","none");
     	 	$(".box10").css("display","block");
