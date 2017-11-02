@@ -106,6 +106,9 @@
                 line-height: 40px;
                 float: left;
             }
+            select{
+                font-size: 18px;
+            }
 
 	    </style>
     </head>
@@ -171,8 +174,11 @@
 		$(".foot").on("click",function(){
             var id = $("#city1").val();
             alert(id);
+            if(id==0){
+            alert("请选择城市")
+            }else{
             window.location.href="message_list.html?id="+id;
-			
+			}
 		})
          $(".top1").on("click", function(){
             window.history.back();
