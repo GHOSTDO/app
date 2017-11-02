@@ -72,12 +72,19 @@
       }
       .c1_3{
         float: left;
-        width: 80%;
+        width: 50%;
         height: 30px;
         line-height: 30px;
         font-size: 14px;
       }
-        </style>
+      .status{
+         float: left;
+        width: 30%;
+        height: 30px;
+        line-height: 30px;
+        font-size: 14px;
+      }
+    </style>
     </head>
     <body>
       <div class="box">
@@ -120,8 +127,10 @@
                 var a='<div class="c1" id="c'+new_scheduling_id+'"><div class="c1_1"><p>清单号：<span>'
                 +msg.sch[x].scheduling_id+'</span></p></div><div class="c1_2"><img src="image/more.png" alt="">'
                       +'</div><div class="c1_3"><p>收货人：<span>'
-                      +msg.sch[x].customer_name+'</span></p></div><div class="xian"></div></div>';
+                      +msg.sch[x].customer_name+'</span></p></div><div class="status" id="'+msg.sch[x].status+'"></div><div class="xian"></div></div>';
                 $(".center").append(a); 
+                $("#5").html("清单以送达");
+                $("#6").html("清单以取消");
                  $("#c"+new_scheduling_id).attr("onclick","dhao('"+scheduling_id+"')");
             }
             }else{

@@ -168,7 +168,7 @@ apiready = function () {
         alert(JSON.stringify(ret));
         a="data:image/jpeg;base64,"+JSON.stringify(ret.base64Str);
         alert(a);
-         $.ajax({
+    $.ajax({
         url:'http://api.uminfo.cn/app_lorry.php/suresch',
         dataType:'json',
         type:'post',
@@ -181,6 +181,8 @@ apiready = function () {
         success:function(msg){
           alert(msg.result);
           alert("提交成功");
+          var drawingBoard = api.require('drawingBoard');
+          drawingBoard.close();
           window.location.href="first.html";
         },
         error:function(xhr){

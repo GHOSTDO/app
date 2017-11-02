@@ -171,18 +171,18 @@
 						alert(JSON.stringify(err));
 					};
 				})
-				// var FNPhotograph = api.require('FNPhotograph');
-				FNPhotograph.closeCameraView(
+			var FNPhotograph = api.require('FNPhotograph');
+			FNPhotograph.closeCameraView(
 					function(ret) {
 						if(ret) {
 							alert(JSON.stringify(ret));
 						}
 					})
-
 			})
+			
 		});
 
-		function tijiao() {
+		function tijiao(){
 			alert("ok");
 			alert('111' + yid + '///' + lorry_id);
 			$.ajax({

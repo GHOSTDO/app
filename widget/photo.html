@@ -170,7 +170,7 @@
 						alert(JSON.stringify(err));
 					};
 				})
-			
+				var FNPhotograph = api.require('FNPhotograph');
 				FNPhotograph.closeCameraView(
 					function(ret) {
 						if(ret) {
@@ -178,6 +178,7 @@
 						}
 					})
 			})
+			
 		});
 
 		function tijiao() {

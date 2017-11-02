@@ -196,6 +196,8 @@
 						success: function(msg) {
 							alert(msg.result);
 							alert("提交成功");
+							var drawingBoard = api.require('drawingBoard');
+			                drawingBoard.close();
 							window.location.href = "first.html";
 						},
 						error: function(xhr) {

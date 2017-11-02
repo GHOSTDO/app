@@ -72,11 +72,18 @@
 			}
 			.c1_3{
 				float: left;
-				width: 80%;
+				width: 50%;
 				height: 30px;
 				line-height: 30px;
 				font-size: 14px;
 			}
+            .status{
+         float: left;
+        width: 30%;
+        height: 30px;
+        line-height: 30px;
+        font-size: 14px;
+      }
 			
 
         </style>
@@ -105,7 +112,7 @@
          alert("用户未登录");
        }else{
         $.ajax({
-            url:"http://api.uminfo.cn/app_lorry.php/obycourier?lorry_id="+lorry_id,
+            url:"http://api.uminfo.cn/app_lorry.php/obycouriern?lorry_id="+lorry_id,
             dataType:'json',
             type:'get',
             ContentType: "application/json;charset=utf-8",
@@ -118,8 +125,10 @@
                         var a='<div class="c1" onclick="yd('
                         +msg.orders[i].order_id+')"><div class="c1_1"><p>单号：<span>'
                         +msg.orders[i].order_id+'</span></p></div><div class="c1_2"><img src="image/more.png" alt=""></div><div class="c1_3"><p>收货人：<span>'
-                        +msg.orders[i].customer_name+'</span></p></div><div class="xian"></div></div>';
+                        +msg.orders[i].customer_name+'</span></p></div><div class="status" id="'+msg.orders[i].status+'"></div><div class="xian"></div></div>';
                          $(".center").append(a); 
+                         $("#1").html("运单以送达");
+                         $("#4").html("运单以取消");
                     }
                 }else{
                     alert(msg.desc);
