@@ -279,15 +279,10 @@ float:left;
         success: function(msg) {
           $(".con").html("");
           var a="";
-          if(msg.result==0){
-             $("#customer_name").html(msg.customer.name);
-             $("#customer_phone").html(msg.customer.phone);
-             $("#acceptcity").html(msg.customer.receivecity);
-             $("#sendcity").html(msg.customer.sendcity);
-              if(msg.customer.pic==null){
+         if(msg.customer.pic==null){
               $(".img").html("已取消");
           }else{
-          	if(("^[A-Za-z]+://[A-Za-z0-9-_]+\\.[A-Za-z0-9-_%&\?\/.=]+$").test(msg.customer.pic)){
+          	if(!/^[A-Za-z]+://[A-Za-z0-9-_]+\\.[A-Za-z0-9-_%&\?\/.=]+$/.test(msg.customer.pic)){
           		alert(msg.customer.pic+"1");
           		$("#pic").attr('src',msg.customer.pic);
           	}else{
@@ -295,6 +290,11 @@ float:left;
           		 $(".img").html(msg.customer.pic);
           	}  
           }
+          if(msg.result==0){
+             $("#customer_name").html(msg.customer.name);
+             $("#customer_phone").html(msg.customer.phone);
+             $("#acceptcity").html(msg.customer.receivecity);
+             $("#sendcity").html(msg.customer.sendcity);
           for(var i=0;i<msg.goods.length;i++){
              a='<div class="foot_1" onclick="dian(this)"><div class="foot1"><p>运<span class="s1"></span>单<span class="s1"></span>号：<span>'+msg.goods[i].order_id+'</span></p></div><div class="foot2"><img src="image/more.png" alt=""></div><div class="foot3"><p>货物名称：<span>'+msg.goods[i].goods_name+'</span></p></div><div class="box3"><p>件<span class="s3"></span>数：<span>'+msg.goods[i].goods_count+'</span></p></div><div class="box3"><p>体<span class="s3"></span>积：<span>'+msg.goods[i].goods_capacity+'</span></p></div><div class="box3"><p>重<span class="s3"></span>量：<span>'+msg.goods[i].goods_weight+'</span></p></div><div class="box3"><p>包<span class="s3"></span>装：<span>'+msg.goods[i].goods_package+'</span></p></div></div><div class="xian1"></div>'
              $(".con").append(a);
