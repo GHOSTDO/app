@@ -161,7 +161,7 @@ var yid = $.getUrlParam('id');
            courier_id:lorry_id       
         }), 
         success:function(msg){
-          alert("接单成功");
+          alert(msg.desc);
             window.location.href="first.html";
         },
         error:function(xhr){
@@ -183,7 +183,7 @@ $(".but2").on("click",function(){
            courier_id:lorry_id       
         }), 
         success:function(msg){
-          alert("取消成功");
+          alert(msg.desc);
           window.location.href="saoma1.html";
         },
         error:function(xhr){

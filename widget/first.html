@@ -411,11 +411,11 @@ var t2 = window.setInterval("apiready()",3600000);
 			$(".left_btn").click(function() {
 				if(num == 1) {
 					$(".banner_box .imgs img").css({ 'display': 'none' });
-					$(".banner_box .imgs img").eq(3).css({ 'display': 'block' });
+					$(".banner_box .imgs img").eq(3).css({ 'display': 'block'});
 					num = count;
 				} else {
 					$(".banner_box .imgs img").css({ 'display': 'none' });
-					$(".banner_box .imgs img").eq(num - 2).css({ 'display': 'block' });
+					$(".banner_box .imgs img").eq(num - 2).css({ 'display':'block'});
 					num--
 				}
 				points(num - 1);

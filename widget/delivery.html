@@ -168,14 +168,8 @@
     }
          function saoma(){
          var id=$.getUrlParam('id');
-           var scanner = api.require('scanner')
-      scanner.open(function(ret, err) {
-    if (ret) {
-        alert(JSON.stringify(ret));
-    } else {
-        alert(JSON.stringify(err));
-    }
-        })
+          alert(id);
+          window.location.href="saomajiao.html?id="+id;
         }
         function pai(){
            var id=$.getUrlParam('id');

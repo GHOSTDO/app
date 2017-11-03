@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+</head>
+<style>
+	*{
+        	margin: 0;
+        	padding: 0;
+        }
+        	
+        	.top{
+        		width:100%;
+        		height:50px;
+        		background:#FFCF09;
+        	}
+        	.top1{
+        		width:10%;
+        		height:30px;
+        		float:left;
+        		margin-left:5%;
+        		margin-top:10px;
+        	}
+        	.box{
+        		width: 100%;
+        		height: 100%;
+        	}
+        	.top1 img{
+        		width:30px;
+        		height:30px;
+        	}
+        	.top2{
+        		width:70%;
+        		height:50px;
+        		text-align:center;
+        		line-height:50px;
+        		float:left;
+        	}
+        	#code{
+        		width: 200px;
+        		height: 200px;
+        		margin: 150px auto;
+        	}
+</style>
+<body>
+	<div class="box">
+	<div class="top">
+    			<div class="top1"><img src="image/back.png" alt=""></div>
+    			<div class="top2"><h3>扫码交付</h3></div>
+    		</div>
+  <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.qrcode.js"></script>
+<script type="text/javascript" src="js/qrcode.js"></script>
+ <div id="code"></div> 
+ <script type="text/javascript">
+ 	 (function($){
+      $.getUrlParam = function(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if(r != null) return decodeURI(r[2]);
+        return null;
+      }
+    })(jQuery);
+    var id=$.getUrlParam('id');
+    alert(id);
+   $("#code").qrcode({ 
+    render: "table", //table方式 
+    width: 200, //宽度 
+    height:200, //高度 
+    text: id //任意内容 
+});
+
+
+        $(".top1").on("click",function(){
+            window.history.back();
+        })
+ </script>
+</div>
+</body>
+</html>
