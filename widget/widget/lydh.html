@@ -50,15 +50,19 @@
         		margin-top: 10px;
         	}
             .div2{
-                width: 80%;
-                float: left;
-                margin-left: 10%;
-                height:200px;
-                margin-top: 10px;
+               width: 20%;
+           height:40px;
+    float: right;
+    margin-top: 40px;
             }
             #pic{
-                width: 100%;
-                height: 200px;
+                transform-origin: top left;
+                 transform: rotate(-90deg);
+-ms-transform: rotate(-90deg);             /* IE 9 */
+-webkit-transform: rotate(-90deg);      /* Safari and Chrome */
+-o-transform: rotate(-90deg);              /* Opera */
+-moz-transform: rotate(-90deg);         /* Firefox */
+
             }
         	.s1{
         		display: inline-block;
@@ -97,7 +101,7 @@
     		<div class="div">收<span class="s1"></span>货<span class="s1"></span>人：<span id="name"></span></div>
     		<div class="div">手<span class="s2"></span>机：<span id="phone"></span></div>
     		<div class="div">地<span class="s2"></span>址：<span id="dizhi"></span></div>
-            <div class="div2"><img src="" id="pic"></div>
+            <div class="div2"><img src="" id="pic" class="iimg"></div>
     	</div>
     </body>
 <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
@@ -105,6 +109,12 @@
 <script type="text/javascript" src="js/APICloud-rest.js"></script>
 <script type="text/javascript" src="js/api.js"></script>
 <script type="text/javascript">
+    window.onload=function(){
+    var width = $(".div2").width();
+    var height = $(".div2").height();
+    $(".iimg").css("height",width);
+    $(".iimg").css("width",height);
+  }
     user=$api.getStorage('user');
     var tel=user.tel;
     var pwd=user.pwd;
