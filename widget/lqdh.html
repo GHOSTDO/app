@@ -282,11 +282,11 @@ float:left;
          if(msg.customer.pic==null){
               $(".img").html("已取消");
           }else{
-          	if(msg.customer.pic==("^[A-Za-z]+://[A-Za-z0-9-_]+\\.[A-Za-z0-9-_%&\?\/.=]+$")){
+          	if(("^[A-Za-z]+://[A-Za-z0-9-_]+\\.[A-Za-z0-9-_%&\?\/.=]+$").test(msg.customer.pic)){
           		alert(msg.customer.pic+"1");
           		$("#pic").attr('src',msg.customer.pic);
           	}else{
-          		alert(msg.pic+"2");
+          		alert(msg.customer.pic+"2");
           		 $(".img").html(msg.customer.pic);
           	}  
           }
