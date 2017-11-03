@@ -280,9 +280,14 @@ float:left;
           $(".con").html("");
           var a="";
          if(msg.customer.pic==null){
-              $(".img").html("该清单已扫码交付");
+              $(".img").html("已取消");
           }else{
-            $("#pic").attr('src',msg.customer.pic);
+          	if(msg.pic==("^[A-Za-z]+://[A-Za-z0-9-_]+\\.[A-Za-z0-9-_%&\?\/.=]+$")){
+          		$("#pic").attr('src',msg.customer.pic);
+          	}else{
+          		 $(".img").html(msg.pic);
+          	}
+            
           }
           if(msg.result==0){
              $("#customer_name").html(msg.customer.name);
