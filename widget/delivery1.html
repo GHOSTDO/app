@@ -118,9 +118,7 @@
     			<div class="top1"><img src="image/back.png" alt=""></div>
     			<div class="top2"><h3>交付方式</h3></div>
     		</div>
-			<div class="sb" onclick="saoma()">
-				扫码交付
-			</div>
+			
 			<div class="sb1" onclick="ming()">
 				签字交付
 			</div>
@@ -165,18 +163,7 @@
         alert(id);
           window.location.href="test02.html?id="+id;
     }
-         function saoma(){
-         var id=$.getUrlParam('id');
-           var scanner = api.require('scanner')
-      scanner.open(function(ret, err) {
-    if (ret) {
-        alert(JSON.stringify(ret));
-    } else {
-        alert(JSON.stringify(err));
-    }
-        })
-          
-        }
+        
        function pai(){
            var id=$.getUrlParam('id');
            alert(id);

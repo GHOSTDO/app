@@ -43,6 +43,42 @@
         		height: 200px;
         		margin: 150px auto;
         	}
+            .foot10 {
+                width: 100%;
+                height: 40px;
+                position: fixed;
+                bottom: 0;
+                background: black;
+            }
+            
+            .foot10 img {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .foot10_1 {
+                width: 34%;
+                height: 40px;
+                text-align: center;
+                line-height: 40px;
+                float: left;
+            }
+            
+            .foot10_2 {
+                width: 33%;
+                height: 40px;
+                text-align: center;
+                line-height: 40px;
+                float: left;
+            }
+            
+            .foot10_3 {
+                width: 33%;
+                height: 40px;
+                text-align: center;
+                line-height: 40px;
+                float: left;
+            }
 </style>
 <body>
 	<div class="box">
@@ -77,6 +113,22 @@
             window.history.back();
         })
  </script>
+ <div class="foot10">
+                <div class="foot10_1"><img src="image/wxb.png" alt=""></div>
+                <div class="foot10_2"><img src="image/ys.png" alt=""></div>
+                <div class="foot10_3"><img src="image/gr.png" alt=""></div>
+ </div>
 </div>
+<script type="text/javascript">
+    $(".foot10_1").on("click",function(){
+        window.location.href="first.html";
+    })
+    $(".foot10_2").on("click",function(){
+        window.location.href="car.html";
+    })
+    $(".foot10_3").on("click",function(){
+        window.location.href="message.html";
+    })
+</script>
 </body>
 </html>
