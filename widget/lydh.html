@@ -1,265 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>清单号</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
-    <style>
-*{
-    margin: 0;
-    padding: 0;
-    font-family: "微软雅黑";
-}
-.box{
-    width: 100%;
-    height: 100%;
-}
-.top{
-  width:100%;
-  height:50px;
-  background:#FFCF09;
-}
-.top1{
- width:10%;
- height:30px;
- float:left;
- margin-left:5%;
- margin-top:10px;
-}
-.top1 img{
-width:30px;
-height:30px;
- }
-.top2{
-width:70%;
-height:50px;
-text-align:center;
-line-height:50px;
-float:left;
-}
-.center{
-    width: 100%;
-    height: 200px;
-}
-.center_1{
-    width: 84%;
-    height: 50px;
-    float: left;
-    margin-left: 15%;
-    line-height: 50px;
-    font-size: 14px;
-}
-.center_2{
-    width: 84%;
-    height: 50px;
-    float: left;
-    margin-left: 15%;
-    line-height: 50px;
-    font-size: 14px;
-}
-.center_3{
-    width: 15%;
-    float: left;
-    /* border: 1px solid red; */
-    height: 40px;
-    margin-top: 10px;
-    text-align: right;
-}
-.center_3 img{
-    height: 30px;
-}
-.center_4{
-    width: 84%;
-    float: left;
-    height: 50px;
-    line-height: 50px;
-    font-size: 14px;
-}
-.xian{
-    width: 100%;
-    height: 1px;
-    background: #ECECEC;
-}
-.left{
-    width: 20%;
-    float: left;
-
-}
-.foot{
-    width: 100%;
-    overflow: auto;
-}
-
-
-.but{
-    width: 100%;
-    height: 40px;
-    line-height: 40px;
-    text-align: center;
-    background: #FFCF09;
-    position: fixed;
-    bottom: 0;
-  }
-  .foot_1{
-  	width: 100%;
-  	height: 60px;
-  	float: left;
-  	margin-top: 5px;
-    overflow: hidden;
-  }
-   .foot_2{
-    width: 100%;
-    height: 200px;
-    float: left;
-    margin-top: 5px;
-    overflow: hidden;
-  }
-  .foot1{
-  	width: 70%;
-  	height: 30px;
-  	float: left;
-  	margin-left: 10%;
-  	font-size: 14px;
-  }
-  .foot2{
-  	float:right;
-  	width: 20%;
-  	height: 30px;
-  	margin-top: 10px;
-  }
-  .foot2 img{
-  	width: 30px;
-  	height: 30px;
-  }
-  .foot3{
-  	float: left;
-  	width: 70%;
-  	height: 30px;
-  	margin-left: 10%;
-  	font-size: 14px;
-  }
-  .s1{
-  	display: inline-block;
-  	width: 7px;
-  }
-  .xian1{
-  	width: 100%;
-  	height: 1px;
-  	background: #ECECEC;
-  	float: left;
-  }
-  .box2{
-  	width: 80%;
-  	height: 400px;
-  	position: fixed;
-  	left: 10%;
-  	top: 150px;
-  	background: white;
-  	z-index: 100;
-  	border: 1px solid green;
-  	display: none;
-  }
-  .qx{
-  	width: 40%;
-  	height: 25px;
-  	float: right;
-  	text-align:right;
-  }
-  .qx img{
-  	width: 25px;
-  	height: 25px;
-  }
-  .box3{
-  	width: 80%;
-  	float: left;
-  	margin-left: 10%;
-  	height: 30px;
-  	line-height: 30px;
-    font-size: 14px;
-  }
-  .s2{
-  	display: inline-block;
-  	width: 7px;
-  }
-  .s3{
-  	display: inline-block;
-  	width: 28px;
-  }
-  .xx{
-  	width: 80%;
-  	float: left;
-  	margin-left: 10%;
-  	text-align: center;
-  	height: 50px;
-  }
-  .kong{
-    display: inline-block;
-    width: 14px;
-  }
-  .con{
-    width: 100%;
-    overflow: auto;
-  }
-  .img{
-    width: 20%;
-    height:40px;
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+	    <style>
+	    	*{
+	    		margin: 0;
+	    		padding: 0;
+	    	}
+	    	.top{
+        		width:100%;
+        		height:50px;
+        		background:#FFCF09;
+        	}
+        	.top1{
+        		width:10%;
+        		height:30px;
+        		float:left;
+        		margin-left:5%;
+        		margin-top:10px;
+        	}
+        	.top1 img{
+        		width:30px;
+        		height:30px;
+        	}
+        	.top2{
+        		width:70%;
+        		height:50px;
+        		text-align:center;
+        		line-height:50px;
+        		float:left;
+        	}
+        	.but{
+        		width: 100%;
+        		height: 40px;
+        		line-height: 40px;
+        		text-align: center;
+        		background: #FFCF09;
+        		position: fixed;
+        		bottom: 0;
+        	}
+        	.div{
+        		width: 80%;
+        		float: left;
+        		margin-left: 10%;
+        		height: 30px;
+        		line-height: 30px;
+        		margin-top: 10px;
+        	}
+            .div2{
+               width: 20%;
+           height:40px;
     float: right;
     margin-top: 70px;
     margin-right: 30px;
-  } 
-  .img img{
-     transform-origin: top left;
-     transform: rotate(-90deg);
+            }
+            #pic{
+                transform-origin: top left;
+                 transform: rotate(-90deg);
 -ms-transform: rotate(-90deg);             /* IE 9 */
 -webkit-transform: rotate(-90deg);      /* Safari and Chrome */
 -o-transform: rotate(-90deg);              /* Opera */
 -moz-transform: rotate(-90deg);         /* Firefox */
-  }
- </style>
-</head>
-<body>
-    <div class="box">
-      <div class="top">
-        <div class="top1"><img src="image/back.png" alt=""></div>
-        <div class="top2"><h3>清单号</h3></div>
-    </div>
-    <div class="center">
-        <div class="center_1"><p>收货人:<span id="customer_name"></span></p></div>
-        <div class="center_2"><p>手<span class="kong"></span>机:<span id="customer_phone"></span></p></div>
-        <div class="center_3"><img src="image/3.png" alt=""></div>
-        <div class="center_4"><p>发<span class="kong"></span>站:<span id="sendcity"></span></p></div>
-        <div class="center_3"><img src="image/1.png" alt=""></div>
-        <div class="center_4"><p>到<span class="kong"></span>站:<span id="acceptcity"></span></p></div>
-    </div>
-    <div class="xian"></div>
-    <div class="foot">
-    <div class="con">
- 
-    </div>
-    <div class="img"><img src="" alt="" id="pic" class="iimg"></div>
-    <div style="clear: both;"></div>
-    <div style="width: 100%;height: 50px;"></div>
- </div>
- </div>
 
-</body>
+            }
+        	.s1{
+        		display: inline-block;
+        		width: 8px;
+        	}
+        	.s2{
+        		display: inline-block;
+        		width: 32px;
+        	}
+	    </style>
+    </head>
+    <body>
+    	<div class="box">
+    		<div class="top">
+    			<div class="top1"><img src="image/back.png" alt=""></div>
+    			<div class="top2"><h3>运单号</h3></div>
+    		</div>
+    		<div class="div">
+    			<p>运<span class="s1"></span>单<span class="s1"></span>号：<span id="ydh"></span></p>
+    		</div>
+    		<div class="div">
+    			<p>货物名称：<span id="huowu"></span></p>
+    		</div>
+    		<div class="div">
+    			<p>件<span class="s2"></span>数：<span id="jianshu"></span></p>
+    		</div>
+    		<div class="div">
+    			<p>体<span class="s2"></span>积：<span id="tiji"></span></p>
+    		</div>
+    		<div class="div">
+    			<p>重<span class="s2"></span>量：<span id="zhong"></span></p>
+    		</div>
+    		<div class="div">
+    			<p>包<span class="s2"></span>装：<span id="baozhuang"></span></p>
+    		</div>
+    		<div class="div">收<span class="s1"></span>货<span class="s1"></span>人：<span id="name"></span></div>
+    		<div class="div">手<span class="s2"></span>机：<span id="phone"></span></div>
+    		<div class="div">地<span class="s2"></span>址：<span id="dizhi"></span></div>
+            <div class="div2"><img src="" id="pic" class="iimg"></div>
+    	</div>
+    </body>
 <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/local.js"></script>
-    <script type="text/javascript" src="js/APICloud-rest.js"></script>
-    <script type="text/javascript" src="js/api.js"></script>
+<script type="text/javascript" src="js/APICloud-rest.js"></script>
+<script type="text/javascript" src="js/api.js"></script>
 <script type="text/javascript">
-  window.onload=function(){
-   var width = $(".img").width();
-    var height = $(".img").height();
+    window.onload=function(){
+    var width = $(".div2").width();
+    var height = $(".div2").height();
     $(".iimg").css("height",width);
     $(".iimg").css("width",height);
   }
-user=$api.getStorage('user');
+    user=$api.getStorage('user');
     var tel=user.tel;
     var pwd=user.pwd;
     var lorry_id=user.lorry_id;
-  (function($) {
+     (function($) {
       $.getUrlParam = function(name) {
         var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
         var r = window.location.search.substr(1).match(reg);
@@ -267,66 +128,37 @@ user=$api.getStorage('user');
         return null;
       }
     })(jQuery);
-  var sch_id=$.getUrlParam('id');
-
-      //alert(sch_id);
+    var id=$.getUrlParam('id');
     $.ajax({
-        url: "http://api.uminfo.cn/app_lorry.php/sandoandg?lorry_id="+lorry_id+"&schedule_id="+sch_id,
-        dataType: 'json',
-        type: 'get',
+        url:"http://api.uminfo.cn/app_lorry.php/byorderid?order_id="+id,
+        dataType:'json',
+        type:'get',
         ContentType: "application/json;charset=utf-8",
         data: JSON.stringify({
         }),
-        success: function(msg) {
-          $(".con").html("");
-          var a="";
-          if(msg.result==0){
-             $("#customer_name").html(msg.customer.name);
-             $("#customer_phone").html(msg.customer.phone);
-             $("#acceptcity").html(msg.customer.receivecity);
-             $("#sendcity").html(msg.customer.sendcity);
-//           alert(msg.customer.pic);
-              if(msg.customer.pic==null){
-             	 $(".img").html("该清单已经取消");
-             }else if((msg.customer.pic).match(/^[a-zA-Z]+:\/\//)){
-             	$("#pic").attr('src',msg.customer.pic);
-             }else{
-             	 $(".img").html(msg.customer.pic);
-             	 $("#pic").css("display","none");
-             }
-          for(var i=0;i<msg.goods.length;i++){
-             a='<div class="foot_1" onclick="dian(this)"><div class="foot1"><p>运<span class="s1"></span>单<span class="s1"></span>号：<span>'+msg.goods[i].order_id+'</span></p></div><div class="foot2"><img src="image/more.png" alt=""></div><div class="foot3"><p>货物名称：<span>'+msg.goods[i].goods_name+'</span></p></div><div class="box3"><p>件<span class="s3"></span>数：<span>'+msg.goods[i].goods_count+'</span></p></div><div class="box3"><p>体<span class="s3"></span>积：<span>'+msg.goods[i].goods_capacity+'</span></p></div><div class="box3"><p>重<span class="s3"></span>量：<span>'+msg.goods[i].goods_weight+'</span></p></div><div class="box3"><p>包<span class="s3"></span>装：<span>'+msg.goods[i].goods_package+'</span></p></div></div><div class="xian1"></div>'
-             $(".con").append(a);
-          }
+        success:function(msg){
+            if(msg.result==0){
+                $("#ydh").html(msg.order.order_id)
+                $("#huowu").html(msg.order.goods_name)
+                $("#jianshu").html(msg.order.goods_count)
+                $("#tiji").html(msg.order.goods_capacity)
+                $("#zhong").html(msg.order.goods_weight)
+                $("#baozhuang").html(msg.order.goods_package)
+                $("#name").html(msg.order.customer_name)
+                $("#phone").html(msg.order.customer_phone)
+                $("#dizhi").html(msg.order.address)
+                $("#pic").attr("src",msg.order.pic)
             }else{
-            alert(msg.desc);
-            }   
+            	alert(msg.desc);
+            }
         },
-          error: function(xhr) {
-            alert("获取后台失败！"+xhr.responseText);
-          }
-        });     
-function dian(div){
-var height = $(div).height();
-var img = $(div).children(".foot2").children("img");
-    console.log(height);
-    console.log(img);
-if(height==60){
-    $(div).css("height","200px");
-    img.attr("src","image/morexia.png");
-}else if(height==200){
-    $(div).css("height","60px");
-    img.attr("src","image/more.png");
-  }
-}
-$(".qx").on("click",function(){
-	$(".box2").css("display","none");
-})
-$(".top1").on("click",function(){
-  window.history.back();
-})
-function but(){
-  window.location.href="sb.html";
-}    
-</script>
+        error:function(xhr){
+            alert("获取后台失败！")
+        }
+    })
+        
+         $(".top1").on("click",function(){
+            window.history.back();
+        })
+    </script>
 </html>

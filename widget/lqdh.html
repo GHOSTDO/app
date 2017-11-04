@@ -255,7 +255,7 @@ float:left;
     $(".iimg").css("height",width);
     $(".iimg").css("width",height);
   }
-  user=$api.getStorage('user');
+user=$api.getStorage('user');
     var tel=user.tel;
     var pwd=user.pwd;
     var lorry_id=user.lorry_id;
@@ -267,7 +267,8 @@ float:left;
         return null;
       }
     })(jQuery);
-    var sch_id=$.getUrlParam('id');
+  var sch_id=$.getUrlParam('id');
+
       //alert(sch_id);
     $.ajax({
         url: "http://api.uminfo.cn/app_lorry.php/sandoandg?lorry_id="+lorry_id+"&schedule_id="+sch_id,
@@ -279,19 +280,15 @@ float:left;
         success: function(msg) {
           $(".con").html("");
           var a="";
-//       if(msg.customer.pic==null){
-//            $(".img").html("该清单已扫码交付");
-//        }else{
-//          $("#pic").attr('src',msg.customer.pic);
-//        }
           if(msg.result==0){
              $("#customer_name").html(msg.customer.name);
              $("#customer_phone").html(msg.customer.phone);
              $("#acceptcity").html(msg.customer.receivecity);
              $("#sendcity").html(msg.customer.sendcity);
-             if(msg.customer.pic==null){
+//           alert(msg.customer.pic);
+              if(msg.customer.pic==null){
              	 $(".img").html("该清单已经取消");
-             }else if(/^http://([\w-]+\.)+[\w-]+(/[\w-./?%&=]*)?$/.test(msg.customer.pic)){
+             }else if((msg.customer.pic).match(/^[a-zA-Z]+:\/\//)){
              	$("#pic").attr('src',msg.customer.pic);
              }else{
              	 $(".img").html(msg.customer.pic);
