@@ -135,19 +135,7 @@
     <script type="text/javascript" src="js/local.js"></script>
     <script type="text/javascript" src="js/APICloud-rest.js"></script>
     <script type="text/javascript" src="js/api.js"></script>
-   <script type="text/javascript">
-        window.onload=function(){
-            var drawingBoard = api.require('drawingBoard');
-            drawingBoard.close(); 
-             var FNPhotograph = api.require('FNPhotograph');
-             FNPhotograph.closeCameraView(
-           function(ret) {
-               if (ret) {
-           alert(JSON.stringify(ret));
-           }
-            })
-        }
-    </script>
+   
     <script type="text/javascript">
     user=$api.getStorage('user');
     var tel=user.tel;
@@ -180,5 +168,38 @@
         $(".top1").on("click",function(){
             window.history.back();
         })
+    </script>
+    <script type="text/javascript">
+apiready = function(){
+  var id=$.getUrlParam('id');   
+var bMap = api.require('bMap');
+bMap.getLocation({
+    accuracy: '100m',
+    autoStop: true,
+    filter: 1
+  }, function(ret, err) {
+    if (ret.status){
+        $.ajax({
+            url:"http://api.uminfo.cn/mapselect.php/getmap",
+            dataType:'json',
+            type:'post',
+            ContentType: "application/json;charset=utf-8",
+            data:JSON.stringify({
+                scheduling_id:id,
+                longitude:ret.lon,
+                latitude:ret.lat
+            }),
+            success:function(msg){
+                alert(ret.lon+"%%%%"+ret.lat+"成功"+msg);
+            },
+            error:function(xhr){
+                alert("获取后台失败"+xhr.responseText);
+            }
+        })
+    }else{
+        alert("请检查手机是否开启定位");
+    }
+  });
+}
     </script>
 </html>
