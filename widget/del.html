@@ -93,15 +93,10 @@
         	.foot{
         		width: 80%;
         		height: 40px;
-        		text-align: center;
-        		line-height: 40px;
-        		float: left;
-        		margin-left: 10%;
-        		margin-top: 50px;
-        		background: #FFCF08;
-        		color: white;
-        		font-size: 18px;
-        		border-radius: 5px;
+                float: left;
+                margin-left: 10%;
+                margin-top: 50px;
+        		
         	}
              select{
                 width: 60%;
@@ -140,6 +135,29 @@
                 line-height: 40px;
                 text-align: center;
                 float: left;
+            }
+            .foot2{
+                width: 45%;
+                height: 40px;
+                text-align: center;
+                line-height: 40px;
+                float: left;
+                margin-left: 10%;
+                background: #FFCF08;
+                color: white;
+                font-size: 18px;
+                border-radius: 5px;
+            }
+            .foot1{
+                width: 45%;
+                height: 40px;
+                text-align: center;
+                line-height: 40px;
+                float: left;
+                background: #FFCF08;
+                color: white;
+                font-size: 18px;
+                border-radius: 5px;
             }
 
 
@@ -182,7 +200,8 @@
     			</div>
     		</div>
     		<div class="foot">
-    			删除
+                <div class="foot1">删除</div>
+    			<div class="foot2">编辑</div>
     		</div>
     	</div>
         <div class="box10" style="display: none;">
@@ -264,8 +283,11 @@
             window.history.back();
         })
 
-     $(".foot").on("click",function(){
+     $(".foot1").on("click",function(){
         $(".box10").css("display","block");
+     })
+     $(".foot2").on("click",function(){
+        window.location.href="amend.html?id="+id;
      })
      $(".box10_3").on("click",function(){
         $(".box10").css("display","none");
