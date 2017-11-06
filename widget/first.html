@@ -330,6 +330,7 @@ var t2 = window.setInterval("apiready()",3600000);
 		var tel = user.tel;
 		var pwd = user.pwd;
 		var lorry_id = user.lorry_id;
+		alert(lorry_id);
 		window.onload = function() {
 			$.ajax({
 				url: "http://api.uminfo.cn/app_lorry.php/tongji?lorry_id=" + lorry_id,

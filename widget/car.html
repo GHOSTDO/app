@@ -239,13 +239,19 @@
             lorry_id2:id
           }),
           success:function(msg){
-          	  	alert(lorry_id+"%%%%"+id);
+          	alert(lorry_id+"%%%%"+id);
+          	var key = 'user';
+			var user = {};
+			user.tel = tel;
+			user.pwd = pwd;
+			user.lorry_id=id;
+			$api.setStorage(key, user);
              alert(msg.desc);
-             location.reload();
+             window.location.reload();
           },
           error:function(xhr){
               alert("操作失败");
-              location.reload();
+              window.location.reload();
           }
         })
     }
