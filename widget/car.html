@@ -229,8 +229,6 @@
     })
 
     function gai(id){
-      //  alert(lorry_id+"全局");
-        //alert(id+"局部");
         $.ajax({
           url:"http://api.uminfo.cn/app_lorry.php/upplate_number",
           dataType:'json',
@@ -241,6 +239,7 @@
             lorry_id2:id
           }),
           success:function(msg){
+          	  	alert(lorry_id+"%%%%"+id);
              alert(msg.desc);
              location.reload();
           },
