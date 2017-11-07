@@ -172,13 +172,13 @@
     })(jQuery);
     var id=$.getUrlParam('id');
     $.ajax({
-    	url:"http://api.uminfo.cn/chathall.php/bycity?city_id="+20,
+    	url:"http://api.uminfo.cn/chathall.php/bycity?city_id="+id,
     	dataType:"json",
     	type:"get",
     	ContentType: "application/json;charset=utf-8",
     	data:JSON.stringify({}),
     	success:function(msg){
-    		console.log(msg);
+    		//console.log(msg);
     		$(".message").html("");
     		if(msg.result==0){
     			for(var i=0;i<msg.message.length;i++){
