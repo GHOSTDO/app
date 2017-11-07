@@ -243,7 +243,6 @@ input{
     	 	ContentType: "application/json;charset=utf-8",
     	 	data:JSON.stringify({}),
     	 	success:function(msg){
-    	 		console.log(msg);
     	 		if(msg.result==0){
     	 			$("#name").val(msg.lorry.driver_name);
     	 			$("#tel").val(msg.lorry.driver_phone);
@@ -254,7 +253,7 @@ input{
     	 		}
     	 	},
     	 	error:function(xhr){
-    	 		alert("获取后台失败");
+    	 		alert("获取后台失败"+xhr.responseText);
     	 	}
     	 })
          apiready = function() {

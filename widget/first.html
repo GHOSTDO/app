@@ -292,6 +292,9 @@
 	<script type="text/javascript" src="js/api.js"></script>
 	<script type="text/javascript">
 		apiready = function(){
+			api.setScreenOrientation({
+    orientation: 'portrait_up'
+});
 var bMap = api.require('bMap');
 bMap.getLocation({
     accuracy: '100m',
@@ -299,8 +302,6 @@ bMap.getLocation({
     filter: 1
   }, function(ret, err) {
     if (ret.status){
-        alert(ret.lon);
-        alert(ret.lat);
         $.ajax({
         	url:"http://api.uminfo.cn/mapselect.php//addmap",
         	dataType:'json',
@@ -312,10 +313,10 @@ bMap.getLocation({
         		latitude:ret.lat
             }),
             success:function(msg){
-            	alert("成功"+msg);
+            	alert(ret.lon+"%%%%"+ret.lat+"成功"+msg);
             },
             error:function(xhr){
-            	alert(xhr.responseText);
+            	alert("获取后台失败"+xhr.responseText);
             }
         })
     }else{
@@ -352,7 +353,7 @@ var t2 = window.setInterval("apiready()",3600000);
 					}
 				},
 				error: function(xhr) {
-					alert("获取后台失败");
+				alert("获取后台失败"+xhr.responseText);
 				}
 			});
 			

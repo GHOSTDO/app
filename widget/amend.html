@@ -181,7 +181,7 @@
                 }
             },
             error:function(xhr){
-                alert("获取后台失败")
+              alert("获取后台失败"+xhr.responseText);
             }
         })
     </script>
@@ -252,7 +252,7 @@
                     window.location.href="car.html";
                 },
                 error:function(xhr){
-                    alert(xhr.responseText);
+                    alert("获取后台失败"+xhr.responseText);
                 }
             })
           

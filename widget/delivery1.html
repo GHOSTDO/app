@@ -133,6 +133,12 @@
     <script type="text/javascript" src="js/APICloud-rest.js"></script>
     <script type="text/javascript" src="js/api.js"></script>
      <script type="text/javascript">
+        apiready = function(){
+            api.setScreenOrientation({
+    orientation: 'portrait_up'
+});
+        }
+            
         window.onload=function(){
             var drawingBoard = api.require('drawingBoard');
             drawingBoard.close(); 
@@ -161,7 +167,7 @@
         function ming(){
         var id=$.getUrlParam('id');
         alert(id);
-          window.location.href="test02.html?id="+id;
+          window.location.href="test.html?id="+id;
     }
         
        function pai(){
