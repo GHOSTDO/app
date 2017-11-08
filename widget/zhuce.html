@@ -1,344 +1,326 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
 
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+        <style>
+        *{
+        	margin: 0;
+        	padding: 0;
+        }
+        .box{
+        	width: 100%;
+        	height: 100%;
+        	position: absolute;
+            background: url('image/come.png');
+            background-size: 100% 100%;
+        }
+        
+        .box2_1{
+        	width: 80%;
+        	height: 100px;.
+        	float: left;
+        	margin-left: 10%;
+        	text-align: center;
+        	line-height: 100px;
+        	font-size: 20px;
+        	color: white;
+        }
+        
+        .box3{
+        	width: 70%;
+        	float: left;
+        	margin-left: 15%;
+        	
+        }
+        .box3_3{
+        	width: 100%;
+        	height: 40px;
+        	float: left;
+        	background: rgba(0, 0, 0, 0.5);
+        	line-height: 40px;
+        }
+        .box3_2{
+        	width: 100%;
+        	height: 40px;
+        	float: left;
+        	margin-top: 20px;
+        	background: rgba(0, 0, 0, 0.5);
+        	line-height: 40px;
+        }
+        .box3_1{
+        	width: 100%;
+        	height: 40px;
+        	float: left;
+        	margin-top: 20px;
+        	background: rgba(0, 0, 0, 0.5);
+        	line-height: 40px;
+        }
+        .box3_4{
+        	width: 100%;
+        	height: 40px;
+        	float: left;
+        	margin-top: 20px;
+        	background: rgba(0, 0, 0, 0.5);
+        	line-height: 40px;
+        }
+        .box3_5{
+        	width: 100%;
+        	height: 40px;
+        	float: left;
+        	margin-top: 20px;
+        	/* background: rgba(0, 0, 0, 0.7); */
+        	line-height: 40px;
+        }
+        .box3_1 input{
+        	width: 100%;
+        	height: 40px;
+        	line-height: 40px;
+        	background: rgba(0, 0, 0, 0.0);
+        	color: white;
+        	outline-style: none;
+        	list-style: none;
+        	border: 0;
+        }
+         .box3_2 input{
+        	width: 100%;
+        	height: 40px;
+        	line-height: 40px;
+        	background: rgba(0, 0, 0, 0.0);
+        	color: white;
+        	outline-style: none;
+        	list-style: none;
+        	border: 0;
+        }
+        .box3_3 input{
+        	width: 100%;
+        	height: 40px;
+        	line-height: 40px;
+        	background: rgba(0, 0, 0, 0.0);
+        	color: white;
+        	outline-style: none;
+        	list-style: none;
+        	border: 0;
+        }
+        .box3_4 input{
+        	width: 100%;
+        	height: 40px;
+        	line-height: 40px;
+        	background: rgba(0, 0, 0, 0.0);
+        	color: white;
+        	outline-style: none;
+        	list-style: none;
+        	border: 0;
+        }
 
-		<style>
-			* {
-				margin: 0;
-				padding: 0;
-			}
-			
-			.box {
-				width: 100%;
-				height: 100%;
-				position: absolute;
-				background: url('image/come.png');
-				background-size: 100% 100%;
-			}
-			
-			.box2_1 {
-				width: 80%;
-				height: 100px;
-				. float: left;
-				margin-left: 10%;
-				text-align: center;
-				line-height: 100px;
-				font-size: 20px;
-				color: white;
-			}
-			
-			.box3 {
-				width: 70%;
-				float: left;
-				margin-left: 15%;
-			}
-			
-			.box3_3 {
-				width: 100%;
-				height: 40px;
-				float: left;
-				background: rgba(0, 0, 0, 0.5);
-				line-height: 40px;
-			}
-			
-			.box3_2 {
-				width: 100%;
-				height: 40px;
-				float: left;
-				margin-top: 20px;
-				background: rgba(0, 0, 0, 0.5);
-				line-height: 40px;
-			}
-			
-			.box3_1 {
-				width: 100%;
-				height: 40px;
-				float: left;
-				margin-top: 20px;
-				background: rgba(0, 0, 0, 0.5);
-				line-height: 40px;
-			}
-			
-			.box3_4 {
-				width: 100%;
-				height: 40px;
-				float: left;
-				margin-top: 20px;
-				background: rgba(0, 0, 0, 0.5);
-				line-height: 40px;
-			}
-			
-			.box3_5 {
-				width: 100%;
-				height: 40px;
-				float: left;
-				margin-top: 20px;
-				/* background: rgba(0, 0, 0, 0.7); */
-				line-height: 40px;
-			}
-			
-			.box3_1 input {
-				width: 100%;
-				height: 40px;
-				line-height: 40px;
-				background: rgba(0, 0, 0, 0.0);
-				color: white;
-				outline-style: none;
-				list-style: none;
-				border: 0;
-			}
-			
-			.box3_2 input {
-				width: 100%;
-				height: 40px;
-				line-height: 40px;
-				background: rgba(0, 0, 0, 0.0);
-				color: white;
-				outline-style: none;
-				list-style: none;
-				border: 0;
-			}
-			
-			.box3_3 input {
-				width: 100%;
-				height: 40px;
-				line-height: 40px;
-				background: rgba(0, 0, 0, 0.0);
-				color: white;
-				outline-style: none;
-				list-style: none;
-				border: 0;
-			}
-			
-			.box3_4 input {
-				width: 100%;
-				height: 40px;
-				line-height: 40px;
-				background: rgba(0, 0, 0, 0.0);
-				color: white;
-				outline-style: none;
-				list-style: none;
-				border: 0;
-			}
-			
-			.kon {
-				width: 5%;
-				height: 40px;
-				float: left;
-			}
-			
-			.in {
-				width: 95%;
-				height: 40px;
-				float: left;
-			}
-			
-			.login {
-				width: 80%;
-				float: left;
-				margin-left: 10%;
-				height: 35px;
-				border-radius: 50px;
-				background: #FECD07;
-				color: white;
-				font-size: 18px;
-				text-align: center;
-				margin-top: 30px;
-				line-height: 35px;
-			}
-			
-			.box4 {
-				width: 100%;
-				height: 20px;
-				text-align: center;
-				float: left;
-				margin-top: 20px;
-			}
-			
-			.box4 a {
-				color: white;
-				font-size: 14px;
-			}
-			
-			.box5 {
-				width: 80%;
-				height: 40px;
-				position: absolute;
-				bottom: 30px;
-				left: 10%;
-				text-align: center;
-				color: white;
-			}
-			
-			.xian {
-				width: 100%;
-				background: white;
-				height: 1px;
-			}
-			
-			.b1 {
-				width: 50%;
-				float: left;
-				height: 50px;
-				line-height: 50px;
-				color: white;
-				text-align: center;
-			}
-			
-			.b2 {
-				width: 50%;
-				float: left;
-				height: 50px;
-				line-height: 50px;
-				color: white;
-				text-align: center;
-			}
-			
-			 ::-webkit-input-placeholder {
-				color: white;
-			}
-			
-			:-moz-placeholder {
-				/* Firefox 18- */
-				color: white;
-			}
-			
-			::-moz-placeholder {
-				/* Firefox 19+ */
-				color: white;
-			}
-			
-			:-ms-input-placeholder {
-				color: white;
-			}
-		</style>
-	</head>
+        .kon{
+        	width: 5%;
+        	height: 40px;
+        	float: left;
+        }
+        .in{
+        	width: 95%;
+        	height: 40px;
+        	float: left;
+        }
+        .login{
+        	width: 80%;
+        	float: left;
+        	margin-left: 10%;
+        	height: 35px;
+        	border-radius: 50px;
+        	background: #FECD07;
+        	color: white;
+        	font-size: 18px;
+        	text-align: center;
+        	margin-top: 30px;
+        	line-height: 35px;
+        }
+        .box4{
+        	width: 100%;
+        	height: 20px;
+        	text-align: center;
+        	float: left;
+        	margin-top: 20px;
+        }
+        .box4 a{
+        	color: white;
+        	font-size: 14px;
+        }
+        .box5{
+        	width: 80%;
+        	height: 40px;
+        	position: absolute;
+        	bottom: 30px;
+        	left: 10%;
+        	text-align: center;
+        	color: white;
+        }
+        .xian{
+        	width: 100%;
+        	background: white;
+        	height: 1px;
+        }
+        .b1{
+        	width: 50%;
+        	float: left;
+        	height: 50px;
+        	line-height: 50px;
+        	color: white;
+        	text-align: center;
+        }
+        .b2{
+        	width: 50%;
+        	float: left;
+        	height: 50px;
+        	line-height: 50px;
+        	color: white;
+        	text-align: center;
+        }
+        ::-webkit-input-placeholder {
+  color: white;
+}
+:-moz-placeholder {/* Firefox 18- */
+   color: white;
+}
+::-moz-placeholder{/* Firefox 19+ */
+  color: white;
+}
+:-ms-input-placeholder {
+   color: white;
+}
 
-	<body>
-		<div class="box">
+        </style>
+    </head>
+    <body>
+    <div class="box">
+    	
+   
+    	<div class="box2_1">
+    		欢迎注册
+    	</div>
+    	<div class="box3">
+    	<div class="box3_3">
+    		<div class="kon"></div>
+    		<div class="in"><input type="text" placeholder="姓名" id="name"></div>
+    	</div>	
+    	
+    	<div class="box3_4">
+    		<div class="kon"></div>
+    		<div class="in"><input type="text" placeholder="车牌" id="chep"></div>
+    	</div>	
 
-			<div class="box2_1">
-				欢迎注册
-			</div>
-			<div class="box3">
-				<div class="box3_3">
-					<div class="kon"></div>
-					<div class="in"><input type="text" placeholder="姓名" id="name"></div>
-				</div>
+        <div class="box3_4">
+            <div class="kon"></div>
+            <div class="in"><input type="tel" placeholder="手机" id="tel"></div>
+        </div>  
+       
+    	<div class="box3_1">
+    		<div class="kon"></div>
+    		<div class="in"><input type="password" placeholder="密码" id="mima"></div>
+    	</div>	
+    	<div class="box3_2">
+    		<div class="kon"></div>
+    		<div class="in"><input type="password" placeholder="再次输入密码" id="mima1"></div>
+    	</div>	
+    	
 
-				<div class="box3_4">
-					<div class="kon"></div>
-					<div class="in"><input type="text" placeholder="车牌" id="chep"></div>
-				</div>
+    	<div class="login" onclick="ok()">
+    		注 册
+    	</div>
+    	
+    	<div style="clear: both;"></div>	
+    	</div>
+    	<div class="box5" onclick="login()">
+    		已有账户直接登录
+    		<div class="xian"></div>
+    	</div>
+ </div>
+    </body>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/local.js"></script>
+    <script type="text/javascript" src="js/APICloud-rest.js"></script>
+    <script type="text/javascript" src="js/api.js"></script>
+    <script type="text/javascript">
+    var h = document.body.scrollHeight;  
+window.onresize = function(){  
+    if (document.body.scrollHeight < h) {  
+        $(".box5").css("display","none");
+    }else{  
+         $(".box5").css("display","block");
+    }  
+}; 
+$(document).ready(function () {
+　　$('body').height($('body')[0].clientHeight);
+})
+    	  function login(){
+    		window.location.href="register.html";
+    	 }
 
-				<div class="box3_4">
-					<div class="kon"></div>
-					<div class="in"><input type="tel" placeholder="手机" id="tel"></div>
-				</div>
+    $("#chep").on("change",function(){
+         var chep=$("#chep").val();
+         if (!/^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领A-Z]{1}[A-Z]{1}[A-Z0-9]{4}[A-Z0-9挂学警港澳]{1}$/.test(chep)) {
+            alert("车牌号格式不对");
+         }
+    })
 
-				<div class="box3_1">
-					<div class="kon"></div>
-					<div class="in"><input type="password" placeholder="密码" id="mima"></div>
-				</div>
-				<div class="box3_2">
-					<div class="kon"></div>
-					<div class="in"><input type="password" placeholder="再次输入密码" id="mima1"></div>
-				</div>
+    $("#tel").on("change",function(){
+        var tel = $("#tel").val();
+        if(!/^1[34578]\d{9}$/.test(tel)){
+            alert("手机号码格式不正确");
+        }
+    })
 
-				<div class="login" onclick="ok()">
-					注 册
-				</div>
+    $("#mima1").on("change",function(){
+        var a = $("#mima").val();
+        var b = $("#mima1").val();
+        if(a!=b){
+            alert("两次密码输入不一致");
+        }
+    })
 
-				<div style="clear: both;"></div>
-			</div>
-			<div class="box5" onclick="login()">
-				已有账户直接登录
-				<div class="xian"></div>
-			</div>
-		</div>
-	</body>
-	<script src="js/jquery-3.2.1.min.js"></script>
-	<script type="text/javascript" src="js/local.js"></script>
-	<script type="text/javascript" src="js/APICloud-rest.js"></script>
-	<script type="text/javascript" src="js/api.js"></script>
-	<script type="text/javascript">
-		$('body').on('focusin', 'input, textarea', function(event) {
-			if(navigator.userAgent.indexOf('Android') > -1 && ...) {
-				var scroll = $(this).offset();
-				window.scrollTo(0, scroll);
-			}
-		})
-		$(document).ready(function() {　　
-			$('body').height($('body')[0].clientHeight);
-		});
+    function ok(){
+        var name=$("#name").val();
+        var chep=$("#chep").val();
+        var tel = $("#tel").val();
+        var a = $("#mima").val();
+        var b = $("#mima1").val();
+         if(!/^1[34578]\d{9}$/.test(tel)){
+            alert("手机号码格式不正确");
+        }else if(a!=b){
+             alert("两次密码输入不一致");
+        }else if(!/^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领A-Z]{1}[A-Z]{1}[A-Z0-9]{4}[A-Z0-9挂学警港澳]{1}$/.test(chep)){
+            alert("车牌号格式不对");
+        }else{
+           $.ajax({
+                    url: "http://api.uminfo.cn/app_lorry.php/addlorry",
+                    dataType: 'JSON',
+                    type: 'post',
+                    data: JSON.stringify({
+                        name:name,
+                        tel:tel,
+                        plate_number:chep,
+                        password:a
+                    }),
+                    success: function(msg) {
+                        if(msg.result == "0") {
+                       alert("注册成功");
+                        window.location.href = "register.html";
+                        }else{
+                            alert(msg.desc);
+                        }
+                    },
+                    error: function(xhr) {
+                        alert("获取后台失败！" + xhr.responseText);
+                    }
+                });
+         }
+    }
 
-		function login() {
-			window.location.href = "register.html";
-		}
 
-		$("#chep").on("change", function() {
-			var chep = $("#chep").val();
-			if(!/^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领A-Z]{1}[A-Z]{1}[A-Z0-9]{4}[A-Z0-9挂学警港澳]{1}$/.test(chep)) {
-				alert("车牌号格式不对");
-			}
-		})
 
-		$("#tel").on("change", function() {
-			var tel = $("#tel").val();
-			if(!/^1[34578]\d{9}$/.test(tel)) {
-				alert("手机号码格式不正确");
-			}
-		})
 
-		$("#mima1").on("change", function() {
-			var a = $("#mima").val();
-			var b = $("#mima1").val();
-			if(a != b) {
-				alert("两次密码输入不一致");
-			}
-		})
-
-		function ok() {
-			var name = $("#name").val();
-			var chep = $("#chep").val();
-			var tel = $("#tel").val();
-			var a = $("#mima").val();
-			var b = $("#mima1").val();
-			if(!/^1[34578]\d{9}$/.test(tel)) {
-				alert("手机号码格式不正确");
-			} else if(a != b) {
-				alert("两次密码输入不一致");
-			} else if(!/^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领A-Z]{1}[A-Z]{1}[A-Z0-9]{4}[A-Z0-9挂学警港澳]{1}$/.test(chep)) {
-				alert("车牌号格式不对");
-			} else {
-				$.ajax({
-					url: "http://api.uminfo.cn/app_lorry.php/addlorry",
-					dataType: 'JSON',
-					type: 'post',
-					data: JSON.stringify({
-						name: name,
-						tel: tel,
-						plate_number: chep,
-						password: a
-					}),
-					success: function(msg) {
-						if(msg.result == "0") {
-							alert("注册成功");
-							window.location.href = "register.html";
-						} else {
-							alert(msg.desc);
-						}
-					},
-					error: function(xhr) {
-						alert("获取后台失败！" + xhr.responseText);
-					}
-				});
-			}
-		}
-	</script>
-
+    </script>
 </html>

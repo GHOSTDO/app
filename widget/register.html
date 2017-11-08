@@ -10,15 +10,13 @@
 				margin: 0;
 				padding: 0;
 			}
-			
-			.box {
-				width: 100%;
-				height: 100%;
-				position: absolute;
-				background: url('image/come.png');
-				background-size: 100% 100%;
-			}
-			
+			 .box{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background: url('image/come.png');
+            background-size: 100% 100%;
+        }
 			.box2 {
 				width: 100%;
 				height: 100%;
@@ -26,7 +24,6 @@
 				z-index: 100;
 				background: rgba(0, 0, 0, 0.3);
 			}
-			
 			.box2_1 {
 				width: 80%;
 				height: 150px;
@@ -35,12 +32,10 @@
 				text-align: center;
 				margin-top: 50px;
 			}
-			
 			.box2_1 img {
 				width: 150px;
 				height: 150px;
 			}
-			
 			.box3 {
 				width: 70%;
 				float: left;
@@ -48,14 +43,12 @@
 				/* border: 1px solid red; */
 				margin-top: 50px;
 			}
-			
 			.box3_1 {
 				width: 100%;
 				height: 40px;
 				float: left;
 				background: rgba(0, 0, 0, 0.7);
 			}
-			
 			.box3_2 {
 				width: 100%;
 				height: 40px;
@@ -63,7 +56,6 @@
 				margin-top: 20px;
 				background: rgba(0, 0, 0, 0.7);
 			}
-			
 			.box3_1 input {
 				width: 100%;
 				height: 40px;
@@ -74,7 +66,6 @@
 				list-style: none;
 				border: 0;
 			}
-			
 			.box3_2 input {
 				width: 100%;
 				height: 40px;
@@ -85,19 +76,16 @@
 				list-style: none;
 				border: 0;
 			}
-			
 			.kon {
 				width: 5%;
 				height: 40px;
 				float: left;
 			}
-			
 			.in {
 				width: 95%;
 				height: 40px;
 				float: left;
 			}
-			
 			.login {
 				width: 80%;
 				float: left;
@@ -111,7 +99,6 @@
 				margin-top: 30px;
 				line-height: 35px;
 			}
-			
 			.box4 {
 				width: 100%;
 				height: 20px;
@@ -119,12 +106,10 @@
 				float: left;
 				margin-top: 20px;
 			}
-			
 			.box4 a {
 				color: white;
 				font-size: 14px;
 			}
-			
 			.box5 {
 				width: 80%;
 				height: 40px;
@@ -134,60 +119,49 @@
 				text-align: center;
 				color: white;
 			}
-			
 			.xian {
 				width: 100%;
 				background: white;
 				height: 1px;
 			}
-			
-			::-webkit-input-placeholder {
-				color: white;
-			}
-			
-			:-moz-placeholder {
-				/* Firefox 18- */
-				color: white;
-			}
-			
-			::-moz-placeholder {
-				/* Firefox 19+ */
-				color: white;
-			}
-			
-			:-ms-input-placeholder {
-				color: white;
-			}
-			
-			.box3_5 {
-				width: 100%;
-				height: 40px;
-				float: left;
-				margin-top: 20px;
-				/* background: rgba(0, 0, 0, 0.7); */
-				line-height: 40px;
-			}
-			
-			.b1 {
-				width: 50%;
-				float: left;
-				height: 50px;
-				line-height: 50px;
-				color: white;
-				text-align: center;
-			}
-			
-			.b2 {
-				width: 50%;
-				float: left;
-				height: 50px;
-				line-height: 50px;
-				color: white;
-				text-align: center;
-			}
+::-webkit-input-placeholder{
+  color: white;
+}
+:-moz-placeholder {/* Firefox 18- */
+   color: white;
+}
+::-moz-placeholder{/* Firefox 19+ */
+  color: white;
+}
+:-ms-input-placeholder {
+   color: white;
+}
+ .box3_5{
+        	width: 100%;
+        	height: 40px;
+        	float: left;
+        	margin-top: 20px;
+        	/* background: rgba(0, 0, 0, 0.7); */
+        	line-height: 40px;
+        }
+        .b1{
+        	width: 50%;
+        	float: left;
+        	height: 50px;
+        	line-height: 50px;
+        	color: white;
+        	text-align: center;
+        }
+        .b2{
+        	width: 50%;
+        	float: left;
+        	height: 50px;
+        	line-height: 50px;
+        	color: white;
+        	text-align: center;
+        }
 		</style>
 	</head>
-
 	<body>
 		<div class="box">
 			<div class="box2_1">
@@ -202,7 +176,7 @@
 					<div class="kon"></div>
 					<div class="in"><input type="password" id="pwd" placeholder="密码"></div>
 				</div>
-				<!-- <div class="box3_5">
+	<!-- <div class="box3_5">
     		<div class="b1"><input type="radio" name="jiashi" id="jiashi" value="0">驾驶员</div>
 			<div class="b2"><input type="radio" name="jiashi" id="paison" value="1">派送员</div>
     	</div> -->
@@ -217,33 +191,39 @@
 			<div class="box5">
 				注册新用户
 				<div class="xian"></div>
-			</div>
+          </div>
 		</div>
 	</body>
 	<script src="js/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript" src="js/local.js"></script>
 	<script type="text/javascript" src="js/APICloud-rest.js"></script>
 	<script type="text/javascript" src="js/api.js"></script>
+    <script type="text/javascript">
+    	var h = document.body.scrollHeight;  
+window.onresize = function(){  
+    if (document.body.scrollHeight < h) {  
+        $(".box5").css("display","none");
+    }else{  
+         $(".box5").css("display","block");
+    }  
+}; 
+$(document).ready(function () {
+　　$('body').height($('body')[0].clientHeight);
+})
+        $(".box5").on("click",function(){
+            window.location.href="zhuce.html";
+        })
+    </script>
 	<script type="text/javascript">
-		$(".box5").on("click", function() {
-			window.location.href = "zhuce.html";
-		})
-	</script>
-	<script type="text/javascript">
-		$('body').on('focusin', 'input, textarea', function(event) {
-			if(navigator.userAgent.indexOf('Android') > -1 && ...) {
-				var scroll = $(this).offset();
-				window.scrollTo(0, scroll);
-			}
-		})
-		$("#submit").on('click', function() {
+
+  		$("#submit").on('click',function(){
 			var tel1 = $("#tel").val();
 			var pwd1 = $("#pwd").val();
-			if(!/^1[34578]\d{9}$/.test(tel1)) {
+			if(!/^1[34578]\d{9}$/.test(tel1)){
 				alert("电话不符号要求");
-			} else if(pwd1 == null || pwd1 == "") {
+			}else if(pwd1==null||pwd1 == ""){
 				alert("密码不能为空");
-			} else {
+			}else{
 				$.ajax({
 					url: "http://api.uminfo.cn/app_lorry.php/lorry_sign",
 					dataType: 'json',
@@ -252,18 +232,18 @@
 					data: JSON.stringify({
 						driver_phone: tel1,
 						password: pwd1,
-
+					
 					}),
 					success: function(msg) {
 						if(msg.result == 0) {
-							var key = 'user';
-							var user = {};
-							user.tel = tel1;
-							user.pwd = pwd1;
-							// user.type = val;
-							user.lorry_id = msg.lorry.lorry_id;
-							$api.setStorage(key, user);
-							window.location.href = "first.html";
+						var key = 'user';
+						var user = {};
+						user.tel = tel1;
+						user.pwd = pwd1;
+						// user.type = val;
+						user.lorry_id=msg.lorry.lorry_id;
+						$api.setStorage(key, user);
+						window.location.href = "first.html";
 						} else {
 							alert(msg.desc);
 						}
@@ -274,7 +254,6 @@
 				});
 			}
 		});
-		//}
-	</script>
-
+//}
+</script>
 </html>
