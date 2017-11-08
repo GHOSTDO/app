@@ -4,7 +4,23 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
-
+  <script src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/local.js"></script>
+    <script type="text/javascript" src="js/APICloud-rest.js"></script>
+    <script type="text/javascript" src="js/api.js"></script>
+    <script type="text/javascript">
+    var h = document.body.scrollHeight;  
+window.onresize = function(){  
+    if (document.body.scrollHeight < h) {  
+        $(".box5").css("display","none");
+    }else{  
+         $(".box5").css("display","block");
+    }  
+}; 
+$(document).ready(function () {
+　　$('body').height($('body')[0].clientHeight);
+})
+</script>
         <style>
         *{
         	margin: 0;
@@ -239,22 +255,8 @@
     	</div>
  </div>
     </body>
-    <script src="js/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="js/local.js"></script>
-    <script type="text/javascript" src="js/APICloud-rest.js"></script>
-    <script type="text/javascript" src="js/api.js"></script>
-    <script type="text/javascript">
-    var h = document.body.scrollHeight;  
-window.onresize = function(){  
-    if (document.body.scrollHeight < h) {  
-        $(".box5").css("display","none");
-    }else{  
-         $(".box5").css("display","block");
-    }  
-}; 
-$(document).ready(function () {
-　　$('body').height($('body')[0].clientHeight);
-})
+  
+<script>
     	  function login(){
     		window.location.href="register.html";
     	 }
