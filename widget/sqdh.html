@@ -264,7 +264,7 @@ float:left;
       }
     })(jQuery);
     var sch_id=$.getUrlParam('id');
-      alert(sch_id);
+      //alert(sch_id);
     $.ajax({
         url: "http://api.uminfo.cn/app_lorry.php/sandoandg?lorry_id="+lorry_id+"&schedule_id="+sch_id,
         dataType: 'json',
@@ -302,8 +302,6 @@ float:left;
 function dian(div){
 var height = $(div).height();
 var img = $(div).children(".foot2").children("img");
-    console.log(height);
-    console.log(img);
 if(height==60){
     $(div).css("height","200px");
     img.attr("src","image/morexia.png");
@@ -319,7 +317,7 @@ $(".top1").on("click",function(){
   window.history.back();
 })
 $(".but1").on("click",function(){
-  alert("ok")
+
    $.ajax({
         url:'http://api.uminfo.cn/app_lorry.php/sureschthree',
         dataType:'json',
@@ -329,12 +327,17 @@ $(".but1").on("click",function(){
            schedule_id:sch_id,
            lorry_id:lorry_id  
         }), 
-        success:function(msg){         
-          alert(msg.desc);
+        success:function(msg){  
+        	if(msg.result==0){
+        		 alert(msg.desc);
           window.location.href="first.html";
+        	}else{
+        		alert(msg.desc);
+        	}
+         
         },
         error:function(xhr){
-          alert("接单失败");
+          alert("获取后台失败！"+xhr.responseText);
         }
       });   
   })  
@@ -349,12 +352,17 @@ $(".but2").on("click",function(){
            schedule_id:sch_id,
            lorry_id:lorry_id  
         }), 
-        success:function(msg){         
-          alert(msg.desc);
+        success:function(msg){   
+        	if(msg.result==0){
+        		 alert(msg.desc);
           window.location.href="saoma.html";
+        	}else{
+        		alert(msg.desc);
+        	}
+         
         },
         error:function(xhr){
-          alert("取消失败");
+          alert("获取后台失败！"+xhr.responseText);
         }
       });   
 })

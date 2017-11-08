@@ -107,7 +107,7 @@
           api.addEventListener({
         name: 'keyback'
       }, function(ret, err) {
-        alert('按了返回键');
+      //  alert('按了返回键');
         var drawingBoard = api.require('drawingBoard');
         drawingBoard.close();
       });
@@ -143,7 +143,7 @@
         savePath: 'fs://drawingBoard/result.png',
         copyToAlbum: false
       }, function(ret) {
-        alert(JSON.stringify(ret));
+      //  alert(JSON.stringify(ret));
         $('.i1').val(qid);
         $('.i2').val(lorry_id);
         $('.img').attr('src', api.fsDir + '/' + 'drawingBoard' + '/' + 'result.png');
@@ -170,14 +170,17 @@
               pic: a 
             }),
             success: function(msg) {
-              alert(msg.result);
-              alert("提交成功");
+            	if(msg.result==0){
+            		alert("提交成功");
               var drawingBoard = api.require('drawingBoard');
                       drawingBoard.close();
               window.location.href = "first.html";
+            	}else{
+            		alert(msg.desc);
+            	}
             },
             error: function(xhr) {
-              alert("提交失败")
+            alert("获取后台失败！"+xhr.responseText);
             }
           });
         } else {

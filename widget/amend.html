@@ -221,7 +221,7 @@
             
         },
         error:function(xhr){
-            alert(xhr.responseText);
+            alert("获取后台失败"+xhr.responseText);
         }
     })
      $("#carbox").on("click",function(){
@@ -248,8 +248,13 @@
                    lorry_age:old
                 }),
                 success:function(msg){
-                    alert("修改车辆信息成功");
+                	if(msg.result==0){
+                		 alert(msg.desc);
                     window.location.href="car.html";
+                	}else{
+                		alert(msg.desc);
+                	}
+                   
                 },
                 error:function(xhr){
                     alert("获取后台失败"+xhr.responseText);

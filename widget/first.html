@@ -297,7 +297,7 @@
 });
 var bMap = api.require('bMap');
 bMap.getLocation({
-    accuracy: '100m',
+    accuracy: '10m',
     autoStop: true,
     filter: 1
   }, function(ret, err) {
@@ -313,7 +313,7 @@ bMap.getLocation({
         		latitude:ret.lat
             }),
             success:function(msg){
-            	alert(ret.lon+"%%%%"+ret.lat+"成功"+msg);
+            	alert(ret.lon+"%%%%"+ret.lat+"成功"+msg.result);
             },
             error:function(xhr){
             	alert("获取后台失败"+xhr.responseText);

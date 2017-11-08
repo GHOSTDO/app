@@ -121,12 +121,12 @@
 			api.addEventListener({
 				name: 'keyback'
 			}, function(ret, err) {
-				alert('按了返回键');
+			//	alert('按了返回键');
 				var FNPhotograph = api.require('FNPhotograph');
 				FNPhotograph.closeCameraView(
 					function(ret) {
 						if(ret) {
-							alert(JSON.stringify(ret));
+						//	alert(JSON.stringify(ret));
 						}
 					})
 			});
@@ -164,9 +164,9 @@
 					imgPath: api.fsDir + '/' + 'FNPhotograph' + '/' + '01.jpg'
 				}, function(ret, err) {
 					if(ret.status) {
-						alert(JSON.stringify(ret));
+						//alert(JSON.stringify(ret));
 						a = "data:image/jpeg;base64," + JSON.stringify(ret.base64Str);
-						alert(a);
+						//alert(a);
 					} else {
 						alert(JSON.stringify(err));
 					};
@@ -175,7 +175,7 @@
 			FNPhotograph.closeCameraView(
 					function(ret) {
 						if(ret) {
-							alert(JSON.stringify(ret));
+						//	alert(JSON.stringify(ret));
 						}
 					})
 			})
@@ -183,8 +183,8 @@
 		});
 
 		function tijiao(){
-			alert("ok");
-			alert('111' + yid + '///' + lorry_id);
+			//alert("ok");
+			//alert('111' + yid + '///' + lorry_id);
 			$.ajax({
 				url: 'http://api.uminfo.cn/app_lorry.php/ordersure',
 				dataType: 'json',
@@ -215,7 +215,7 @@
 			FNPhotograph.closeCameraView(
 				function(ret) {
 					if(ret) {
-						alert(JSON.stringify(ret));
+						//alert(JSON.stringify(ret));
 					}
 				})
 			window.history.back();

@@ -125,7 +125,7 @@
 				FNPhotograph.closeCameraView(
 					function(ret) {
 						if(ret) {
-							alert(JSON.stringify(ret));
+							//alert(JSON.stringify(ret));
 						}
 					})
 			});
@@ -163,7 +163,7 @@
 					imgPath: api.fsDir + '/' + 'FNPhotograph' + '/' + '01.jpg'
 				}, function(ret, err) {
 					if(ret.status) {
-						alert(JSON.stringify(ret));
+						//alert(JSON.stringify(ret));
 						a = "data:image/jpeg;base64," + JSON.stringify(ret.base64Str);
 						//alert(a);
 					} else {
@@ -174,7 +174,7 @@
 				FNPhotograph.closeCameraView(
 					function(ret) {
 						if(ret) {
-							alert(JSON.stringify(ret));
+							//alert(JSON.stringify(ret));
 						}
 					})
 			})
@@ -200,9 +200,7 @@
 					}else{
 						alert(mag.desc);
 						windows.location.reload();
-					}
-					
-					
+					}	
 				},
 				error: function(xhr) {
 					alert("提交失败");
@@ -215,7 +213,7 @@
 			FNPhotograph.closeCameraView(
 				function(ret) {
 					if(ret) {
-						alert(JSON.stringify(ret));
+						//alert(JSON.stringify(ret));
 					}
 				})
 			window.history.back();

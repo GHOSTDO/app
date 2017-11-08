@@ -182,7 +182,7 @@
                 }
             },
             error:function(xhr){
-                alert("获取后台失败")
+                 alert("获取后台失败！"+xhr.responseText);
             }
 
         })
@@ -201,7 +201,7 @@
       }
     })(jQuery);
     var l=$.getUrlParam('length');
-    alert(l);
+   // alert(l);
         $(".foot").on("click",function(){
             var chep = $("#chep").val();
             var car = $('#car').val();
@@ -228,11 +228,16 @@
                     lorry_text:text
                 }),
                 success:function(msg){
-                    alert("添加车辆成功");
+                	if(msg.result==0){
+                		alert(msg.desc);
                     window.location.href="car.html";
+                	}else{
+                		alert(msg.desc);
+                	}
+                    
                 },
                 error:function(xhr){
-                    alert(xhr.responseText);
+                    alert("获取后台失败"+xhr.responseText);
                 }
             })
           }

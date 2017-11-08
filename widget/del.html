@@ -275,7 +275,7 @@
             
         },
         error:function(xhr){
-            alert(xhr.responseText);
+            alert("获取后台失败"+xhr.responseText);
         }
     })
 
@@ -305,13 +305,17 @@
                 lorry_id2:id
             }),
             success:function(msg){
-                alert(msg.desc+msg.result);
+            	if(msg.result==0){
+            		  alert(msg.desc);
                 window.location.href="car.html";
+            	}else{
+            		alert(msg.desc);
+            	}
+              
             },
             error:function(xhr){
-                alert("删除失败，请重试。")
+                alert("获取后台失败"+xhr.responseText);
             }
-
         })
      })
 </script>

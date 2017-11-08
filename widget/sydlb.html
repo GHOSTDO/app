@@ -146,11 +146,11 @@ var yid = $.getUrlParam('id');
             }
         },
         error:function(xhr){
-            alert("获取后台失败！")
+              alert("获取后台失败！"+xhr.responseText);
         }
     })
     $(".but1").on("click",function(){
-        alert("ok")
+   //     alert("ok")
     $.ajax({
         url:'http://api.uminfo.cn/app_lorry.php/ordersurethree ',
         dataType:'json',
@@ -161,11 +161,15 @@ var yid = $.getUrlParam('id');
            courier_id:lorry_id       
         }), 
         success:function(msg){
-          alert(msg.desc);
-            window.location.href="first.html";
+          	if(msg.result==0){
+        		 alert(msg.desc);
+          window.location.href="first.html";
+        	}else{
+        		alert(msg.desc);
+        	}
         },
         error:function(xhr){
-          alert("接单失败")
+          alert("获取后台失败！"+xhr.responseText);
         }
       });    
     })    
@@ -183,11 +187,15 @@ $(".but2").on("click",function(){
            courier_id:lorry_id       
         }), 
         success:function(msg){
-          alert(msg.desc);
-          window.location.href="saoma1.html";
+          	if(msg.result==0){
+        		 alert(msg.desc);
+          window.location.href="first.html";
+        	}else{
+        		alert(msg.desc);
+        	}
         },
         error:function(xhr){
-          alert("取消失败")
+        alert("获取后台失败！"+xhr.responseText);
         }
       });    
 })

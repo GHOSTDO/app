@@ -154,6 +154,7 @@
 		});
 		function getPro1() {
 			$("#city1").empty();
+			
 			var pid = $("#province1 option:selected").val();
 			$.ajax({
 				url: "http://api.uminfo.cn/city.php/city?pid=" + pid,
@@ -173,7 +174,7 @@
 		}
 		$(".foot").on("click",function(){
             var id = $("#city1").val();
-            alert(id);
+          //  alert(id);
             if(id<=0){
             alert("请选择城市")
             }else{

@@ -130,13 +130,13 @@
             }
         },
         error:function(xhr){
-            alert("获取后台失败！")
+            alert("获取后台失败！"+xhr.responseText);
         }
     })
     
         function but(){
             var id=$.getUrlParam('id');
-            alert(id);
+          //  alert(id);
             window.location.href="delivery1.html?id="+id;
         }
 

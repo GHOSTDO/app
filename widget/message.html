@@ -222,7 +222,7 @@
     	 	ContentType: "application/json;charset=utf-8",
     	 	data:JSON.stringify({}),
     	 	success:function(msg){
-    	 		console.log(msg);
+    	 		
     	 		if(msg.result==0){
     	 			$("#name").html(msg.lorry.driver_name);
     	 			$("#tel").html(msg.lorry.driver_phone);
@@ -233,7 +233,7 @@
     	 		}
     	 	},
     	 	error:function(xhr){
-    	 		alert("获取后台失败");
+    	    alert("获取后台失败！"+xhr.responseText);
     	 	}
 
     	 })
