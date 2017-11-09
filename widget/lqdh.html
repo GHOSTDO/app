@@ -248,11 +248,11 @@ float:left;
     $(".iimg").css("height",width);
     $(".iimg").css("width",height);
   }
-//user=$api.getStorage('user');
-//  var tel=user.tel;
-//  var pwd=user.pwd;
-   // var lorry_id=user.lorry_id;
-   var lorry_id="10000001";
+user=$api.getStorage('user');
+    var tel=user.tel;
+    var pwd=user.pwd;
+      var lorry_id=user.lorry_id;
+// var lorry_id="10000001";
   (function($) {
       $.getUrlParam = function(name) {
         var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
@@ -261,8 +261,8 @@ float:left;
         return null;
       }
     })(jQuery);
-//var sch_id=$.getUrlParam('id');
- var sch_id="QD5130001000001";
+var sch_id=$.getUrlParam('id');
+// var sch_id="QD5130001000001";
 
       //alert(sch_id);
     $.ajax({
