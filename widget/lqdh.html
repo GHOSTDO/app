@@ -248,6 +248,7 @@ float:left;
 <script type="text/javascript" src="js/local.js"></script>
     <script type="text/javascript" src="js/APICloud-rest.js"></script>
     <script type="text/javascript" src="js/api.js"></script>
+    <script type="text/javascript" src="js/jquery.rotate.min.js"></script>
 <script type="text/javascript">
   window.onload=function(){
    var width = $(".img").width();
@@ -290,6 +291,7 @@ user=$api.getStorage('user');
              	 $(".img").html("该清单已经取消");
              }else if((msg.customer.pic).match(/^[a-zA-Z]+:\/\//)){
              	$("#pic").attr('src',msg.customer.pic);
+             	$(".img").rotate(-90);
              }else{
              	 $(".img").html(msg.customer.pic);
              	 $("#pic").css("display","none");
