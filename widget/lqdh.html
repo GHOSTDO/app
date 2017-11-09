@@ -291,7 +291,7 @@ user=$api.getStorage('user');
              	 $(".img").html("该清单已经取消");
              }else if((msg.customer.pic).match(/^[a-zA-Z]+:\/\//)){
              	$("#pic").attr('src',msg.customer.pic);
-             	$(".img").rotate(-90);
+             	$(".img").rotate(90);
              }else{
              	 $(".img").html(msg.customer.pic);
              	 $("#pic").css("display","none");
