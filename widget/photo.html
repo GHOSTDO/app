@@ -182,7 +182,7 @@
 		});
 
 		function tijiao() {
-			alert("ok")
+			//alert("ok")
 			$.ajax({
 				url: 'http://api.uminfo.cn/app_lorry.php/suresch',
 				dataType: 'json',
@@ -198,7 +198,7 @@
 						alert("提交成功");
 					window.location.href = "first.html";
 					}else{
-						alert(mag.desc);
+						alert(msg.desc);
 						windows.location.reload();
 					}	
 				},
