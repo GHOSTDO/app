@@ -202,11 +202,11 @@ float:left;
     overflow: auto;
   }
   .img{
-    width: 30%;
+    width: 40%;
     height:70px;
     float:right;
-    margin-top: 70px;
-    margin-right: 70px;
+    margin-top: 50px;
+    margin-right: 60px;
   } 
  
  </style>
@@ -241,7 +241,6 @@ float:left;
 <script type="text/javascript" src="js/local.js"></script>
     <script type="text/javascript" src="js/APICloud-rest.js"></script>
     <script type="text/javascript" src="js/api.js"></script>
-    <script type="text/javascript" src="js/jquery.rotate.min.js"></script>
 <script type="text/javascript">
   window.onload=function(){
    var width = $(".img").width();
@@ -249,10 +248,11 @@ float:left;
     $(".iimg").css("height",width);
     $(".iimg").css("width",height);
   }
-user=$api.getStorage('user');
-    var tel=user.tel;
-    var pwd=user.pwd;
-    var lorry_id=user.lorry_id;
+//user=$api.getStorage('user');
+//  var tel=user.tel;
+//  var pwd=user.pwd;
+   // var lorry_id=user.lorry_id;
+   var lorry_id="10000001";
   (function($) {
       $.getUrlParam = function(name) {
         var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
@@ -261,7 +261,8 @@ user=$api.getStorage('user');
         return null;
       }
     })(jQuery);
-  var sch_id=$.getUrlParam('id');
+//var sch_id=$.getUrlParam('id');
+ var sch_id="QD5130001000001";
 
       //alert(sch_id);
     $.ajax({
@@ -284,7 +285,6 @@ user=$api.getStorage('user');
              	 $(".img").html("该清单已经取消");
              }else if((msg.customer.pic).match(/^[a-zA-Z]+:\/\//)){
              	$("#pic").attr('src',msg.customer.pic);
-             	$(".img").rotate(90);
              }else{
              	 $(".img").html(msg.customer.pic);
              	 $("#pic").css("display","none");
