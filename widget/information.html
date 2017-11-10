@@ -122,7 +122,7 @@
     		<div class="sel">
     			<select name="province" id="province1" onchange="getPro1()"><option value="">请选择省</option></select>
     			<div class="kong"></div>
-    			<select name="city" id="city1"><option value="">请选择市</option></select>
+    			<select name="city" id="city1"></select>
     		</div>
     		<div class="foot">
     			确定
@@ -137,6 +137,7 @@
 	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript">
 		//获取省份和城市列表1
+			$("#city1").append('<option value="">请选择市</option>');
 		$.ajax({
 			url: "http://api.uminfo.cn/city.php/province",
 			dataType: 'json',
