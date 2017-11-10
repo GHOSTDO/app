@@ -113,6 +113,7 @@
             success:function(msg){
                 $(".center").html("");
                 if(msg.result==0){
+                	if(msg.msg.orders.length>0){
                     for(var i=0;i<msg.orders.length;i++){
                         var a='<div class="c1" onclick="yd('+msg.orders[i].order_id
                         +')"><div class="c1_1"><p>单号：<span>'+msg.orders[i].order_id
@@ -120,6 +121,9 @@
                         +'</div><div class="c1_3"><p>收货人：<span>'+msg.orders[i].customer_name
                         +'</span></p></div><div class="xian"></div></div>';
                          $(".center").append(a); 
+                    }
+                    }else{
+                    	$(".center").html("尚未有待交付的运单");
                     }
                 }else if(msg.result==9){
                 	alert(msg.desc);

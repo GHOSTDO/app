@@ -120,6 +120,7 @@
             success:function(msg){
                 $(".center").html("");
                 if(msg.result==0){
+                	if(msg.orders.length>0){
                     for(var i=0;i<msg.orders.length;i++){
                         var a='<div class="c1" onclick="yd('
                         +msg.orders[i].order_id+')"><div class="c1_1"><p>单号：<span>'
@@ -129,6 +130,9 @@
                          $(".1").html("运单已送达");
                          $(".4").html("运单已取消");
                     }
+                   }else{
+                   	$(".center").html("尚未有历史运单记录");
+                   }
                 }else if(msg.result==9){
                 alert(msg.desc);
                 window.location.href="register.html";

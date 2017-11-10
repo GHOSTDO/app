@@ -111,6 +111,7 @@
 				success: function(msg) {
 					$(".center").html();
 					if(msg.result==0){
+						if(msg.sch.length>0){
 						for(var x=0;x<msg.sch.length;x++){
                             var scheduling_id=msg.sch[x].scheduling_id;
                             var new_scheduling_id=scheduling_id.substring(2);
@@ -124,9 +125,12 @@
 						    $(".center").append(a);
                             $("#c"+new_scheduling_id).attr("onclick","dhao('"+scheduling_id+"')");
 						}
+						}else{
+							$(".center").html("尚未有待交付清单");
+						}
 					}else if(msg.result==9){
-					alert(msg.desc);
-					window.location.href="register.html";
+					     alert(msg.desc);
+					     window.location.href="register.html";
 					}else{
 						alert(msg.desc);
 					}		
