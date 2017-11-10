@@ -317,7 +317,14 @@ bMap.getLocation({
         		time1:time
             }),
             success:function(msg){
-            	alert(ret.lon+"%%%%"+ret.lat+"成功"+msg.result);
+            	if(msg.result==0){
+            		alert(msg.desc);
+            	}else if(msg.result==9){
+            		alert(msg.desc);
+            		window.location.href="register.html";
+            	}else{
+            		alert(msg.desc);
+            	}
             },
             error:function(xhr){
             	alert("获取后台失败"+xhr.responseText);
