@@ -291,6 +291,9 @@
 	<script type="text/javascript" src="js/APICloud-rest.js"></script>
 	<script type="text/javascript" src="js/api.js"></script>
 	<script type="text/javascript">
+		user = $api.getStorage('user');
+		var time = user.time;
+		var lorry_id = user.lorry_id;
 		apiready = function(){
 			api.setScreenOrientation({
     orientation: 'portrait_up'
@@ -310,7 +313,8 @@ bMap.getLocation({
         	data:JSON.stringify({
         		lorry_id:lorry_id,
         		longitude:ret.lon,
-        		latitude:ret.lat
+        		latitude:ret.lat,
+        		time1:time
             }),
             success:function(msg){
             	alert(ret.lon+"%%%%"+ret.lat+"成功"+msg.result);
@@ -327,9 +331,7 @@ bMap.getLocation({
 var t2 = window.setInterval("apiready()",3600000); 
 	</script>
 	<script type="text/javascript">
-		user = $api.getStorage('user');
-		var time = user.time;
-		var lorry_id = user.lorry_id;
+		
 //		alert(lorry_id);
 		window.onload = function() {
 			$.ajax({

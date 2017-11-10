@@ -153,6 +153,7 @@
 	<script type="text/javascript">
 		user = $api.getStorage('user');
 		var lorry_id = user.lorry_id;
+		var time=user.time;
 		(function($) {
 			$.getUrlParam = function(name) {
 				var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
@@ -205,10 +206,18 @@
 						data: JSON.stringify({
 							scheduling_id: id,
 							longitude: ret.lon,
-							latitude: ret.lat
+							latitude: ret.lat,
+							time1:time
 						}),
 						success: function(msg) {
-							alert(ret.lon + "%%%%" + ret.lat + "&&&" + msg.desc + "****" + msg.result);
+							if(msg.result==0){
+								alert(msg.desc);
+							}else if(msg.result==9){
+								alert(msg.desc);
+								window.location.href="register.html";
+							}else{
+								alert(msg.desc);
+							}						
 						},
 						error: function(xhr) {
 							alert("获取后台失败" + xhr.responseText);
