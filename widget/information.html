@@ -163,16 +163,14 @@
 				ContentType: "application/json;charset=utf-8",
 				data: JSON.stringify({}),
 				success: function(msg) {
-					if(msg.result==0){
 					for(var i = 0; i < msg.city.length; i++) {
 						$("#city1").append('<option value="' + msg.city[i].id + '">' + msg.city[i].name + '</option>');
 					}
-					}else{
-						$("#city1").append('<option value="">请选择市</option>');
-					}
+					
 				},
 				error: function(e) {
-					alert("城市列表信息出错!");
+					$("#city1").append('<option value="">请选择市</option>');
+//					alert("城市列表信息出错!");
 				}
 			});
 		}
