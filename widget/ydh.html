@@ -97,8 +97,7 @@
 <script type="text/javascript" src="js/api.js"></script>
 <script type="text/javascript">
     user=$api.getStorage('user');
-    var tel=user.tel;
-    var pwd=user.pwd;
+    var time=user.time;
     var lorry_id=user.lorry_id;
     (function($) {
       $.getUrlParam = function(name) {
@@ -110,7 +109,7 @@
     })(jQuery);
     var id=$.getUrlParam('id');
     $.ajax({
-        url:"http://api.uminfo.cn/app_lorry.php/byorderid?order_id="+id,
+        url:"http://api.uminfo.cn/app_lorry.php/byorderid?order_id="+id+"&time1="+time,
         dataType:'json',
         type:'get',
         ContentType: "application/json;charset=utf-8",
@@ -127,6 +126,11 @@
                 $("#name").html(msg.order.customer_name)
                 $("#phone").html(msg.order.customer_phone)
                 $("#dizhi").html(msg.order.address)
+            }else if(msg.result==9){
+            	alert(msg.desc);
+            	window.location.href="register.html";
+            }else{
+            	alert(msg.desc);
             }
         },
         error:function(xhr){

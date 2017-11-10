@@ -187,8 +187,7 @@
     </script>
     <script type="text/javascript">
     user=$api.getStorage('user');
-    var tel=user.tel;
-    var pwd=user.pwd;
+    var time=user.time;
     var lorry_id=user.lorry_id;
      (function($) {
       $.getUrlParam = function(name) {
@@ -200,7 +199,7 @@
     })(jQuery);
     var id=$.getUrlParam('id');
      $.ajax({
-        url:"http://api.uminfo.cn/app_lorry.php/lorrymessage?lorry_id="+id,
+        url:"http://api.uminfo.cn/app_lorry.php/lorrymessage?lorry_id="+id+"&time1="+time,
         dataTpye:'json',
         type:'get',
         ContentType: "application/json;charset=utf-8",
@@ -215,6 +214,9 @@
               $('#zhong').val(msg.lorry.lorry_weight);
               $('#old').val(msg.lorry.lorry_age);
               $('#text').val(msg.lorry.lorry_tx);  
+            }else if(msg.result==9){
+            	alert(msg.desc);
+            	 window.location.href="register.html";
             }else{
                 alert(msg.desc);
             }
@@ -245,12 +247,16 @@
                    lorry_type:car,
                    lorry_text:text,
                    lorry_weight:zhong,
-                   lorry_age:old
+                   lorry_age:old,
+                   time1:time
                 }),
                 success:function(msg){
                 	if(msg.result==0){
                 		 alert(msg.desc);
                     window.location.href="car.html";
+                    }else if(msg.result==9){
+            	     alert(msg.desc);
+            	      window.location.href="register.html";
                 	}else{
                 		alert(msg.desc);
                 	}

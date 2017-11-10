@@ -113,8 +113,7 @@
 <script type="text/javascript" src="js/api.js"></script>
 <script type="text/javascript">
     user=$api.getStorage('user');
-    var tel=user.tel;
-    var pwd=user.pwd;
+ var time=user.time;
     var lorry_id=user.lorry_id;
     (function($){
       $.getUrlParam = function(name) {
@@ -124,9 +123,9 @@
         return null;
       }
     })(jQuery);
-var yid = $.getUrlParam('id');
+    var yid = $.getUrlParam('id');
     $.ajax({
-        url:"http://api.uminfo.cn/app_lorry.php/byorderid?order_id=2",
+        url:"http://api.uminfo.cn/app_lorry.php/byorderid?order_id="+yid,
         dataType:'json',
         type:'get',
         ContentType: "application/json;charset=utf-8",
@@ -152,19 +151,23 @@ var yid = $.getUrlParam('id');
     $(".but1").on("click",function(){
    //     alert("ok")
     $.ajax({
-        url:'http://api.uminfo.cn/app_lorry.php/ordersurethree ',
+        url:'http://api.uminfo.cn/app_lorry.php/ordersurethree',
         dataType:'json',
         type:'post',
         ContentType: "application/json;charset=utf-8",
         data: JSON.stringify({
            order_id:yid,
-           courier_id:lorry_id       
+           courier_id:lorry_id,
+           time1:time
         }), 
         success:function(msg){
           	if(msg.result==0){
         		 alert(msg.desc);
           window.location.href="first.html";
-        	}else{
+        	}else if(msg.result==9){
+        		alert(msg.desc);
+        		 window.location.href="register.html";
+          	}else{
         		alert(msg.desc);
         	}
         },
@@ -184,12 +187,16 @@ $(".but2").on("click",function(){
         ContentType: "application/json;charset=utf-8",
         data: JSON.stringify({
            order_id:yid,
-           courier_id:lorry_id       
+           courier_id:lorry_id,
+           time1:time
         }), 
         success:function(msg){
           	if(msg.result==0){
         		 alert(msg.desc);
           window.location.href="first.html";
+        	}else if(msg.result==9){
+        		alert(msg.desc);
+        		window.location.href="register.html";
         	}else{
         		alert(msg.desc);
         	}

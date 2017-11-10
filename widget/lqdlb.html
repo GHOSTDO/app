@@ -103,14 +103,13 @@
     <script type="text/javascript" src="js/api.js"></script>
     <script type="text/javascript">
     user=$api.getStorage('user');
-    var tel=user.tel;
-    var pwd=user.pwd;
+   var time=user.time;
     var lorry_id=user.lorry_id;
       if(lorry_id==null||lorry_id==""){
         alert("用户未登录");
       }else{
         $.ajax({
-        url: "http://api.uminfo.cn/app_lorry.php/sbylorryn?lorry_id="+lorry_id,
+        url: "http://api.uminfo.cn/app_lorry.php/sbylorryn?lorry_id="+lorry_id+"&time1="+time,
         dataType: 'json',
         type: 'get',
         ContentType: "application/json;charset=utf-8",
@@ -133,7 +132,10 @@
                 $(".6").html("清单已取消");
                  $("#c"+new_scheduling_id).attr("onclick","dhao('"+scheduling_id+"')");
             }
-            }else{
+           }else if(msg.result==9){
+           	alert(msg.desc);
+           	window.location.href="register.html";
+          }else{
             alert(msg.desc);
             }   
         },

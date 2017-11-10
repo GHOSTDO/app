@@ -186,12 +186,11 @@
     <script type="text/javascript" src="js/api.js"></script>
     <script type="text/javascript">
     user=$api.getStorage('user');
-    var tel=user.tel;
-    var pwd=user.pwd;
+    var time=user.time;
     var lorry_id=user.lorry_id;
     var length = "";
     $.ajax({
-         url: "http://api.uminfo.cn/app_lorry.php/getplate?lorry_id="+lorry_id,
+         url: "http://api.uminfo.cn/app_lorry.php/getplate?lorry_id="+lorry_id+"&time1="+time,
          dataType: 'json',
          type: 'get',
          ContentType: "application/json;charset=utf-8",
@@ -212,6 +211,12 @@
                      $("input:radio[value='1']").attr('checked','true');
 
                 }
+            }else if(msg.result==9){
+            	alert(msg.desc);
+            	 window.location.href="register.html";
+            }else{
+            	alert(msg.desc);
+            	window.location.reload();
             }
          },
          error:function(xhr){
@@ -236,22 +241,29 @@
           ContentType: "application/json;charset=utf-8",
           data:JSON.stringify({
             lorry_id:lorry_id,
-            lorry_id2:id
+            lorry_id2:id,
+            time1:time
           }),
           success:function(msg){
-          //	alert(lorry_id+"%%%%"+id);
-          	var key = 'user';
+           if(msg.result==0){
+           	var key = 'user';
 			var user = {};
-			user.tel = tel;
-			user.pwd = pwd;
+			user.time = time;
 			user.lorry_id=id;
 			$api.setStorage(key, user);
              alert(msg.desc);
              window.location.reload();
+           }else if(msg.result==9){
+           	alert(msg.desc);
+           	window.location.href="register.html";
+           }else{
+           	alert(msg.desc);
+           	window.location.reload();
+           }
+          	
           },
           error:function(xhr){
-              alert("操作失败");
-              window.location.reload();
+              alert("获取后台失败"+xhr.responseText);
           }
         })
     }

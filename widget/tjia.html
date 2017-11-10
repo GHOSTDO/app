@@ -189,8 +189,7 @@
     </script>
     <script type="text/javascript">
     user=$api.getStorage('user');
-    var tel=user.tel;
-    var pwd=user.pwd;
+    var time=user.time;
     var lorry_id=user.lorry_id;
      (function($) {
       $.getUrlParam = function(name) {
@@ -225,12 +224,16 @@
                     lorry_age:old,
                     lorry_weight:zhong,
                     lorry_type:car,
-                    lorry_text:text
+                    lorry_text:text,
+                    time1:time
                 }),
                 success:function(msg){
                 	if(msg.result==0){
                 		alert(msg.desc);
                     window.location.href="car.html";
+                	}else if(msg.result==9){
+                		alert(msg.desc);
+                		window.location.href="register.html";
                 	}else{
                 		alert(msg.desc);
                 	}

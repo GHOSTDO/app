@@ -250,14 +250,12 @@ $(document).ready(function () {
 					data: JSON.stringify({
 						driver_phone: tel1,
 						password: pwd1,
-					
 					}),
 					success: function(msg) {
 						if(msg.result == 0) {
 						var key = 'user';
 						var user = {};
-						user.tel = tel1;
-						user.pwd = pwd1;
+					    user.time=msg.time;
 						// user.type = val;
 						user.lorry_id=msg.lorry.lorry_id;
 						$api.setStorage(key, user);

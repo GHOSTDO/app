@@ -246,8 +246,7 @@
 		<script type="text/javascript" src="js/api.js"></script>
 		<script type="text/javascript">
 			user = $api.getStorage('user');
-			var tel = user.tel;
-			var pwd = user.pwd;
+			var time = user.time;
 			var lorry_id = user.lorry_id;
 			var f = null;
 
@@ -261,7 +260,7 @@
 				window.history.back();
 			})
 			$.ajax({
-				url: 'http://api.uminfo.cn/app_lorry.php/lorrymessage?lorry_id=' + lorry_id,
+				url: 'http://api.uminfo.cn/app_lorry.php/lorrymessage?lorry_id=' + lorry_id+"&time1="+time,
 				dataType: 'json',
 				type: 'get',
 				ContentType: "application/json;charset=utf-8",
@@ -274,6 +273,11 @@
 						$("#dizhi").val(msg.lorry.driver_address);
 						$("#email").val(msg.lorry.driver_email);
 						$("#preview").attr("src", msg.lorry.driving_license);
+					}else if(msg.result==9){
+						alert(msg.desc);
+						window.location.href = "register.html";
+					}else{
+						alert(msg.desc);
 					}
 				},
 				error: function(xhr) {
@@ -361,12 +365,16 @@
 						pic: f,
 						driver_address: d,
 						idcard: c,
-						email: e
+						email: e,
+						time1:time
 					}),
 					success: function(msg) {
 						if(msg.result==0){
-							alert("编辑信息成功")
+							alert(msg.desc);
 						window.location.href = "message.html";
+						}else if(msg.result==9){
+							alert(msg.desc);
+							window.location.href = "register.html";
 						}else{
 							alert(msg.desc);
 						}

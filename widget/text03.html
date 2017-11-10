@@ -87,8 +87,7 @@
 	<script type="text/javascript" src="js/api.js"></script>
     <script type="text/javascript">
     	user = $api.getStorage('user');
-		var tel = user.tel;
-		var pwd = user.pwd;
+		var time=user.time;
 		var lorry_id = user.lorry_id;
 		(function($) {
 			$.getUrlParam = function(name) {
@@ -167,7 +166,8 @@
 						data: JSON.stringify({
 							 schedule_id:qid,
                              lorry_id:lorry_id,
-                             pic:a   
+                             pic:a,
+                             time1:time
 						}),
 						success: function(msg) {
 							if(msg.result==0){
@@ -175,6 +175,9 @@
               var drawingBoard = api.require('drawingBoard');
                       drawingBoard.close();
               window.location.href = "first.html";
+            	}else if(msg.result==9){
+            		alert(msg.desc);
+            		window.location.href="register.html";
             	}else{
             		alert(msg.desc);
             	}

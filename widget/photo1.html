@@ -110,8 +110,7 @@
 	<script type="text/javascript" src="js/api.js"></script>
 	<script type="text/javascript">
 		user = $api.getStorage('user');
-		var tel = user.tel;
-		var pwd = user.pwd;
+		var time=user.time;
 		var lorry_id = user.lorry_id;
 		var a = null;
 		(function($) {
@@ -200,19 +199,23 @@
 				data: JSON.stringify({
 					order_id: yid,
 					lorry_id: lorry_id,
-					pic: a
+					pic: a,
+					time1:time
 				}),
 				success: function(msg) {
 					if(msg.result == 0) {
 						alert("提交成功");
 						window.location.href = "first.html";
-					} else {
+					}else if(msg.result==9){
+						alert(msg.desc);
+						window.location.href="register.html";
+					}else {
 						alert(msg.desc);
 						windows.location.reload();
 					}
 				},
 				error: function(xhr) {
-					alert("提交失败");
+					alert("提交失败"+xhr.responseText);
 				}
 			})
 		}
