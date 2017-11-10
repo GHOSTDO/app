@@ -200,7 +200,7 @@
       }
     })(jQuery);
     var l=$.getUrlParam('length');
-   // alert(l);
+    alert(l);
         $(".foot").on("click",function(){
             var chep = $("#chep").val();
             var car = $('#car').val();
@@ -210,7 +210,9 @@
             var text = $('#text').val();
             
            if(l>4){
-              alert("以超出车辆上限，可购买增值服务增加车辆上限！")
+              alert("现在每人只能加4辆车！")
+          }else if(!/^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领A-Z]{1}[A-Z]{1}[A-Z0-9]{4}[A-Z0-9挂学警港澳]{1}$/.test(chep)){
+          	alert("车牌号不符合要求");
           }else{
                $.ajax({
                 url:"http://api.uminfo.cn/app_lorry.php/addplate_number",
