@@ -204,7 +204,7 @@
 				<div class="xian"></div>
 				<div class="box1">
 					<div class="box1_1">电话:</div>
-					<div class="box1_2"><input type="text" disabled="true" id="tel"></div>
+					<div class="box1_2"><input type="text" disabled="true" id="tel" disabled="disabled"></div>
 				</div>
 				<div class="xian"></div>
 				<div class="box1">
@@ -350,13 +350,12 @@
 			});
 
 			$(".foot").on("click", function() {
-				alert(f);
+				//alert(f);
+				var name=$("#name").val();
 				var c = $("#number").val();
 				var d = $("#dizhi").val();
 				var e = $("#email").val();
-              if(!/^1[34578]\d{9}$/.test(c)) {
-              	alert("手机号码格式不对");
-              }else if(!(/(^\d{15}$)|(^\d{17}([0-9]|X)$)/.test(c))){
+              if(!(/(^\d{15}$)|(^\d{17}([0-9]|X)$)/.test(c))){
               	alert("身份证格式不对");
               }else if(!(/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/.test(e))){
               	alert("邮箱格式不对");
@@ -372,7 +371,8 @@
 						driver_address: d,
 						idcard: c,
 						email: e,
-						time1:time
+						time1:time,
+						name:name
 					}),
 					success: function(msg) {
 						if(msg.result==0){
