@@ -4,6 +4,7 @@
 	<content src="./register.html"/>
 	<preference name="windowBackground" value="#fff"/>
 	<preference name="autoUpdate" value="true"/>
+	<preference name="softInputMode" value="resize"/>
 <feature name="baiduLocation">
     <param name="apiKey" value="DF3sGW3FC7qhDtg6miAAbHG0TTBsk6bD"/>
 </feature>
