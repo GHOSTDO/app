@@ -199,7 +199,7 @@
         </style>
     </head>
     <body>
-    <div class="box">
+    <div class="box" id="input">
     	<div class="box2_1">
     		欢迎注册
     	</div>
@@ -247,14 +247,29 @@
     <script type="text/javascript" src="js/api.js"></script>
     <script type="text/javascript">
 
-var h = document.body.scrollHeight;  
-window.onresize = function(){  
-    if (document.body.scrollHeight < h) {  
-        $(".box5").css("display","none");
-    }else{  
-         $(".box5").css("display","block");
-    }  
-}; 
+//var h = document.body.scrollHeight;  
+//window.onresize = function(){  
+//  if (document.body.scrollHeight < h) {  
+//      $(".box5").css("display","none");
+//  }else{  
+//       $(".box5").css("display","block");
+//  }  
+//}; 
+  //获取页面高度
+        var clientHeight = document.body.clientHeight;
+        //设置监听聚焦事件
+        document.body.addEventListener("focus", function(e) {
+            var focusElem = document.getElementById('input')
+        }, true);
+        //设置监听窗口变化时间
+        window.addEventListener("resize", function() {
+            if(focusElem && document.body.clientHeight < clientHeight) {
+                //使用scrollIntoView方法来控制输入框
+                focusElem.scrollIntoView(false);
+            }
+        });
+
+
 $(document).ready(function () {
 　　$('body').height($('body')[0].clientHeight);
 })
