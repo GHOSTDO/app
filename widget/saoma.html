@@ -94,24 +94,31 @@
 		var lorry_id = user.lorry_id;
 
 		function saoma1() {
-			var scanner = api.require('scanner')
-			scanner.setFrame({
-				x: 10,
-				y: 64,
-				w: 300,
-				h: 300
-			});
-			scanner.open(function(ret, err) {
-				if(ret) {
-					// alert(JSON.stringify(ret));
-					var id = JSON.stringify(ret.msg);
-					id = id.replace("\"", "").replace("\"", "");
-					//alert(id);
-					window.location.href = "sqdh.html?id=" + id;
-				} else {
-					alert(JSON.stringify(err));
-				}
-			})
+//			var scanner = api.require('scanner')
+//			scanner.open(function(ret, err) {
+//				if(ret) {
+//					// alert(JSON.stringify(ret));
+//					var id = JSON.stringify(ret.msg);
+//					id = id.replace("\"", "").replace("\"", "");
+//					//alert(id);
+//					window.location.href = "sqdh.html?id=" + id;
+//				} else {
+//					alert(JSON.stringify(err));
+//				}
+//			})
+var scanner = api.require('scanner');
+scanner.openView({
+    x: 40,
+    y: 160,
+    w: 200,
+    h: 220,
+}, function(ret, err) {
+    if (ret) {
+        alert(JSON.stringify(ret));
+    } else {
+        alert(JSON.stringify(err));
+    }
+});
 		}
 
 		function saoma2() {
