@@ -2,7 +2,7 @@
 <widget id="A6054987224696">
 	<name>承运社</name>
 	<content src="./register.html"/>
-	<preference name="windowBackground" value="#3A5FCD"/>
+	<preference name="windowBackground" value="#fff"/>
 	<preference name="autoUpdate" value="true"/>
 	<preference name="softInputMode" value="resize"/>
 	<preference name="backgroundMode" value="location"/>
