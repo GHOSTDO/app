@@ -163,12 +163,13 @@
         success:function(msg){
           	if(msg.result==0){
         		 alert(msg.desc);
-          window.location.href="first.html";
+          window.location.href="saoma.html";
         	}else if(msg.result==9){
         		alert(msg.desc);
         		 window.location.href="register.html";
           	}else{
         		alert(msg.desc);
+        		  window.location.href="saoma.html";
         	}
         },
         error:function(xhr){
@@ -193,12 +194,13 @@ $(".but2").on("click",function(){
         success:function(msg){
           	if(msg.result==0){
         		 alert(msg.desc);
-          window.location.href="first.html";
+          window.location.href="saoma.html";
         	}else if(msg.result==9){
         		alert(msg.desc);
         		window.location.href="register.html";
         	}else{
         		alert(msg.desc);
+        		  window.location.href="saoma.html";
         	}
         },
         error:function(xhr){
