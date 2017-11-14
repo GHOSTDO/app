@@ -143,7 +143,9 @@
 					     alert(msg.desc);
 					     window.location.href="register.html";
 					}else{
-						alert(msg.desc);
+						$(".center").html(msg.desc);
+            	$(".center").css("text-align","center");
+              $(".center").css("font-size","24px");
 					}		
 				},
 				error: function(xhr) {

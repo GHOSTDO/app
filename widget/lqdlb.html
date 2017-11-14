@@ -145,13 +145,17 @@
           	}else{
           		$(".center").html("尚未有清单历史记录");
           		$(".center").css("text-align","center");
+          		  $(".center").css("font-size","24px");
           	}
             
            }else if(msg.result==9){
            	alert(msg.desc);
            	window.location.href="register.html";
           }else{
-            alert(msg.desc);
+           // alert(msg.desc);
+            	$(".center").html(msg.desc);
+            	$(".center").css("text-align","center");
+              $(".center").css("font-size","24px");
             }   
         },
           error: function(xhr) {
