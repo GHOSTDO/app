@@ -299,7 +299,7 @@
 		user = $api.getStorage('user');
 		var time = user.time;
 		var lorry_id = user.lorry_id;
-		//var lorry_id="10000001";
+
 		(function($) {
 			$.getUrlParam = function(name) {
 				var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
@@ -308,7 +308,7 @@
 				return null;
 			}
 		})(jQuery);
-		var sch_id = $.getUrlParam('id');
+	var sch_id = $.getUrlParam('id');
 		// var sch_id="QD5130001000001";
 
 		//alert(sch_id);
@@ -329,11 +329,16 @@
 					//           alert(msg.customer.pic);
 					if(msg.customer.pic == null) {
 						$(".img").html("该清单已经取消");
+						$(".img").css("width","95%");
+						$(".img").css("margin-left","5%");
 					} else if((msg.customer.pic).match(/^[a-zA-Z]+:\/\//)) {
+//						$(".img").css("width","60px");
 						$("#pic").attr('src', msg.customer.pic);
 					} else {
 						$(".img").html(msg.customer.pic);
 						$("#pic").css("display", "none");
+						$(".img").css("width","80%");
+						$(".img").css("margin-left","5%");
 					}
 					for(var i = 0; i < msg.goods.length; i++) {
 						a = '<div class="foot_1" onclick="dian(this)"><div class="foot1"><p>运<span class="s1"></span>单<span class="s1"></span>号：<span>' + msg.goods[i].order_id + '</span></p></div><div class="foot2"><img src="image/more.png" alt=""></div><div class="foot3"><p>货物名称：<span>' + msg.goods[i].goods_name + '</span></p></div><div class="box3"><p>件<span class="s3"></span>数：<span>' + msg.goods[i].goods_count + '</span></p></div><div class="box3"><p>体<span class="s3"></span>积：<span>' + msg.goods[i].goods_capacity + '</span></p></div><div class="box3"><p>重<span class="s3"></span>量：<span>' + msg.goods[i].goods_weight + '</span></p></div><div class="box3"><p>包<span class="s3"></span>装：<span>' + msg.goods[i].goods_package + '</span></p></div></div><div class="xian1"></div>'
