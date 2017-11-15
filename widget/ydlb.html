@@ -106,7 +106,7 @@
 <script type="text/javascript" src="js/APICloud-rest.js"></script>
 <script type="text/javascript" src="js/api.js"></script>
 <script type="text/javascript">
-       user=$api.getStorage('user');
+         user=$api.getStorage('user');
        var time=user.time;
        var lorry_id=user.lorry_id;
        if(lorry_id==null||lorry_id==""){
@@ -122,10 +122,10 @@
             success:function(msg){
                 $(".center").html("");
                 if(msg.result==0){
-                	if(msg.msg.orders.length>0){
+                	if(msg.orders.length>0){
                     for(var i=0;i<msg.orders.length;i++){
                         var a='<div class="c1" onclick="yd('+msg.orders[i].order_id
-                        +')"><div class="c1_1"><p>单号：<span>'+msg.orders[i].order_id
+                        +')"><div class="c1_1"><p>运单单号：<span>'+msg.orders[i].order_id
                         +'</span></p></div><div class="c1_2"><img src="image/more.png" alt="">'
                         +'</div><div class="c1_3"><p>收货人：<span>'+msg.orders[i].customer_name
                         +'</span></p></div><div class="xian"></div></div>';
