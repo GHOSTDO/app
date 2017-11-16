@@ -57,7 +57,7 @@
 				margin-left: 15%;
 			}
 			
-			/*.sb1 {
+			.sb1 {
 				width: 70%;
 				height: 50px;
 				background: #FFCF09;
@@ -65,10 +65,10 @@
 				line-height: 50px;
 				font-size: 18px;
 				float: left;
-				margin-top: 80px;
+				margin-top: 100px;
 				margin-left: 15%;
-			}*/
-			
+			}
+/*	/*	/*	/*
 			.sb2 {
 				width: 70%;
 				height: 50px;
@@ -77,9 +77,9 @@
 				line-height: 50px;
 				font-size: 18px;
 				float: left;
-				margin-top: 80px;
+				margin-top: 10px;
 				margin-left: 15%;
-			}
+			}*/
 			
 			.box2 {
 				width: 100%;
@@ -134,14 +134,14 @@
 					<h3>交付方式</h3></div>
 			</div>
 			<div class="sb" onclick="saoma()">
-				扫码交付
+				物流公司收货
 			</div>
-			<!--<div class="sb1" onclick="ming()">
-				签字交付
-			</div>-->
-			<div class="sb2" onclick="pai()">
+			<div class="sb1" onclick="ming()">
+				收货人签字
+			</div>
+			<!--<div class="sb2" onclick="pai()">
 				拍照交付
-			</div>
+			</div>-->
 		</div>
 
 	</body>
@@ -163,23 +163,23 @@
 			}
 		})(jQuery);
 
-//		function ming() {
-//			var id = $.getUrlParam('id');
-//			// alert(id);
-//			window.location.href = "text03.html?id=" + id;
-//		}
+		function ming() {
+			var id = $.getUrlParam('id');
+			// alert(id);
+			window.location.href = "text03.html?id=" + id;
+		}
 
 		function saoma() {
 			var id = $.getUrlParam('id');
 			// alert(id);
-			window.location.href = "saomajiao.html?id=" + id;
+			window.location.href = "delivery.html?id=" + id;
 		}
 
-		function pai() {
-			var id = $.getUrlParam('id');
-			// alert(id);
-			window.location.href = "photo.html?id=" + id;
-		}
+//		function pai() {
+//			var id = $.getUrlParam('id');
+//			// alert(id);
+//			window.location.href = "photo.html?id=" + id;
+//		}
 
 		$(".top1").on("click", function() {
 			window.history.back();
