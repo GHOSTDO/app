@@ -285,6 +285,7 @@
 				<div class="foot10_3"><img src="image/gr.png" alt=""></div>
 			</div>
 		</div>
+		
 	</body>
 	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript" src="js/local.js"></script>
@@ -331,6 +332,9 @@
 						}
 					})
 				} else {
+					var con;
+					con=confirm("本功能需要打开定位才能使用，如需开启定位请点击确认按钮");
+					if(con==true){
 					var mySettingInfo = api.require('mySettingInfo');
 					mySettingInfo.settingInt({
 						'index': 2
@@ -338,9 +342,10 @@
 						alert(JSON.stringify(ret));
 					});
 				}
+				}
 			});
 		}
-		var t2 = window.setInterval("apiready()", 3600000);
+	 window.setInterval("apiready()",3600);
 	</script>
 	<script type="text/javascript">
 		//		alert(lorry_id);
@@ -380,6 +385,7 @@
 		})
 		$(".center4").on("click", function() {
 			window.location.href = "information.html";
+			apiready();
 		})
 		$(".foot10_2").on("click", function() {
 			window.location.href = "car.html";
@@ -391,14 +397,17 @@
 		// alert(tel+" "+pwd+" "+val+" "+lorry_id);
 		function money() {
 			window.location.href = "list.html";
+			apiready();
 		}
 
 		function saoma() {
 			window.location.href = "saoma.html";
+			apiready();
 		}
 
 		function message() {
 			window.location.href = "chathall.html";
+			apiready();
 		}
 	</script>
 	<script type="text/javascript">
