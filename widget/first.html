@@ -294,55 +294,59 @@
 		user = $api.getStorage('user');
 		var time = user.time;
 		var lorry_id = user.lorry_id;
-		apiready = function(){
+		apiready = function() {
 			api.setScreenOrientation({
-    orientation: 'portrait_up'
-});
-var bMap = api.require('bMap');
-bMap.getLocation({
-    accuracy: '10m',
-    autoStop: true,
-    filter: 1
-  }, function(ret, err) {
-    if (ret.status){
-        $.ajax({
-        	url:"http://api.uminfo.cn/mapselect.php/addmap",
-        	dataType:'json',
-        	type:'post',
-        	ContentType: "application/json;charset=utf-8",
-        	data:JSON.stringify({
-        		lorry_id:lorry_id,
-        		longitude:ret.lon,
-        		latitude:ret.lat,
-        		time1:time
-            }),
-            success:function(msg){
-            	if(msg.result==0){
-//          		alert(msg.desc);
-            	}else if(msg.result==9){
-            		alert(msg.desc);
-            		window.location.href="register.html";
-            	}else{
-            		alert(msg.desc);
-            	}
-            },
-            error:function(xhr){
-            	alert("获取后台失败"+xhr.responseText);
-            }
-        })
-    }else{
-        alert("请检查手机是否开启定位");
-    }
-  });
-}
-var t2 = window.setInterval("apiready()",3600000); 
+				orientation: 'portrait_up'
+			});
+			var bMap = api.require('bMap');
+			bMap.getLocation({
+				accuracy: '10m',
+				autoStop: true,
+				filter: 1
+			}, function(ret, err) {
+				if(ret.status) {
+					$.ajax({
+						url: "http://api.uminfo.cn/mapselect.php/addmap",
+						dataType: 'json',
+						type: 'post',
+						ContentType: "application/json;charset=utf-8",
+						data: JSON.stringify({
+							lorry_id: lorry_id,
+							longitude: ret.lon,
+							latitude: ret.lat,
+							time1: time
+						}),
+						success: function(msg) {
+							if(msg.result == 0) {
+								//          		alert(msg.desc);
+							} else if(msg.result == 9) {
+								alert(msg.desc);
+								window.location.href = "register.html";
+							} else {
+								alert(msg.desc);
+							}
+						},
+						error: function(xhr) {
+							alert("获取后台失败" + xhr.responseText);
+						}
+					})
+				} else {
+					var mySettingInfo = api.require('mySettingInfo');
+					mySettingInfo.settingInt({
+						'index': 2
+					}, function(ret, err) {
+						alert(JSON.stringify(ret));
+					});
+				}
+			});
+		}
+		var t2 = window.setInterval("apiready()", 3600000);
 	</script>
 	<script type="text/javascript">
-		
-//		alert(lorry_id);
+		//		alert(lorry_id);
 		window.onload = function() {
 			$.ajax({
-				url: "http://api.uminfo.cn/app_lorry.php/tongji?lorry_id=" + lorry_id+"&time1="+time,
+				url: "http://api.uminfo.cn/app_lorry.php/tongji?lorry_id=" + lorry_id + "&time1=" + time,
 				dataType: 'json',
 				type: 'get',
 				ContentType: "application/json;charset=utf-8",
@@ -356,18 +360,18 @@ var t2 = window.setInterval("apiready()",3600000);
 						} else {
 							$(".title").append(a);
 						}
-					}else if(msg.result==9){ 
+					} else if(msg.result == 9) {
 						alert(msg.desc);
-						window.location.href="register.html";
-				    }else {
+						window.location.href = "register.html";
+					} else {
 						alert(msg.desc);
 					}
 				},
 				error: function(xhr) {
-				alert("获取后台失败"+xhr.responseText);
+					alert("获取后台失败" + xhr.responseText);
 				}
 			});
-			
+
 		}
 	</script>
 	<script type="text/javascript">
@@ -388,9 +392,11 @@ var t2 = window.setInterval("apiready()",3600000);
 		function money() {
 			window.location.href = "list.html";
 		}
+
 		function saoma() {
 			window.location.href = "saoma.html";
 		}
+
 		function message() {
 			window.location.href = "chathall.html";
 		}
@@ -402,7 +408,9 @@ var t2 = window.setInterval("apiready()",3600000);
 			var count = $(".banner_box .imgs img").length;
 			var timer = null;
 			points(0);
-			$(".banner_box .imgs img").eq(0).css({ 'display': 'block' });
+			$(".banner_box .imgs img").eq(0).css({
+				'display': 'block'
+			});
 
 			function points(index) {
 				$(".banner_box .points span").eq(index).addClass("current").siblings('span').removeClass('current');
@@ -410,12 +418,20 @@ var t2 = window.setInterval("apiready()",3600000);
 
 			$(".right_btn").click(function() {
 				if(num == count) {
-					$(".banner_box .imgs img").css({ 'display': 'none' });
-					$(".banner_box .imgs img").eq(0).css({ 'display': 'block' });
+					$(".banner_box .imgs img").css({
+						'display': 'none'
+					});
+					$(".banner_box .imgs img").eq(0).css({
+						'display': 'block'
+					});
 					num = 1;
 				} else {
-					$(".banner_box .imgs img").css({ 'display': 'none' });
-					$(".banner_box .imgs img").eq(num).css({ 'display': 'block' });
+					$(".banner_box .imgs img").css({
+						'display': 'none'
+					});
+					$(".banner_box .imgs img").eq(num).css({
+						'display': 'block'
+					});
 					num++
 				}
 				points(num - 1);
@@ -423,12 +439,20 @@ var t2 = window.setInterval("apiready()",3600000);
 
 			$(".left_btn").click(function() {
 				if(num == 1) {
-					$(".banner_box .imgs img").css({ 'display': 'none' });
-					$(".banner_box .imgs img").eq(3).css({ 'display': 'block'});
+					$(".banner_box .imgs img").css({
+						'display': 'none'
+					});
+					$(".banner_box .imgs img").eq(3).css({
+						'display': 'block'
+					});
 					num = count;
 				} else {
-					$(".banner_box .imgs img").css({ 'display': 'none' });
-					$(".banner_box .imgs img").eq(num - 2).css({ 'display':'block'});
+					$(".banner_box .imgs img").css({
+						'display': 'none'
+					});
+					$(".banner_box .imgs img").eq(num - 2).css({
+						'display': 'block'
+					});
 					num--
 				}
 				points(num - 1);
@@ -449,4 +473,5 @@ var t2 = window.setInterval("apiready()",3600000);
 			});
 		});
 	</script>
+
 </html>
