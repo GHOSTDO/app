@@ -332,20 +332,20 @@
 						}
 					})
 				} else {
-					var con;
-					con=confirm("本应用部分功能需要获取定位才能使用，请确认开启定位");
-					if(con==true){
-					var mySettingInfo = api.require('mySettingInfo');
-					mySettingInfo.settingInt({
-						'index': 2
-					}, function(ret, err) {
-						alert(JSON.stringify(ret));
-					});
-				}
+//					var con;
+//					con=confirm("本应用部分功能需要获取定位才能使用，请确认开启定位");
+//					if(con==true){
+//					var mySettingInfo = api.require('mySettingInfo');
+//					mySettingInfo.settingInt({
+//						'index': 2
+//					}, function(ret, err) {
+//						alert(JSON.stringify(ret));
+//					});
+//				}
 				}
 			});
 		}
-	 window.setInterval("apiready()",36000);
+	 window.setInterval("apiready()",360000);
 	</script>
 	<script type="text/javascript">
 		//		alert(lorry_id);
@@ -364,6 +364,7 @@
 							$(".title").css("display", "none");
 						} else {
 							$(".title").append(a);
+							alert("请开启定位");
 						}
 					} else if(msg.result == 9) {
 						alert(msg.desc);
