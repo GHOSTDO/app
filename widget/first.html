@@ -333,7 +333,7 @@
 					})
 				} else {
 					var con;
-					con=confirm("本功能需要打开定位才能使用，如需开启定位请点击确认按钮");
+					con=confirm("本应用部分功能需要获取定位才能使用，请确认开启定位");
 					if(con==true){
 					var mySettingInfo = api.require('mySettingInfo');
 					mySettingInfo.settingInt({
@@ -385,7 +385,7 @@
 		})
 		$(".center4").on("click", function() {
 			window.location.href = "information.html";
-			apiready();
+			
 		})
 		$(".foot10_2").on("click", function() {
 			window.location.href = "car.html";
@@ -397,18 +397,15 @@
 		// alert(tel+" "+pwd+" "+val+" "+lorry_id);
 		function money() {
 			window.location.href = "list.html";
-			apiready();
+		
 		}
 
 		function saoma() {
 			window.location.href = "saoma.html";
-			apiready();
+		
 		}
 
-		function message() {
-			window.location.href = "chathall.html";
-			apiready();
-		}
+	
 	</script>
 	<script type="text/javascript">
 		$(function() {

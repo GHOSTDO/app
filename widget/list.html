@@ -101,5 +101,34 @@
 		$(".top1").on("click", function(){
 			window.history.back();
 		})
+		apiready = function() {
+			api.setScreenOrientation({
+				orientation: 'portrait_up'
+			});
+			var bMap = api.require('bMap');
+			bMap.getLocation({
+				accuracy: '10m',
+				autoStop: true,
+				filter: 1
+			}, function(ret, err) {
+				if(ret.status) {
+				     
+				} else {
+					var con;
+					con=confirm("本功能需要获取定位才能使用，请确认开启定位");
+					if(con==true){
+					var mySettingInfo = api.require('mySettingInfo');
+					mySettingInfo.settingInt({
+						'index': 2
+					}, function(ret, err) {
+						alert(JSON.stringify(ret));
+					});
+				}else{
+				   	window.history.back();
+				}
+				}
+			});
+		}
+	 window.setInterval("apiready()",360);	
 	</script>
 </html>
