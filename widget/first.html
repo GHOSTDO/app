@@ -285,7 +285,7 @@
 				<div class="foot10_3"><img src="image/gr.png" alt=""></div>
 			</div>
 		</div>
-		
+
 	</body>
 	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript" src="js/local.js"></script>
@@ -300,71 +300,63 @@
 				orientation: 'portrait_up'
 			});
 			var bMap = api.require('bMap');
-			bMap.getLocation({
-				accuracy: '10m',
-				autoStop: true,
-				filter: 1
-			}, function(ret, err) {
-				if(ret.status) {
-					$.ajax({
-						url: "http://api.uminfo.cn/mapselect.php/addmap",
-						dataType: 'json',
-						type: 'post',
-						ContentType: "application/json;charset=utf-8",
-						data: JSON.stringify({
-							lorry_id: lorry_id,
-							longitude: ret.lon,
-							latitude: ret.lat,
-							time1: time
-						}),
-						success: function(msg) {
-							if(msg.result == 0) {
-								//          		alert(msg.desc);
-							} else if(msg.result == 9) {
-								alert(msg.desc);
-								window.location.href = "register.html";
-							} else {
-								alert(msg.desc);
-							}
-						},
-						error: function(xhr) {
-							alert("获取后台失败" + xhr.responseText);
-						}
-					})
-				} else {
-//					var con;
-//					con=confirm("本应用部分功能需要获取定位才能使用，请确认开启定位");
-//					if(con==true){
-//					var mySettingInfo = api.require('mySettingInfo');
-//					mySettingInfo.settingInt({
-//						'index': 2
-//					}, function(ret, err) {
-//						alert(JSON.stringify(ret));
-//					});
-//				}
-				}
-			});
-		}
-	 window.setInterval("apiready()",360000);
-	</script>
-	<script type="text/javascript">
-		//		alert(lorry_id);
-		window.onload = function() {
 			$.ajax({
-				url: "http://api.uminfo.cn/app_lorry.php/tongji?lorry_id=" + lorry_id + "&time1=" + time,
-				dataType: 'json',
-				type: 'get',
-				ContentType: "application/json;charset=utf-8",
-				data: JSON.stringify({}),
-				success: function(msg) {
-					$(".title").html()
-					if(msg.result == 0) {
-						var a = msg.count;
-						if(a == 0) {
-							$(".title").css("display", "none");
-						} else {
-							$(".title").append(a);
-//							alert("请开启定位");
+					url: "http://api.uminfo.cn/app_lorry.php/tongji?lorry_id=" + lorry_id + "&time1=" + time,
+					dataType: 'json',
+					type: 'get',
+					ContentType: "application/json;charset=utf-8",
+					data: JSON.stringify({}),
+					success: function(msg) {
+						$(".title").html()
+						if(msg.result == 0) {
+							var a = msg.count;
+							if(a == 0) {
+								$(".title").css("display", "none");
+							} else {
+								$(".title").append(a);
+								bMap.getLocation({
+									accuracy: '10m',
+									autoStop: true,
+									filter: 1
+								}, function(ret, err) {
+									if(ret.status) {
+										$.ajax({
+											url: "http://api.uminfo.cn/mapselect.php/addmap",
+											dataType: 'json',
+											type: 'post',
+											ContentType: "application/json;charset=utf-8",
+											data: JSON.stringify({
+												lorry_id: lorry_id,
+												longitude: ret.lon,
+												latitude: ret.lat,
+												time1: time
+											}),
+											success: function(msg) {
+												if(msg.result == 0) {
+													//          		alert(msg.desc);
+												} else if(msg.result == 9) {
+													alert(msg.desc);
+													window.location.href = "register.html";
+												} else {
+													alert(msg.desc);
+												}
+											},
+											error: function(xhr) {
+												alert("获取后台失败" + xhr.responseText);
+											}
+										})
+									} else {
+										alert("您现在有待交付清单请开启定位");
+										var mySettingInfo = api.require('mySettingInfo');
+										mySettingInfo.settingInt({
+											'index': 2
+										}, function(ret, err) {
+											alert(JSON.stringify(ret));
+										});
+
+									}
+								});
+							}
 						}
 					} else if(msg.result == 9) {
 						alert(msg.desc);
@@ -379,6 +371,40 @@
 			});
 
 		}
+
+		window.setInterval("apiready()", 360000);
+	</script>
+	<script type="text/javascript">
+		//		alert(lorry_id);
+//		window.onload = function() {
+//			$.ajax({
+//				url: "http://api.uminfo.cn/app_lorry.php/tongji?lorry_id=" + lorry_id + "&time1=" + time,
+//				dataType: 'json',
+//				type: 'get',
+//				ContentType: "application/json;charset=utf-8",
+//				data: JSON.stringify({}),
+//				success: function(msg) {
+//					$(".title").html()
+//					if(msg.result == 0) {
+//						var a = msg.count;
+//						if(a == 0) {
+//							$(".title").css("display", "none");
+//						} else {
+//							$(".title").append(a);
+//						}
+//					} else if(msg.result == 9) {
+//						alert(msg.desc);
+//						window.location.href = "register.html";
+//					} else {
+//						alert(msg.desc);
+//					}
+//				},
+//				error: function(xhr) {
+//					alert("获取后台失败" + xhr.responseText);
+//				}
+//			});
+//
+//		}
 	</script>
 	<script type="text/javascript">
 		$(".center2").on("click", function() {
@@ -386,7 +412,7 @@
 		})
 		$(".center4").on("click", function() {
 			window.location.href = "information.html";
-			
+
 		})
 		$(".foot10_2").on("click", function() {
 			window.location.href = "car.html";
@@ -398,15 +424,13 @@
 		// alert(tel+" "+pwd+" "+val+" "+lorry_id);
 		function money() {
 			window.location.href = "list.html";
-		
+
 		}
 
 		function saoma() {
 			window.location.href = "saoma.html";
-		
-		}
 
-	
+		}
 	</script>
 	<script type="text/javascript">
 		$(function() {
