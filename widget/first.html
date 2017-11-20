@@ -310,6 +310,7 @@
 						$(".title").html()
 						if(msg.result == 0) {
 							var a = msg.count;
+							alert(a);
 							if(a == 0) {
 								$(".title").css("display", "none");
 							} else {
@@ -333,7 +334,7 @@
 											}),
 											success: function(msg) {
 												if(msg.result == 0) {
-													//          		alert(msg.desc);
+													
 												} else if(msg.result == 9) {
 													alert(msg.desc);
 													window.location.href = "register.html";
@@ -357,7 +358,6 @@
 									}
 								});
 							}
-						}
 					} else if(msg.result == 9) {
 						alert(msg.desc);
 						window.location.href = "register.html";
