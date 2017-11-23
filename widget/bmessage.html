@@ -187,6 +187,16 @@
 		.kb {
 			height: 30px;
 		}
+		.box20{
+			width:100%;
+			height:500px;
+			display:none;
+			position:absolute;
+			line-height:500px;
+			text-align: center;
+			top:0px;
+			left:0px;
+		}
 	</style>
 
 	<body>
@@ -230,15 +240,11 @@
 				<div class="xian"></div>
 			</div>
 			<div class="foot">确认修改</div>
-			<!--<div class="foot10">
-				<div class="foot10_1"><img src="image/wxb.png" alt=""></div>
-				<div class="foot10_2"><img src="image/ys.png" alt=""></div>
-				<div class="foot10_3"><img src="image/gr.png" alt=""></div>
-			</div>-->
 			<div class="box10">
 				<div class="kb"></div>
 				<div><img src="image/camera.png" alt="" class="img10"></div>
 			</div>
+			<div id="box20">数据提交中</div>
 		</div>
 		<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 		<script type="text/javascript" src="js/local.js"></script>
@@ -264,7 +270,9 @@
 				dataType: 'json',
 				type: 'get',
 				ContentType: "application/json;charset=utf-8",
-				data: JSON.stringify({}),
+				data: JSON.stringify({
+					
+				}),
 				success: function(msg) {
 					if(msg.result == 0) {
 						$("#name").val(msg.lorry.driver_name);
@@ -350,6 +358,8 @@
 			});
 
 			$(".foot").on("click", function() {
+				$("#box20").css("display","block");
+			   $(".foot").css("display","none");
 				//alert(f);
 				var name=$("#name").val();
 				var c = $("#number").val();
