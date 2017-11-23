@@ -137,6 +137,7 @@
     })
 
     $(".b3").on("click", function() {
+    	$(".b3").css("display","none");
       var drawingBoard = api.require('drawingBoard');
       drawingBoard.save({
         savePath: 'fs://drawingBoard/result.png',
@@ -180,6 +181,7 @@
             		window.location.href = "register.html";
             	}else{
             		alert(msg.desc);
+            		$(".b3").css("display","block");
             	}
             },
             error: function(xhr) {

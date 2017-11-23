@@ -187,15 +187,7 @@
 		.kb {
 			height: 30px;
 		}
-		.box20{
-			width:100%;
-			height:40px;
-			display:none;
-		    float:left;
-			line-height:40px;
-			text-align: center;
-		    margin-left:1%;
-		}
+		
 		
 	</style>
 
@@ -244,7 +236,7 @@
 				<div class="kb"></div>
 				<div><img src="image/camera.png" alt="" class="img10"></div>
 			</div>
-			<div id="box20"></div>
+			
 		</div>
 		
 		<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
@@ -359,8 +351,7 @@
 			});
 
 			$(".foot").on("click", function() {
-				$("#box20").html("数据提交中");
-				$("#box20").css("display","block");
+			
 			   $(".foot").css("display","none");
 				//alert(f);
 				var name=$("#name").val();
@@ -393,7 +384,7 @@
 							alert(msg.desc);
 							window.location.href = "register.html";
 						}else{
-				       $("#box20").css("display","none");
+				     
 			             $(".foot").css("display","block");
 							alert(msg.desc);
 						}
