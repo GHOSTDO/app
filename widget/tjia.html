@@ -182,7 +182,7 @@
                 }
             },
             error:function(xhr){
-                 alert("获取后台失败！"+xhr.responseText);
+                 alert("获取后台失败！");
             }
 
         })
@@ -200,7 +200,7 @@
       }
     })(jQuery);
     var l=$.getUrlParam('length');
-    alert(l);
+ 
         $(".foot").on("click",function(){
             var chep = $("#chep").val();
             var car = $('#car').val();
@@ -242,7 +242,7 @@
                     
                 },
                 error:function(xhr){
-                    alert("获取后台失败"+xhr.responseText);
+                    alert("获取后台失败");
                 }
             })
           }
