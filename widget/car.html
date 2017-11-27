@@ -146,12 +146,10 @@
     <script type="text/javascript" src="js/APICloud-rest.js"></script>
     <script type="text/javascript" src="js/api.js"></script>
     <script type="text/javascript">
-//  user=$api.getStorage('user');
-//  var time=user.time;
-//  var lorry_id=user.lorry_id;
-    var time="";
-    var lorry_id="1";
-    var length = "1511776082";
+    user=$api.getStorage('user');
+    var time=user.time;
+    var lorry_id=user.lorry_id;
+    var length = "";
     $.ajax({
          url: "http://api.uminfo.cn/app_lorry.php/getplate?lorry_id="+lorry_id+"&time1="+time,
          dataType: 'json',
