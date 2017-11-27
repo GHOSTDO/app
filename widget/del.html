@@ -165,7 +165,7 @@
     <body>
     	<div class="box">
     		<div class="top">
-    			<div class="top1"><img src="image/back.png" alt=""></div>
+    			<div class="top1"></div>
     			<div class="top2"><h3>车辆信息</h3></div>
     		</div>
     		<div class="center">
@@ -215,6 +215,7 @@
 <script type="text/javascript" src="js/APICloud-rest.js"></script>
 <script type="text/javascript" src="js/api.js"></script>
 <script type="text/javascript">
+
      $.ajax({
             url:"http://api.uminfo.cn/app_lorry.php/lorry_type",
             dataType:'json',
@@ -250,10 +251,10 @@
         return null;
       }
     })(jQuery);
-    var id=$.getUrlParam('id');
+  
     
     $.ajax({
-        url:"http://api.uminfo.cn/app_lorry.php/lorrymessage?lorry_id="+id+"&time1="+time,
+        url:"http://api.uminfo.cn/app_lorry.php/lorrymessage?lorry_id="+lorry_id+"&time1="+time,
         dataTpye:'json',
         type:'get',
         ContentType: "application/json;charset=utf-8",
@@ -308,7 +309,7 @@
             success:function(msg){
             	if(msg.result==0){
             		  alert(msg.desc);
-                window.location.href="car.html";
+              
             	}else if(msg.result==9){
             		alert(msg.desc);
             		window.location.href="register.html";
