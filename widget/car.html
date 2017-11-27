@@ -77,53 +77,7 @@
         		margin-top: 16px;
         	}
         	
-  .mui-switch {
-  width: 35px;
-  height: 18px;
-  position: relative;
-  border: 1px solid #dfdfdf;
-  background-color: #fdfdfd;
-  box-shadow: #dfdfdf 0 0 0 0 inset;
-  border-radius: 20px;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
-  background-clip: content-box;
-  display: inline-block;
-  -webkit-appearance: none;
-  user-select: none;
-  outline: none; }
-  .mui-switch:before{
-    content: '';
-    width: 17px;
-    height: 17px;
-    position: absolute;
-    top: 0px;
-    left: 0;
-    border-radius: 20px;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-    background-color: #fff;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4); 
-    display:none;
-    
-    }
-  .mui-switch:checked {
-    border-color: #64bd63;
-    box-shadow: #64bd63 0 0 0 16px inset;
-    background-color: #64bd63; }
-    .mui-switch:checked:before {
-      left: 21px; }
-    .foot10{
-  width: 100%;
-  height: 40px;
-  position: fixed;
-  bottom: 0;
-  background: black;
-}
+  
 .foot10 img{
   width: 40px;
   height: 40px;
@@ -166,6 +120,10 @@
   margin-top: -105px;
   margin-left:27%;
 } 
+.radio{
+	display: none;
+	
+}
     </style>
     <body>
     	<div class="box">
@@ -188,10 +146,12 @@
     <script type="text/javascript" src="js/APICloud-rest.js"></script>
     <script type="text/javascript" src="js/api.js"></script>
     <script type="text/javascript">
-    user=$api.getStorage('user');
-    var time=user.time;
-    var lorry_id=user.lorry_id;
-    var length = "";
+//  user=$api.getStorage('user');
+//  var time=user.time;
+//  var lorry_id=user.lorry_id;
+    var time="";
+    var lorry_id="1";
+    var length = "1511776082";
     $.ajax({
          url: "http://api.uminfo.cn/app_lorry.php/getplate?lorry_id="+lorry_id+"&time1="+time,
          dataType: 'json',
@@ -206,12 +166,12 @@
                     var a = '<div class="car">'
                     +'<div class="car_1" onclick="car('+msg.lorrys[i].lorry_id+')">车牌号:<span>'+msg.lorrys[i].plate_number+'</span><span style="display:none;">'+msg.lorrys[i].lorry_id+'</span></div>'
                                 +'<div class="car_2">'
-                                +'<label><input class="mui-switch"   name="app" id="'+msg.lorrys[i].lorry_id+'" onclick="gai('+msg.lorrys[i].lorry_id+')"></label>'
+                                +'<label><input class="radio" id="'+msg.lorrys[i].lorry_id+'" onclick="gai('+msg.lorrys[i].lorry_id+')"></label>'
                                 +'</div>'
                              +'</div>'
                         +'<div class="xian"></div>'
                      $(".center").append(a);
-                     $("input:radio[value='1']").attr('checked','true');
+                    
 
                 }
             }else if(msg.result==9){
