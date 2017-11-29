@@ -261,7 +261,7 @@ $(document).ready(function () {
 						$api.setStorage(key, user);
 						window.location.href = "first.html";
 						} else {
-							alert("登录失败");
+							alert(msg.desc);
 						}
 					},
 					error: function(xhr) {
