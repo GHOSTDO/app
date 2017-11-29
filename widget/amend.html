@@ -144,10 +144,10 @@
     				<div class="box1_2"><input type="text" placeholder="默认单位吨(t)" id="zhong"></div>
     			</div>
     			<div class="xian"></div>
-    			<div class="box1">
+    			<!--<div class="box1">
     				<div class="box1_1">驾驶员年龄</div>
     				<div class="box1_2"><input type="text" placeholder="请填写实际年龄" id="old"></div>
-    			</div>
+    			</div>-->
     			<div class="xian"></div>
     			<div class="box2">
     				<div class="box2_1">备注</div>
@@ -212,7 +212,7 @@
               $('#car').val(msg.lorry.lorry_type_id);
               $('#chang').val(msg.lorry.lorry_size);
               $('#zhong').val(msg.lorry.lorry_weight);
-              $('#old').val(msg.lorry.lorry_age);
+//            $('#old').val(msg.lorry.lorry_age);
               $('#text').val(msg.lorry.lorry_tx);  
             }else if(msg.result==9){
             	alert(msg.desc);
@@ -233,7 +233,7 @@
             var car = $('#car').val();
             var chang = $('#chang').val();
             var zhong = $('#zhong').val();
-            var old = $('#old').val();
+//          var old = $('#old').val();
             var text = $('#text').val();
                $.ajax({
                 url:"http://api.uminfo.cn/app_lorry.php/uplorry",
@@ -247,7 +247,6 @@
                    lorry_type:car,
                    lorry_text:text,
                    lorry_weight:zhong,
-                   lorry_age:old,
                    time1:time
                 }),
                 success:function(msg){
