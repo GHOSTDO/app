@@ -354,7 +354,7 @@
 
 			$(".foot").on("click", function() {
 			
-			  
+			  $(".foot").css("display","none");
 				//alert(f);
 				var name=$("#name").val();
 				var c = $("#number").val();
@@ -387,11 +387,13 @@
 							window.location.href = "register.html";
 						}else{
 							alert(msg.desc);
+								windows.location.reload(); 
 						}
 						
 					},
 					error: function(xhr) {
 						alert("获取后台失败");
+							windows.location.reload(); 
 					}
 				});
                }

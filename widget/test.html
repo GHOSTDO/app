@@ -181,11 +181,12 @@
             		window.location.href = "register.html";
             	}else{
             		alert(msg.desc);
-            		$(".b3").css("display","block");
+            		windows.location.reload();
             	}
             },
             error: function(xhr) {
             alert("获取后台失败！");
+            windows.location.reload();
             }
           });
         } else {
