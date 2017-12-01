@@ -89,7 +89,9 @@
 	<script type="text/javascript">
 	user=$api.getStorage('user');
     var lorry_id=user.lorry_id;
-
+if(user==null){
+			window.location.href="register.html";
+		}
 		function saoma1() {
 			window.location.href="qdlb.html";
         } 

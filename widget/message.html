@@ -202,6 +202,9 @@
     user=$api.getStorage('user');
    var time=user.time;
     var lorry_id=user.lorry_id;
+    if(user==null){
+			window.location.href="register.html";
+		}
     	$(".box1_3").on("click",function(){
     		var height = $(".box2").height();
     		var img1 = $("#img1");

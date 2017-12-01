@@ -244,12 +244,12 @@
 		<script type="text/javascript" src="js/APICloud-rest.js"></script>
 		<script type="text/javascript" src="js/api.js"></script>
 		<script type="text/javascript">
-//			user = $api.getStorage('user');
-//			var time = user.time;
-//			var lorry_id = user.lorry_id;
-            var lorry_id="16";
-            var time="1511966838";
-			var f = null;
+			user = $api.getStorage('user');
+			var time = user.time;
+			var lorry_id = user.lorry_id;
+            if(user==null){
+			window.location.href="register.html";
+		}
 
 			$(".foot10_2").on("click", function() {
 				window.location.href = "del.html";

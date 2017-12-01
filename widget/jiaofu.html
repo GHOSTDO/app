@@ -85,6 +85,9 @@
     user=$api.getStorage('user');
  
     var lorry_id=user.lorry_id;
+    if(user==null){
+			window.location.href="register.html";
+		}
         function qd(){
             window.location.href="qdlb.html";
         }

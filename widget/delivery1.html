@@ -169,6 +169,9 @@
 	<script type="text/javascript">
 		user = $api.getStorage('user');
 		var lorry_id = user.lorry_id;
+		if(user==null){
+			window.location.href="register.html";
+		}
 		(function($) {
 			$.getUrlParam = function(name) {
 				var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");

@@ -117,7 +117,8 @@
     var lorry_id=user.lorry_id;
 
       if(lorry_id==null||lorry_id==""){
-        alert("用户未登录");
+//      alert("用户未登录");
+			window.location.href="register.html";
       }else{
         $.ajax({
         url: "http://api.uminfo.cn/app_lorry.php/sbylorryn?lorry_id="+lorry_id+"&time1="+time,

@@ -97,6 +97,9 @@
 		user = $api.getStorage('user');
 		var time = user.time;
 		var lorry_id = user.lorry_id;
+				if(user==null){
+window.location.href="register.html";
+}
 		(function($) {
 			$.getUrlParam = function(name) {
 				var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");

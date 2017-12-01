@@ -234,6 +234,9 @@ background: #E4E4E4;
 	user=$api.getStorage('user');
    var time=user.time;
     var lorry_id=user.lorry_id;
+    		if(user==null){
+window.location.href="register.html";
+}
 $(".left div").on("click",function(){
  $(".left div").eq($(this).index()).addClass("foot_1").siblings().removeClass("foot_1");
 });

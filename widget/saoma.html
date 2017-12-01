@@ -92,7 +92,9 @@
 	<script type="text/javascript">
 		user = $api.getStorage('user');
 		var lorry_id = user.lorry_id;
-
+		if(user==null){
+window.location.href="register.html";
+}
 		function saoma1() {
 			var scanner = api.require('scanner')
 			scanner.open(function(ret, err) {
