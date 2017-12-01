@@ -218,7 +218,35 @@
     		window.location.href="del.html";
     	})
     	$(".foot10_1").on("click",function(){
-          window.location.href="first.html";
+    		$.ajax({
+					url: "http://api.uminfo.cn/app_lorry.php/tongji?lorry_id=" + lorry_id + "&time1=" + time,
+					dataType: 'json',
+					type: 'get',
+					ContentType: "application/json;charset=utf-8",
+					data: JSON.stringify({}),
+					success: function(msg) {
+						if(msg.result==0){
+							var a = msg.count;
+							if(a=0){
+							$api.setStorage("user",null);
+                            window.location.href="first.html";
+                            }else{
+                            var con;
+					       con=confirm("您现在有清单待交付，如果继续退出属恶意行为，确定继续退出");
+					        if(con==true){
+					         $api.setStorage("user",null);
+                            window.location.href="first.html";
+                           }else{
+                           	windows.location.reload(); 
+                           }
+						}else{
+							alert(msg.desc);
+						}		
+    		    },
+				error: function(xhr) {
+					alert("获取后台失败");
+				}
+			});
      })
     	 $(".top1").on("click",function(){
           window.history.back();
