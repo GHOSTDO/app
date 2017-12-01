@@ -218,6 +218,16 @@
     		window.location.href="del.html";
     	})
     	$(".foot10_1").on("click",function(){
+    		  window.location.href="first.html";
+    	})
+    	 $(".top1").on("click",function(){
+          window.history.back();
+      })
+    	 $(".foot").on("click",function(){
+    	 	window.location.href="bmessage.html";
+    	 })
+        $(".foot2").on("click",function(){
+        	
     		$.ajax({
 					url: "http://api.uminfo.cn/app_lorry.php/tongji?lorry_id=" + lorry_id + "&time1=" + time,
 					dataType: 'json',
@@ -229,13 +239,13 @@
 							var a = msg.count;
 							if(a=0){
 							$api.setStorage("user",null);
-                            window.location.href="first.html";
+                          window.location.href="register.html";
                             }else{
                             var con;
 					       con=confirm("您现在有清单待交付，如果继续退出属恶意行为，确定继续退出");
 					        if(con==true){
 					         $api.setStorage("user",null);
-                            window.location.href="first.html";
+                           window.location.href="register.html";
                            }else{
                            	windows.location.reload(); 
                            }
@@ -248,15 +258,8 @@
 					alert("获取后台失败");
 				}
 			});
-     })
-    	 $(".top1").on("click",function(){
-          window.history.back();
-      })
-    	 $(".foot").on("click",function(){
-    	 	window.location.href="bmessage.html";
-    	 })
-        $(".foot2").on("click",function(){
-    	 	window.location.href="register.html";
+     
+    	 	
     	 })
     	 $.ajax({
     	 	url:'http://api.uminfo.cn/app_lorry.php/lorrymessage?lorry_id='+lorry_id+"&time1="+time, 
