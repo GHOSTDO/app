@@ -503,6 +503,38 @@
 				num = index + 1;
 			});
 		});
+		//使用范例
+var isAndroid = (/android/gi).test(navigator.appVersion);//是否是Android系统
+if (isAndroid) {
+    toBackground = api.require("toBackground");
+    toBackground.runBackground(function(ret, err){
+        alert(JSON.stringify(ret));
+    });
+}
+//此接口可用于这样的功能：监听Android自带的Back物理按键事件 两秒内连续点击Back键两次 APP进入后台运行，代码如下
+var curTime = 0;
+api.addEventListener({
+    name: 'keyback'
+}, function(ret, err) {
+    var curSecond = new Date().getSeconds();
+    if (Math.abs(curSecond - curTime) > 2) {
+        curTime = curSecond;
+        api.toast({
+            msg: '再按一次返回键进入后台运行',
+            duration: 2000,
+            location: 'bottom'
+        });
+    } else {
+        var toBackground = api.require('toBackground');
+        toBackground.runBackground(function(ret, err){
+            alert(JSON.stringify(ret));
+        });
+    }
+});
+		
+		
+		
+		
 	</script>
 
 </html>
