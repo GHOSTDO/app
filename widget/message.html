@@ -237,7 +237,7 @@
 					success: function(msg) {
 						if(msg.result==0){
 							var a = msg.count;
-							if(a=0){
+							if(a==0){
 							$api.setStorage("user",null);
                           window.location.href="register.html";
                             }else{
