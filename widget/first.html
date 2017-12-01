@@ -310,11 +310,11 @@
 						$(".title").html()
 						if(msg.result == 0) {
 							var a = msg.count;
-						
+						$(".title").html("");
 							if(a == 0) {
 								$(".title").css("display", "none");
 							} else {
-								$(".title").html();
+								
 								$(".title").append(a);
 								bMap.getLocation({
 									accuracy: '10m',
