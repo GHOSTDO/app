@@ -232,30 +232,12 @@ $(document).ready(function () {
         })
     </script>
 	<script type="text/javascript">
-//同步返回结果：
-var userName = api.getPrefs({
-    sync: true,
-    key: 'username'
-});
-alert(userName);
-$("#tel").val(userName);
-var password = api.getPrefs({
-    sync: true,
-    key: 'password'
-});
-alert(password);
-$("#pwd").val(password);
-  		$("#submit").on('click',function(){		
+            var t=$api.getStorage("user");
+  			alert(t.driver_phone);
+  		$("#submit").on('click',function(){	
+  			
 			var tel1 = $("#tel").val();
 			var pwd1 = $("#pwd").val();
-			api.setPrefs({
-         key: 'username',
-         value: tel1
-          });
-          api.setPrefs({
-          	 key: 'password',
-             value: pwd1
-          });
 			if(!/^1[34578]\d{9}$/.test(tel1)){
 				alert("电话不符号要求");
 			}else if(pwd1==null||pwd1 == ""){
