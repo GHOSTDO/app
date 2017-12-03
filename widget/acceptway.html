@@ -168,8 +168,35 @@
 
 		function ming() {
 			var id = $.getUrlParam('id');
-			// alert(id);
-			window.location.href = "text03.html?id=" + id;
+				$.ajax({
+						url: "http://api.uminfo.cn/app_lorry.php/oaycostsch?schedule_id="+id,
+						dataType: 'json',
+						type: 'get',
+						ContentType: "application/json;charset=utf-8",
+						data: JSON.stringify({}),
+						success: function(msg) {
+							var c="注意:\n";
+							var b="该清单中存在到付运单：\n";
+						if(msg.result==0){
+							if(msg.orders.length>0){
+							for(var a=0;a<msg.orders.length;a++){
+								b+="运单号"+msg.orders[a].order_id+"应收金额"+msg.orders[a].order_cost+"元\n";
+							}
+							alert(b+"总记金额为"+msg.cost);
+							window.location.href = "text03.html?id="+id;
+							}else{
+							window.location.href = "text03.html?id="+id;
+							}
+//							alert("该清单中以下运单为到付运单："+"\n"+msg.cost);
+						}else{
+							alert(msg.desc);
+						}
+						},
+						error: function(xhr) {
+							alert("获取后台失败！");
+						}
+               });
+			
 		}
 
 		function saoma() {
@@ -178,12 +205,7 @@
 			window.location.href = "delivery.html?id=" + id;
 		}
 
-		//		function pai() {
-		//			var id = $.getUrlParam('id');
-		//			// alert(id);
-		//			window.location.href = "photo.html?id=" + id;
-		//		}
-
+	
 		$(".top1").on("click", function() {
 			window.history.back();
 		})
