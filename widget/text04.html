@@ -147,7 +147,7 @@ window.location.href="register.html";
 		})
 
 		$(".b3").on("click", function() {
-			$(".b3").css("display","none");
+			
 			var drawingBoard = api.require('drawingBoard');
 			drawingBoard.save({
 				savePath: 'fs://drawingBoard/result.png',
@@ -191,12 +191,12 @@ window.location.href="register.html";
 								window.location.href = "register.html";
 							} else {
 								alert(msg.desc);
-								window.location.reload();
+								
 							}
 						},
 						error: function(xhr) {
 							alert("获取后台失败！");
-							window.location.reload();
+							
 						}
 					});
 				} else {
