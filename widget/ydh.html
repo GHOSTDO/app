@@ -160,13 +160,13 @@
 						ContentType: "application/json;charset=utf-8",
 						data: JSON.stringify({}),
 						success: function(msg) {
-							alert("该运单为到付运单请确认是否收到货款："+msg.order+"元");
+							alert("该运单为到付运单请确认是否收到货款：" + msg.order + "元");
 							window.location.href = "test.html?id=" + id;
 						},
 						error: function(xhr) {
 							alert("获取后台失败！");
 						}
-
+});
 					}
 
 					$(".top1").on("click", function() {
