@@ -1,154 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
-	    <style>
-	    	*{
-	    		margin: 0;
-	    		padding: 0;
-	    	}
-	    	.top{
-        		width:100%;
-        		height:50px;
-        		background:#FFCF09;
-        	}
-        	.top1{
-        		width:10%;
-        		height:30px;
-        		float:left;
-        		margin-left:5%;
-        		margin-top:10px;
-        	}
-        	.top1 img{
-        		width:30px;
-        		height:30px;
-        	}
-        	.top2{
-        		width:70%;
-        		height:50px;
-        		text-align:center;
-        		line-height:50px;
-        		float:left;
-        	}
-        	.but{
-        		width: 100%;
-        		height: 40px;
-        		line-height: 40px;
-        		text-align: center;
-        		background: #FFCF09;
-        		position: fixed;
-        		bottom: 0;
-        	}
-        	.div{
-        		width: 80%;
-        		float: left;
-        		margin-left: 10%;
-        		height: 30px;
-        		line-height: 30px;
-        		margin-top: 10px;
-        	}
-        	.s1{
-        		display: inline-block;
-        		width: 8px;
-        	}
-        	.s2{
-        		display: inline-block;
-        		width: 32px;
-        	}
-	    </style>
-    </head>
-    <body>
-    	<div class="box">
-    		<div class="top">
-    			<div class="top1"><img src="image/back.png" alt=""></div>
-    			<div class="top2"><h3>运单号</h3></div>
-    		</div>
-    		<div class="div">
-    			<p>运<span class="s1"></span>单<span class="s1"></span>号：<span id="ydh"></span></p>
-    		</div>
-    		<div class="div">
-    			<p>货物名称：<span id="huowu"></span></p>
-    		</div>
-    		<div class="div">
-    			<p>件<span class="s2"></span>数：<span id="jianshu"></span></p>
-    		</div>
-    		<div class="div">
-    			<p>体<span class="s2"></span>积：<span id="tiji"></span></p>
-    		</div>
-    		<div class="div">
-    			<p>重<span class="s2"></span>量：<span id="zhong"></span></p>
-    		</div>
-    		<div class="div">
-    			<p>包<span class="s2"></span>装：<span id="baozhuang"></span></p>
-    		</div>
-    		<div class="div">收<span class="s1"></span>货<span class="s1"></span>人：<span id="name"></span></div>
-    		<div class="div">手<span class="s2"></span>机：<span id="phone"></span></div>
-    		<div class="div">地<span class="s2"></span>址：<span id="dizhi"></span></div>
-    		<div class="but" onclick="but()">
-    			交付
-    		</div>
-    	</div>
-    </body>
-<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="js/local.js"></script>
-<script type="text/javascript" src="js/APICloud-rest.js"></script>
-<script type="text/javascript" src="js/api.js"></script>
-<script type="text/javascript">
-    user=$api.getStorage('user');
-    var time=user.time;
-    var lorry_id=user.lorry_id;
-    		if(user==null){
-window.location.href="register.html";
-}
-    (function($) {
-      $.getUrlParam = function(name) {
-        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
-        var r = window.location.search.substr(1).match(reg);
-        if(r != null) return decodeURI(r[2]);
-        return null;
-      }
-    })(jQuery);
-    var id=$.getUrlParam('id');
-    $.ajax({
-        url:"http://api.uminfo.cn/app_lorry.php/byorderid?order_id="+id+"&time1="+time,
-        dataType:'json',
-        type:'get',
-        ContentType: "application/json;charset=utf-8",
-        data: JSON.stringify({
-        }),
-        success:function(msg){
-            if(msg.result==0){
-                $("#ydh").html(msg.order.order_id)
-                $("#huowu").html(msg.order.goods_name)
-                $("#jianshu").html(msg.order.goods_count)
-                $("#tiji").html(msg.order.goods_capacity)
-                $("#zhong").html(msg.order.goods_weight)
-                $("#baozhuang").html(msg.order.goods_package)
-                $("#name").html(msg.order.customer_name)
-                $("#phone").html(msg.order.customer_phone)
-                $("#dizhi").html(msg.order.address)
-            }else if(msg.result==9){
-            	alert(msg.desc);
-            	window.location.href="register.html";
-            }else{
-            	alert(msg.desc);
-            }
-        },
-        error:function(xhr){
-            alert("获取后台失败！");
-        }
-    })
-    
-        function but(){
-            var id=$.getUrlParam('id');
-          //  alert(id);
-            window.location.href="test.html?id="+id;
-        }
 
-         $(".top1").on("click",function(){
-            window.history.back();
-        })
-    </script>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			.top {
+				width: 100%;
+				height: 50px;
+				background: #FFCF09;
+			}
+			
+			.top1 {
+				width: 10%;
+				height: 30px;
+				float: left;
+				margin-left: 5%;
+				margin-top: 10px;
+			}
+			
+			.top1 img {
+				width: 30px;
+				height: 30px;
+			}
+			
+			.top2 {
+				width: 70%;
+				height: 50px;
+				text-align: center;
+				line-height: 50px;
+				float: left;
+			}
+			
+			.but {
+				width: 100%;
+				height: 40px;
+				line-height: 40px;
+				text-align: center;
+				background: #FFCF09;
+				position: fixed;
+				bottom: 0;
+			}
+			
+			.div {
+				width: 80%;
+				float: left;
+				margin-left: 10%;
+				height: 30px;
+				line-height: 30px;
+				margin-top: 10px;
+			}
+			
+			.s1 {
+				display: inline-block;
+				width: 8px;
+			}
+			
+			.s2 {
+				display: inline-block;
+				width: 32px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="box">
+			<div class="top">
+				<div class="top1"><img src="image/back.png" alt=""></div>
+				<div class="top2">
+					<h3>运单号</h3></div>
+			</div>
+			<div class="div">
+				<p>运<span class="s1"></span>单<span class="s1"></span>号：<span id="ydh"></span></p>
+			</div>
+			<div class="div">
+				<p>货物名称：<span id="huowu"></span></p>
+			</div>
+			<div class="div">
+				<p>件<span class="s2"></span>数：<span id="jianshu"></span></p>
+			</div>
+			<div class="div">
+				<p>体<span class="s2"></span>积：<span id="tiji"></span></p>
+			</div>
+			<div class="div">
+				<p>重<span class="s2"></span>量：<span id="zhong"></span></p>
+			</div>
+			<div class="div">
+				<p>包<span class="s2"></span>装：<span id="baozhuang"></span></p>
+			</div>
+			<div class="div">收<span class="s1"></span>货<span class="s1"></span>人：<span id="name"></span></div>
+			<div class="div">手<span class="s2"></span>机：<span id="phone"></span></div>
+			<div class="div">地<span class="s2"></span>址：<span id="dizhi"></span></div>
+			<div class="but" onclick="but()">
+				交付
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="js/local.js"></script>
+	<script type="text/javascript" src="js/APICloud-rest.js"></script>
+	<script type="text/javascript" src="js/api.js"></script>
+	<script type="text/javascript">
+		user = $api.getStorage('user');
+		var time = user.time;
+		var lorry_id = user.lorry_id;
+		if(user == null) {
+			window.location.href = "register.html";
+		}
+		(function($) {
+			$.getUrlParam = function(name) {
+				var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+				var r = window.location.search.substr(1).match(reg);
+				if(r != null) return decodeURI(r[2]);
+				return null;
+			}
+		})(jQuery);
+		var id = $.getUrlParam('id');
+		$.ajax({
+			url: "http://api.uminfo.cn/app_lorry.php/byorderid?order_id=" + id + "&time1=" + time,
+			dataType: 'json',
+			type: 'get',
+			ContentType: "application/json;charset=utf-8",
+			data: JSON.stringify({}),
+			success: function(msg) {
+				if(msg.result == 0) {
+					$("#ydh").html(msg.order.order_id)
+					$("#huowu").html(msg.order.goods_name)
+					$("#jianshu").html(msg.order.goods_count)
+					$("#tiji").html(msg.order.goods_capacity)
+					$("#zhong").html(msg.order.goods_weight)
+					$("#baozhuang").html(msg.order.goods_package)
+					$("#name").html(msg.order.customer_name)
+					$("#phone").html(msg.order.customer_phone)
+					$("#dizhi").html(msg.order.address)
+				} else if(msg.result == 9) {
+					alert(msg.desc);
+					window.location.href = "register.html";
+				} else {
+					alert(msg.desc);
+				}
+			},
+			error: function(xhr) {
+				alert("获取后台失败！");
+			}
+		})
+
+		function but() {
+			var id = $.getUrlParam('id');
+			$.ajax({
+						url: "http://api.uminfo.cn/app_lorry.php/ordercost?order_id=" + id,
+						dataType: 'json',
+						type: 'get',
+						ContentType: "application/json;charset=utf-8",
+						data: JSON.stringify({}),
+						success: function(msg) {
+							alert("该运单为到付运单请确认是否收到货款："+msg.order+"元");
+							window.location.href = "test.html?id=" + id;
+						},
+						error: function(xhr) {
+							alert("获取后台失败！");
+						}
+
+					}
+
+					$(".top1").on("click", function() {
+						window.history.back();
+					})
+	</script>
+
 </html>
