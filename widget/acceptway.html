@@ -68,60 +68,79 @@
 				margin-top: 100px;
 				margin-left: 15%;
 			}
-			/*	/*	/*	/*
-			.sb2 {
-				width: 70%;
-				height: 50px;
-				background: #FFCF09;
-				text-align: center;
-				line-height: 50px;
-				font-size: 18px;
-				float: left;
-				margin-top: 10px;
-				margin-left: 15%;
-			}*/
-			
-			.box2 {
-				width: 100%;
-				height: 100%;
-				position: absolute;
-				background: white;
-				z-index: 100;
+			.box1{
+				height:550px;
+				width:80%;
+				margin-left:10%;
+				background-color:white;
 				display: none;
+				z-index:100;
+				position: absolute;
+				top:0;
+				left:0;
 			}
-			
-			.box3 {
-				width: 60%;
-				height: 100px;
-				border: 2px solid #FFCF09;
-				float: left;
-				margin-left: 20%;
-				margin-top: 100px;
+			.box1_top{
+				width:100%;
+				height:50px;
+				line-height:50px;
+				text-align:center;
+				font-size: 22px;
+				color:red;
 			}
-			
-			.ming {
-				display: inline-block;
-				width: 100%;
-				height: 80px;
-				margin-top: 10px;
-				outline-style: none;
-				list-style: none;
-				border: 0;
+			.box1_top2{
+				height:50px;
+				line-height:50px;
+		        width:80%;
+		        margin-left:10%;
+				color:red;
+			}
+			.center{
+				height:350px;
+				width:80%;
+				margin-left:10%;
+				text-align:center;
+			}
+			table {
+				border-right: 1px solid #DDDDDD;
+				border-bottom: 1px solid #DDDDDD;
+			}
+			table td {
+				border-left: 1px solid #DDDDDD;
+				border-top: 1px solid #DDDDDD;
+				width:40%;
+				height: 30px;
+				line-height:30px;
 				text-align: center;
-				font-size: 20px;
 			}
-			
-			.but {
-				width: 60%;
-				height: 40px;
-				float: left;
-				margin-left: 20%;
-				margin-top: 50px;
+			table thead tr th {
+				height: 50px;
+				line-height: 30px;
 				text-align: center;
-				line-height: 40px;
-				background: #FFCF09;
-				color: white;
-				font-size: 18px;
+					width:40%;
+					height:30px;
+				border-left: 1px solid #DDDDDD;
+				border-top: 1px solid #DDDDDD;
+				/* background: #9CBA60; */
+			}
+			.foot1{
+				width:30%;
+				margin-left:13%;
+				height:50px;
+				background-color: #0066CC;
+				border-radius: 5px;
+				line-height:50px;
+				text-align:center;
+			    float:left;
+			}
+			.foot2{
+				width:30%;
+				margin-left:14%;
+				height:50px;
+				background-color: #0066CC;
+				border-radius: 5px;
+				line-height:50px;
+				text-align:center;
+				float:left;
 			}
 		</style>
 	</head>
@@ -139,9 +158,24 @@
 			<div class="sb1" onclick="ming()">
 				收货人签字
 			</div>
-			<!--<div class="sb2" onclick="pai()">
-				拍照交付
-			</div>-->
+		</div>
+		 <div class="box1">
+			<div class="box1_top">注意:</div>
+			<div class="box1_top2">该清单中存在到付运单：</div>
+			<div class="center">
+				<table id="table"  border="1px" cellspacing="0" cellpadding="0">
+							<thead>
+								<tr>
+									<th>运单号</th>
+									<th>应付金额</th>
+								</tr>
+							</thead>
+					<tbody id="tb3">
+					</tbody>
+				</table>
+			</div>
+			<div class="foot1">确认</div>
+			<div class="foot2">取消</div>
 		</div>
 
 	</body>
@@ -175,15 +209,22 @@
 						ContentType: "application/json;charset=utf-8",
 						data: JSON.stringify({}),
 						success: function(msg) {
-							var c="注意:\n";
-							var b="该清单中存在到付运单：\n";
+							$("#tb3").html("");
 						if(msg.result==0){
 							if(msg.orders.length>0){
 							for(var a=0;a<msg.orders.length;a++){
-								b+="运单号"+msg.orders[a].order_id+"应收金额"+msg.orders[a].order_cost+"元\n";
+                            var c="<tr><td>"+msg.orders[a].order_id+"</td><td>"+msg.orders[a].order_cost+"元</td></tr>";
+							 $("#tb3").append(c);							
 							}
-							alert(b+"总记金额为"+msg.cost);
-							window.location.href = "text03.html?id="+id;
+							$(".box1").css("display","block");
+							$(".foot1").on("click",function(){
+								window.location.href = "text03.html?id="+id;
+							});
+							$(".foot2").on("click",function(){
+							    $(".box").css("display","none");
+							});
+							}
+							
 							}else{
 							window.location.href = "text03.html?id="+id;
 							}
