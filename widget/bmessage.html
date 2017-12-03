@@ -244,13 +244,14 @@
 		<script type="text/javascript" src="js/APICloud-rest.js"></script>
 		<script type="text/javascript" src="js/api.js"></script>
 		<script type="text/javascript">
-			user = $api.getStorage('user');
-			var time = user.time;
-			var lorry_id = user.lorry_id;
-            if(user==null){
-			window.location.href="register.html";
-		}
-
+//			user = $api.getStorage('user');
+//			var time = user.time;
+//			var lorry_id = user.lorry_id;
+//          if(user==null){
+//			window.location.href="register.html";
+//		}
+             var lorry_id="100000001";
+             var time="1512294738";
 			$(".foot10_2").on("click", function() {
 				window.location.href = "del.html";
 			})
@@ -354,7 +355,6 @@
 
 			$(".foot").on("click", function() {
 			
-			  $(".foot").css("display","none");
 				//alert(f);
 				var name=$("#name").val();
 				var c = $("#number").val();
@@ -387,7 +387,7 @@
 							window.location.href = "register.html";
 						}else{
 							alert(msg.desc);
-								window.location.reload(); 
+				
 						}
 						
 					},
