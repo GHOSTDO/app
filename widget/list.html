@@ -113,23 +113,26 @@ if(user==null){
 				autoStop: true,
 				filter: 1
 			}, function(ret, err) {
-				if(ret.status) {
-				     
-				} else {
-					var con;
-					con=confirm("本功能需要获取定位才能使用，请确认开启定位");
-					if(con==true){
-					var mySettingInfo = api.require('mySettingInfo');
-					mySettingInfo.settingInt({
-						'index': 2
-					}, function(ret, err) {
-						alert(JSON.stringify(ret));
-					});
-				}else{
-				   	window.history.back();
-				}
-				}
-			});
+	if(ret.status) {
+
+	} else {
+		if(err.code == "505") {
+			var con;
+			con = confirm("本功能需要获取定位才能使用，请确认开启定位");
+			if(con == true) {
+				var mySettingInfo = api.require('mySettingInfo');
+				mySettingInfo.settingInt({
+					'index': 2
+				}, function(ret, err) {
+					alert(JSON.stringify(ret));
+				});
+
+			} else {
+				window.history.back();
+			}
+		}
+		}
+	});
 		}
 	 window.setInterval("apiready()",3600000);	
 	</script>

@@ -227,7 +227,15 @@
 						}
 					})
 				} else {
-					alert("请检查手机是否开启定位");
+						if(err.code == "505") {
+						alert("请开启定位才能进行操作");
+						var mySettingInfo = api.require('mySettingInfo');
+						mySettingInfo.settingInt({
+							'index': 2
+						}, function(ret, err) {
+							alert(JSON.stringify(ret));
+						});
+					}
 				}
 			});
 		}

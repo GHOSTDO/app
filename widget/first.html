@@ -351,7 +351,7 @@
 											}
 										})
 									} else {
-										  alert(err.code);
+//										  alert(err.code);
 										  if(err.code=="505"){
 										  	alert("您现在有待交付清单请开启定位");
 										var mySettingInfo = api.require('mySettingInfo');
@@ -360,7 +360,6 @@
 										}, function(ret, err) {
 											alert(JSON.stringify(ret));
 										});
-
 										  }
 									
 									}

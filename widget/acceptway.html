@@ -68,7 +68,7 @@
 				margin-top: 100px;
 				margin-left: 15%;
 			}
-/*	/*	/*	/*
+			/*	/*	/*	/*
 			.sb2 {
 				width: 70%;
 				height: 50px;
@@ -153,9 +153,9 @@
 	<script type="text/javascript">
 		user = $api.getStorage('user');
 		var lorry_id = user.lorry_id;
-		var time=user.time;
-		if(user==null){
-			window.location.href="register.html";
+		var time = user.time;
+		if(user == null) {
+			window.location.href = "register.html";
 		}
 		(function($) {
 			$.getUrlParam = function(name) {
@@ -178,11 +178,11 @@
 			window.location.href = "delivery.html?id=" + id;
 		}
 
-//		function pai() {
-//			var id = $.getUrlParam('id');
-//			// alert(id);
-//			window.location.href = "photo.html?id=" + id;
-//		}
+		//		function pai() {
+		//			var id = $.getUrlParam('id');
+		//			// alert(id);
+		//			window.location.href = "photo.html?id=" + id;
+		//		}
 
 		$(".top1").on("click", function() {
 			window.history.back();
@@ -210,24 +210,32 @@
 							scheduling_id: id,
 							longitude: ret.lon,
 							latitude: ret.lat,
-							time1:time
+							time1: time
 						}),
 						success: function(msg) {
-							if(msg.result==0){
+							if(msg.result == 0) {
 								//alert(msg.desc);
-							}else if(msg.result==9){
+							} else if(msg.result == 9) {
 								alert(msg.desc);
-								window.location.href="register.html";
-							}else{
+								window.location.href = "register.html";
+							} else {
 								alert(msg.desc);
-							}						
+							}
 						},
 						error: function(xhr) {
 							alert("获取后台失败");
 						}
 					})
 				} else {
-					alert("请检查手机是否开启定位");
+					if(err.code == "505") {
+						alert("请开启定位才能进行操作");
+						var mySettingInfo = api.require('mySettingInfo');
+						mySettingInfo.settingInt({
+							'index': 2
+						}, function(ret, err) {
+							alert(JSON.stringify(ret));
+						});
+					}
 				}
 			});
 		}

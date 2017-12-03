@@ -1,147 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
-	    <style>
-	    	*{
-	    		margin: 0;
-	    		padding: 0;
-	    		font-family: "宋体";
-	    	}
-	    	.top{
-        		width:100%;
-        		height:50px;
-        		background:#FFCF09;
-        	}
-        	.top1{
-        		width:10%;
-        		height:30px;
-        		float:left;
-        		margin-left:5%;
-        		margin-top:10px;
-        	}
-        	.top1 img{
-        		width:30px;
-        		height:30px;
-        	}
-        	.top2{
-        		width:70%;
-        		height:50px;
-        		text-align:center;
-        		line-height:50px;
-        		float:left;
-        	}
-        	.title{
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				font-family: "宋体";
+			}
+			
+			.top {
+				width: 100%;
+				height: 50px;
+				background: #FFCF09;
+			}
+			
+			.top1 {
+				width: 10%;
+				height: 30px;
+				float: left;
+				margin-left: 5%;
+				margin-top: 10px;
+			}
+			
+			.top1 img {
+				width: 30px;
+				height: 30px;
+			}
+			
+			.top2 {
+				width: 70%;
+				height: 50px;
+				text-align: center;
+				line-height: 50px;
+				float: left;
+			}
+			
+			.title {
 				float: left;
 				margin-top: 60px;
 				text-align: center;
 				width: 100%;
-        	}
-        	.sel{
-        		width: 30%;
-        		height: 100px;
-        		float: left;
-        		margin-left: 35%;
-        		margin-top: 50px;
-        	}
-        	.sel select {
-        		width: 100%;
-                border: none;
-                appearance:none;
-                -moz-appearance:none;
-                -webkit-appearance:none;
-                background: url("image/arrow.png") no-repeat scroll right center transparent;
-                height: 30px;
-                text-align: center;
-            }
-            .kong{
-            	height: 30px;
-            }
-            .foot{
-            	width: 50%;
-            	height: 30px;
-            	float: left;
-            	margin-left: 25%;
-            	margin-top: 60px;
-            	background: #FFCF09;
-            	border-radius: 5px;
-            	color: white;
+			}
+			
+			.sel {
+				width: 30%;
+				height: 100px;
+				float: left;
+				margin-left: 35%;
+				margin-top: 50px;
+			}
+			
+			.sel select {
+				width: 100%;
+				border: none;
+				appearance: none;
+				-moz-appearance: none;
+				-webkit-appearance: none;
+				background: url("image/arrow.png") no-repeat scroll right center transparent;
+				height: 30px;
+				text-align: center;
+			}
+			
+			.kong {
+				height: 30px;
+			}
+			
+			.foot {
+				width: 50%;
+				height: 30px;
+				float: left;
+				margin-left: 25%;
+				margin-top: 60px;
+				background: #FFCF09;
+				border-radius: 5px;
+				color: white;
 				text-align: center;
 				line-height: 30px;
-            }
-            .foot10 {
-                width: 100%;
-                height: 40px;
-                position: fixed;
-                bottom: 0;
-                background: black;
-            }
-            
-            .foot10 img {
-                width: 40px;
-                height: 40px;
-            }
-            
-            .foot10_1 {
-                width: 34%;
-                height: 40px;
-                text-align: center;
-                line-height: 40px;
-                float: left;
-            }
-            
-            .foot10_2 {
-                width: 33%;
-                height: 40px;
-                text-align: center;
-                line-height: 40px;
-                float: left;
-            }
-            .foot10_3 {
-                width: 33%;
-                height: 40px;
-                text-align: center;
-                line-height: 40px;
-                float: left;
-            }
-            select{
-                font-size: 18px;
-            }
+			}
+			
+			.foot10 {
+				width: 100%;
+				height: 40px;
+				position: fixed;
+				bottom: 0;
+				background: black;
+			}
+			
+			.foot10 img {
+				width: 40px;
+				height: 40px;
+			}
+			
+			.foot10_1 {
+				width: 34%;
+				height: 40px;
+				text-align: center;
+				line-height: 40px;
+				float: left;
+			}
+			
+			.foot10_2 {
+				width: 33%;
+				height: 40px;
+				text-align: center;
+				line-height: 40px;
+				float: left;
+			}
+			
+			.foot10_3 {
+				width: 33%;
+				height: 40px;
+				text-align: center;
+				line-height: 40px;
+				float: left;
+			}
+			
+			select {
+				font-size: 18px;
+			}
+		</style>
+	</head>
 
-	    </style>
-    </head>
-    <body>
-    	<div class="box">
-    		<div class="top">
-    			<div class="top1"><img src="image/back.png" alt=""></div>
-    			<div class="top2"><h3>消息大厅</h3></div>
-    		</div>
-    		<div class="title">请选择您的接单大厅</div>
-    		<div class="sel">
-    			<select name="province" id="province1" onchange="getPro1()"><option value="">请选择省</option></select>
-    			<div class="kong"></div>
-    			<select name="city" id="city1"></select>
-    		</div>
-    		<div class="foot">
-    			确定
-    		</div>
-            <div class="foot10">
-                <div class="foot10_1"><img src="image/wxb.png" alt=""></div>
-                <div class="foot10_2"><img src="image/ys.png" alt=""></div>
-                <div class="foot10_3"><img src="image/gr.png" alt=""></div>
-            </div>
-    	</div>
-    </body>
+	<body>
+		<div class="box">
+			<div class="top">
+				<div class="top1"><img src="image/back.png" alt=""></div>
+				<div class="top2">
+					<h3>消息大厅</h3></div>
+			</div>
+			<div class="title">请选择您的接单大厅</div>
+			<div class="sel">
+				<select name="province" id="province1" onchange="getPro1()">
+					<option value="">请选择省</option>
+				</select>
+				<div class="kong"></div>
+				<select name="city" id="city1"></select>
+			</div>
+			<div class="foot">
+				确定
+			</div>
+			<div class="foot10">
+				<div class="foot10_1"><img src="image/wxb.png" alt=""></div>
+				<div class="foot10_2"><img src="image/ys.png" alt=""></div>
+				<div class="foot10_3"><img src="image/gr.png" alt=""></div>
+			</div>
+		</div>
+	</body>
 	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
-		<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript" src="js/local.js"></script>
 	<script type="text/javascript" src="js/APICloud-rest.js"></script>
 	<script type="text/javascript" src="js/api.js"></script>
 	<script type="text/javascript">
 		//获取省份和城市列表1
-			$("#city1").append('<option value="">请选择市</option>');
+		$("#city1").append('<option value="">请选择市</option>');
 		$.ajax({
 			url: "http://api.uminfo.cn/city.php/province",
 			dataType: 'json',
@@ -157,9 +173,10 @@
 				alert("省份列表信息出错!");
 			}
 		});
+
 		function getPro1() {
 			$("#city1").empty();
-			
+
 			var pid = $("#province1 option:selected").val();
 			$.ajax({
 				url: "http://api.uminfo.cn/city.php/city?pid=" + pid,
@@ -171,65 +188,70 @@
 					for(var i = 0; i < msg.city.length; i++) {
 						$("#city1").append('<option value="' + msg.city[i].id + '">' + msg.city[i].name + '</option>');
 					}
-					
+
 				},
 				error: function(e) {
 					$("#city1").append('<option value="">请选择市</option>');
-//					alert("城市列表信息出错!");
+					//					alert("城市列表信息出错!");
 				}
 			});
 		}
-		$(".foot").on("click",function(){
-            var id = $("#city1").val();
-          //  alert(id);
-            if(id<=0){
-            alert("请选择城市")
-            }else{
-            window.location.href="message_list.html?id="+id;
+		$(".foot").on("click", function() {
+			var id = $("#city1").val();
+			//  alert(id);
+			if(id <= 0) {
+				alert("请选择城市")
+			} else {
+				window.location.href = "message_list.html?id=" + id;
 			}
 		})
-         $(".top1").on("click", function(){
-            window.history.back();
-        })
-         $(".foot10_1").on("click",function(){
-            window.location.href="first.html";
-         })
-          $(".foot10_2").on("click",function(){
-            window.location.href="del.html";
-         })
-           $(".foot10_3").on("click",function(){
-            window.location.href="message.html";
-         })
+		$(".top1").on("click", function() {
+			window.history.back();
+		})
+		$(".foot10_1").on("click", function() {
+			window.location.href = "first.html";
+		})
+		$(".foot10_2").on("click", function() {
+			window.location.href = "del.html";
+		})
+		$(".foot10_3").on("click", function() {
+			window.location.href = "message.html";
+		})
 	</script>
 	<script>
-			apiready = function() {
+		apiready = function() {
 			api.setScreenOrientation({
 				orientation: 'portrait_up'
 			});
 			var bMap = api.require('bMap');
 			bMap.getLocation({
 				accuracy: '10m',
-				autoStop: true,
-				filter: 1
-			}, function(ret, err) {
-				if(ret.status) {
-				     
-				} else {
-					var con;
-					con=confirm("本功能需要获取定位才能使用，请确认开启定位");
-					if(con==true){
-					var mySettingInfo = api.require('mySettingInfo');
-					mySettingInfo.settingInt({
-						'index': 2
-					}, function(ret, err) {
-						alert(JSON.stringify(ret));
-					});
-				}else{
-				   	window.history.back();
-				}
-				}
-			});
+autoStop: true,
+	filter: 1
+},
+function(ret, err) {
+	if(ret.status) {
+
+	} else {
+		if(err.code == "505") {
+			var con;
+			con = confirm("本功能需要获取定位才能使用，请确认开启定位");
+			if(con == true) {
+				var mySettingInfo = api.require('mySettingInfo');
+				mySettingInfo.settingInt({
+					'index': 2
+				}, function(ret, err) {
+					alert(JSON.stringify(ret));
+				});
+
+			} else {
+				window.history.back();
+			}
 		}
-	 window.setInterval("apiready()",3600000);	
+		}
+	});
+}
+window.setInterval("apiready()", 3600000);
 	</script>
+
 </html>
