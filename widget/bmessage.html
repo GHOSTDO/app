@@ -326,6 +326,7 @@
 					path: 'fs://FNPhotograph/02.jpg',
 					album: true
 				}, function(ret) {
+					$("#preview").attr("src", "");
 					//alert(JSON.stringify(ret));
 					$("#preview").attr("src", api.fsDir + '/' + 'FNPhotograph' + '/' + '02.jpg');
 					$(".box10").css("display", "none");
@@ -361,8 +362,6 @@
 				var e = $("#email").val();
               if(!(/(^\d{15}$)|(^\d{17}([0-9]|X)$)/.test(c))){
               	alert("身份证格式不对");
-              }else if(!(/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/.test(e))){
-              	alert("邮箱格式不对");
               }else{
 				$.ajax({
 					url: "http://api.uminfo.cn/app_lorry.php/updriver",
