@@ -219,16 +219,17 @@
 					<div class="box1_2"><input type="text" id="dizhi"></div>
 				</div>
 				<div class="xian"></div>
+				<div class="box1">
+					<div class="box1_1">邮箱:</div>
+					<div class="box1_2"><input type="text" id="email"></div>
+				</div>
+				<div class="xian"></div>
 				<div class="box2">
 					<div class="box1_1">驾驶证照片</div>
 					<div class="box1_3" id="photo">点击拍照上传</div>
 					<div class="box1_4"><img src="" alt="" id="preview"></div>
 				</div>
-				<div class="xian"></div>
-				<div class="box1">
-					<div class="box1_1">邮箱:</div>
-					<div class="box1_2"><input type="text" id="email"></div>
-				</div>
+				
 				<div class="xian"></div>
 			</div>
 			<div class="foot">确认修改</div>
@@ -326,8 +327,7 @@
 					path: 'fs://FNPhotograph/02.jpg',
 					album: true
 				}, function(ret) {
-					$("#preview").attr("src", "");
-					//alert(JSON.stringify(ret));
+
 					$("#preview").attr("src", api.fsDir + '/' + 'FNPhotograph' + '/' + '02.jpg');
 					$(".box10").css("display", "none");
 					$(".foot10").css("display", "block");
