@@ -330,25 +330,27 @@
 //				alert("加载图片方法");
 //				$("#preview").attr("src", api.fsDir + '/' + 'FNPhotograph' + '/' + '02.jpg');
 //			}
+			var click_i=0;
 			$(".img10").on("click", function() {
 //				$("#preview").attr("src","");
 				var FNPhotograph = api.require('FNPhotograph');
 				FNPhotograph.takePhoto({
 					quality: 'low',
-					path: 'fs://FNPhotograph/02.jpg',
-					album: true
+					path: 'fs://FNPhotograph/'+click_i+'.jpg',
+					album: false
 				}, function(ret) {
 					$(".box10").css("display", "none");
 					$(".foot10").css("display", "block");
 //				 $("#preview").attr("src", api.fsDir + '/' + 'FNPhotograph' + '/' + '02.jpg');
 					var trans = api.require('trans');
 					trans.decodeImgToBase64({
-						imgPath: api.fsDir + '/' + 'FNPhotograph' + '/' + '02.jpg'
+						imgPath: api.fsDir + '/FNPhotograph/' + click_i + '.jpg'
 					}, function(ret, err) {
 						if(ret.status) {
 							f = "data:image/jpeg;base64," + JSON.stringify(ret.base64Str);
 							//alert(f);
-							$("#preview").attr("src", api.fsDir + '/' + 'FNPhotograph' + '/' + '02.jpg');
+							$("#preview").attr("src", api.fsDir + '/FNPhotograph/' + click_i + '.jpg');
+							alert(api.fsDir + '/FNPhotograph/' + click_i + '.jpg');
 						} else {
 							alert(JSON.stringify(err));
 						};
@@ -356,7 +358,10 @@
 					FNPhotograph.closeCameraView(function(ret) {
 						if(ret) {
 							//alert(JSON.stringify(ret));
-							$("#preview").attr("src", api.fsDir + '/' + 'FNPhotograph' + '/' + '02.jpg');
+							$("#preview").attr("src", api.fsDir + '/FNPhotograph/' + click_i + '.jpg');
+							alert(api.fsDir + '/FNPhotograph/' + click_i + '.jpg');
+							click_i++;
+							alert(click_i);
 						}
 					})
 				})
