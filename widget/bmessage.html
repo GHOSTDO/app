@@ -251,7 +251,9 @@
             if(user==null){
 			window.location.href="register.html";
 		}
-            
+//          var time="1512358118";
+//          var lorry_id="100000001";
+            var f=null;
 			$(".foot10_2").on("click", function() {
 				window.location.href = "del.html";
 			})
@@ -345,7 +347,7 @@
 							alert(JSON.stringify(err));
 						};
 					})
-					// var FNPhotograph = api.require('FNPhotograph');
+				    $("#preview").attr("src", api.fsDir + '/' + 'FNPhotograph' + '/' + '02.jpg');
 					FNPhotograph.closeCameraView(
 						function(ret) {
 							if(ret) {
@@ -353,12 +355,11 @@
 							}
 						})
 				})
-				$("#preview").attr("src", api.fsDir + '/' + 'FNPhotograph' + '/' + '02.jpg');
+//				$("#preview").attr("src", api.fsDir + '/' + 'FNPhotograph' + '/' + '02.jpg');
 			});
 
 			$(".foot").on("click", function() {
 			
-				//alert(f);
 				var name=$("#name").val();
 				var c = $("#number").val();
 				var d = $("#dizhi").val();
