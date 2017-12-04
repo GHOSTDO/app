@@ -326,6 +326,7 @@
 			});
 			
 			function load(){
+				alert(api.fsDir + '/' + 'FNPhotograph' + '/' + '02.jpg');
 				$("#preview").attr("src","");
 				alert("加载图片方法");
 				$("#preview").attr("src", api.fsDir + '/' + 'FNPhotograph' + '/' + '02.jpg');
@@ -343,13 +344,14 @@
 				}, function(ret) {
 					$(".box10").css("display", "none");
 					$(".foot10").css("display", "block");
+						alert(api.fsDir + '/' + 'FNPhotograph' + '/' + '02.jpg');
 //				 $("#preview").attr("src", api.fsDir + '/' + 'FNPhotograph' + '/' + '02.jpg');
 					var trans = api.require('trans');
 					trans.decodeImgToBase64({
 						imgPath: api.fsDir + '/' + 'FNPhotograph' + '/' + '02.jpg'
 					}, function(ret, err) {
 						if(ret.status) {
-							//alert(JSON.stringify(ret));
+							alert(api.fsDir + '/' + 'FNPhotograph' + '/' + '02.jpg');
 							f = "data:image/jpeg;base64," + JSON.stringify(ret.base64Str);
 							//alert(f);
 						} else {
