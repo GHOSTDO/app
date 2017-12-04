@@ -321,6 +321,7 @@
 				}, function(ret) {});
 			})
 			$(".img10").on("click", function() {
+				$("#preview").attr("src","");
 				var FNPhotograph = api.require('FNPhotograph');
 				FNPhotograph.takePhoto({
 					quality: 'low',
