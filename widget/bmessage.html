@@ -329,7 +329,7 @@
 					album: true
 				}, function(ret) {
 
-					$("#preview").attr("src", api.fsDir + '/' + 'FNPhotograph' + '/' + '02.jpg');
+//					$("#preview").attr("src", api.fsDir + '/' + 'FNPhotograph' + '/' + '02.jpg');
 					$(".box10").css("display", "none");
 					$(".foot10").css("display", "block");
 					var trans = api.require('trans');
@@ -349,6 +349,7 @@
 						function(ret) {
 							if(ret) {
 								//alert(JSON.stringify(ret));
+								$("#preview").attr("src", api.fsDir + '/' + 'FNPhotograph' + '/' + '02.jpg');
 							}
 						})
 				})
