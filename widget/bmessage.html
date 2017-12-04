@@ -323,7 +323,15 @@
 					fixedOn: api.frameName,
 					fixed: true
 				}, function(ret) {});
-			})
+			});
+			
+			function load(){
+				alert("加载图片方法");
+				$("#preview").attr("src", api.fsDir + '/' + 'FNPhotograph' + '/' + '02.jpg');
+			}
+			
+			
+			
 			$(".img10").on("click", function() {
 				var FNPhotograph = api.require('FNPhotograph');
 				FNPhotograph.takePhoto({
@@ -333,7 +341,7 @@
 				}, function(ret) {
 					$(".box10").css("display", "none");
 					$(".foot10").css("display", "block");
-				 $("#preview").attr("src", api.fsDir + '/' + 'FNPhotograph' + '/' + '02.jpg');
+//				 $("#preview").attr("src", api.fsDir + '/' + 'FNPhotograph' + '/' + '02.jpg');
 					var trans = api.require('trans');
 					trans.decodeImgToBase64({
 						imgPath: api.fsDir + '/' + 'FNPhotograph' + '/' + '02.jpg'
@@ -354,7 +362,7 @@
 							}
 						})
 				})
-
+                setTimeout(load,300);
 			});
 
 			$(".foot").on("click", function() {
@@ -392,7 +400,7 @@
 						
 					},
 					error: function(xhr) {
-						alert("获取后台失败"+xhr.responseText);
+						alert("获取后台失败");
 						
 					}
 				});
