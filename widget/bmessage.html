@@ -329,7 +329,7 @@
 					path: 'fs://FNPhotograph/02.jpg',
 					album: true
 				}, function(ret) {
-					$("#preview").attr("src", api.fsDir + '/' + 'FNPhotograph' + '/' + '02.jpg');
+//					$("#preview").attr("src", api.fsDir + '/' + 'FNPhotograph' + '/' + '02.jpg');
 					$(".box10").css("display", "none");
 					$(".foot10").css("display", "block");
 					var trans = api.require('trans');
@@ -352,6 +352,7 @@
 							}
 						})
 				})
+				$("#preview").attr("src", api.fsDir + '/' + 'FNPhotograph' + '/' + '02.jpg');
 			});
 
 			$(".foot").on("click", function() {
@@ -387,8 +388,7 @@
 							window.location.href = "register.html";
 						}else{
 							alert(msg.desc);
-				        
-						}
+                       }
 						
 					},
 					error: function(xhr) {
