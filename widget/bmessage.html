@@ -325,14 +325,13 @@
 					fixed: true
 				}, function(ret) {});
 			});
-			function load(){
-				$("#preview").attr("src","");
-				alert("加载图片方法");
-				$("#preview").attr("src", api.fsDir + '/' + 'FNPhotograph' + '/' + '02.jpg');
-			}
-			
+//			function load(){
+//				$("#preview").attr("src","");
+//				alert("加载图片方法");
+//				$("#preview").attr("src", api.fsDir + '/' + 'FNPhotograph' + '/' + '02.jpg');
+//			}
 			$(".img10").on("click", function() {
-				$("#preview").attr("src","");
+//				$("#preview").attr("src","");
 				var FNPhotograph = api.require('FNPhotograph');
 				FNPhotograph.takePhoto({
 					quality: 'low',
@@ -357,6 +356,7 @@
 					FNPhotograph.closeCameraView(function(ret) {
 						if(ret) {
 							//alert(JSON.stringify(ret));
+							$("#preview").attr("src", api.fsDir + '/' + 'FNPhotograph' + '/' + '02.jpg');
 						}
 					})
 				})
