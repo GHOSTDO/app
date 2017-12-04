@@ -340,7 +340,7 @@
 												if(msg.result == 0) {
 													
 												} else if(msg.result == 9) {
-														  $api.setStorage("user",null);
+													$api.setStorage("user",null);
 													alert(msg.desc);
 													window.location.href = "register.html";
 												} else {
@@ -367,6 +367,7 @@
 								});
 							}
 					} else if(msg.result == 9) {
+							$api.setStorage("user",null);
 						alert(msg.desc);
 						window.location.href = "register.html";
 					} else {
