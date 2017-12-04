@@ -326,6 +326,7 @@
 			});
 			
 			function load(){
+				$("#preview").attr("src","");
 				alert("加载图片方法");
 				$("#preview").attr("src", api.fsDir + '/' + 'FNPhotograph' + '/' + '02.jpg');
 			}
@@ -362,7 +363,7 @@
 							}
 						})
 				})
-                setTimeout(load,300);
+                setTimeout(load,1000);
 			});
 
 			$(".foot").on("click", function() {
