@@ -215,9 +215,9 @@
               $('#car').val(msg.lorry.lorry_type_id);
               $('#chang').val(msg.lorry.lorry_size);
               $('#zhong').val(msg.lorry.lorry_weight);
-//            $('#old').val(msg.lorry.lorry_age);
               $('#text').val(msg.lorry.lorry_tx);  
             }else if(msg.result==9){
+            	  $api.setStorage("user",null);
             	alert(msg.desc);
             	 window.location.href="register.html";
             }else{
@@ -257,6 +257,7 @@
                 		 alert(msg.desc);
                     window.location.href="del.html";
                     }else if(msg.result==9){
+                    $api.setStorage("user",null);
             	     alert(msg.desc);
             	      window.location.href="register.html";
                 	}else{

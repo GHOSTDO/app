@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -216,6 +215,7 @@
 							if(msg.result==0){
 								//alert(msg.desc);
 							}else if(msg.result==9){
+									  $api.setStorage("user",null);
 								alert(msg.desc);
 								window.location.href="register.html";
 							}else{

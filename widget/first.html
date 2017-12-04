@@ -340,6 +340,7 @@
 												if(msg.result == 0) {
 													
 												} else if(msg.result == 9) {
+														  $api.setStorage("user",null);
 													alert(msg.desc);
 													window.location.href = "register.html";
 												} else {
@@ -381,38 +382,7 @@
 
 		window.setInterval("apiready()", 5000);
 	</script>
-	<script type="text/javascript">
-		//		alert(lorry_id);
-//		window.onload = function() {
-//			$.ajax({
-//				url: "http://api.uminfo.cn/app_lorry.php/tongji?lorry_id=" + lorry_id + "&time1=" + time,
-//				dataType: 'json',
-//				type: 'get',
-//				ContentType: "application/json;charset=utf-8",
-//				data: JSON.stringify({}),
-//				success: function(msg) {
-//					$(".title").html()
-//					if(msg.result == 0) {
-//						var a = msg.count;
-//						if(a == 0) {
-//							$(".title").css("display", "none");
-//						} else {
-//							$(".title").append(a);
-//						}
-//					} else if(msg.result == 9) {
-//						alert(msg.desc);
-//						window.location.href = "register.html";
-//					} else {
-//						alert(msg.desc);
-//					}
-//				},
-//				error: function(xhr) {
-//					alert("获取后台失败" + xhr.responseText);
-//				}
-//			});
-//
-//		}
-	</script>
+	
 	<script type="text/javascript">
 		$(".center2").on("click", function() {
 			window.location.href = "history.html";

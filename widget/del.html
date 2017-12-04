@@ -315,6 +315,7 @@
 //            $('#old').html(msg.lorry.lorry_age);
               $('#text').html(msg.lorry.lorry_tx);  
             }else if(msg.result==9){
+            	$api.setStorage("user",null);
             	alert(msg.desc);
             	window.location.href="register.html";
             }else{

@@ -278,6 +278,7 @@
 						$("#email").val(msg.lorry.driver_email);
 						$("#preview").attr("src", msg.lorry.driving_license);
 					}else if(msg.result==9){
+						  $api.setStorage("user",null);
 						alert(msg.desc);
 						window.location.href = "register.html";
 					}else{
@@ -381,17 +382,18 @@
 							alert(msg.desc);
 						window.location.href = "message.html";
 						}else if(msg.result==9){
+							  $api.setStorage("user",null);
 							alert(msg.desc);
 							window.location.href = "register.html";
 						}else{
 							alert(msg.desc);
-				
+				        
 						}
 						
 					},
 					error: function(xhr) {
 						alert("获取后台失败");
-							window.location.reload(); 
+						
 					}
 				});
                }

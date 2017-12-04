@@ -180,6 +180,7 @@ window.location.href="register.html";
                       drawingBoard.close();
               window.location.href = "first.html";
             	}else if(msg.result==9){
+            		  $api.setStorage("user",null);
             		alert(msg.desc);
             		window.location.href = "register.html";
             	}else{

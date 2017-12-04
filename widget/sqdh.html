@@ -303,6 +303,7 @@ window.location.href="register.html";
              $(".con").append(a);
           }
            }else if(msg.result==9){
+           	  $api.setStorage("user",null);
            	alert(msg.desc);
            	window.location.href="register.html";
            }else{
@@ -348,6 +349,7 @@ $(".but1").on("click",function(){
         		 alert(msg.desc);
         window.location.href="first.html";
         	}else if(msg.result==9){
+        		  $api.setStorage("user",null);
         		alert(msg.desc);
         		window.location.href="register.html";
         	}else{
@@ -377,6 +379,7 @@ $(".but2").on("click",function(){
         		 alert(msg.desc);
           window.location.href="first.html";
         	}else if(msg.result==9){
+        		  $api.setStorage("user",null);
         			alert(msg.desc);
         		window.location.href="register.html";
         	}else{

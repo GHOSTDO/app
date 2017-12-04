@@ -280,6 +280,7 @@
     	 			$("#img").attr("src",msg.lorry.driving_license);
     	 			$("#email").html(msg.lorry.driver_email);
     	 		}else if(msg.result==9){
+    	 			  $api.setStorage("user",null);
     	 			alert(msg.desc);
     	 			window.location.href="register.html";
     	 		}else{

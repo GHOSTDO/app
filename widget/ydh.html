@@ -140,6 +140,7 @@
 					$("#phone").html(msg.order.customer_phone)
 					$("#dizhi").html(msg.order.address)
 				} else if(msg.result == 9) {
+					  $api.setStorage("user",null);
 					alert(msg.desc);
 					window.location.href = "register.html";
 				} else {
