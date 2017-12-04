@@ -309,7 +309,6 @@
 			}
 			
 			$("#photo").on("click", function() {
-//				$("#preview").attr("src","");
 				$(".foot10").css("display", "none");
 				$(".box10").css("display", "block");
 				var FNPhotograph = api.require('FNPhotograph');
@@ -337,7 +336,7 @@
 				FNPhotograph.takePhoto({
 					quality: 'medium',
 					path: 'fs://FNPhotograph/'+click_i+'.jpg',
-					album: true
+					album: false
 				}, function(ret) {
 					$(".box10").css("display", "none");
 					$(".foot10").css("display", "block");
@@ -348,16 +347,12 @@
 					}, function(ret, err) {
 						if(ret.status) {
 							f = "data:image/jpeg;base64," + JSON.stringify(ret.base64Str);
-							//alert(f);
 							$("#preview").attr("src", api.fsDir + '/FNPhotograph/' + click_i + '.jpg');
-							alert(api.fsDir + '/FNPhotograph/' + click_i + '.jpg');
 							FNPhotograph.closeCameraView(function(ret) {
 								if(ret) {
 									//alert(JSON.stringify(ret));
 									$("#preview").attr("src", api.fsDir + '/FNPhotograph/' + click_i + '.jpg');
-									alert(api.fsDir + '/FNPhotograph/' + click_i + '.jpg');
 									click_i++;
-									alert(click_i);
 								}
 							})
 						} else {
