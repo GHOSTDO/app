@@ -266,7 +266,7 @@ float:left;
       }
     })(jQuery);
     var sch_id=$.getUrlParam('id');
-   //   alert(sch_id);
+   var c=0;
     $.ajax({
         url: "http://api.uminfo.cn/app_lorry.php/sandoandg?schedule_id="+sch_id+"&lorry_id="+lorry_id+"&time1="+time,
         dataType: 'json',
@@ -278,6 +278,7 @@ float:left;
           $(".con").html("");
           var a="";
           if(msg.result==0){
+          	c=msg.isreceive;
              $("#customer_name").html(msg.customer.name);
              $("#customer_phone").html(msg.customer.phone);
              $("#acceptcity").html(msg.customer.receivecity);
@@ -321,7 +322,11 @@ $(".top1").on("click",function(){
 function but(){
   var id=$.getUrlParam('id');
   //alert(id);
+  if(c==4){
   window.location.href="acceptway.html?id="+id;
+  }else{
+  	alert("请等待物流公司确认");
+  }
 }    
 
 </script>
