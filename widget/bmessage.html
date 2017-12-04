@@ -307,8 +307,9 @@
 						})
 				});
 			}
+			
 			$("#photo").on("click", function() {
-				$("#preview").attr("src","");
+//				$("#preview").attr("src","");
 				$(".foot10").css("display", "none");
 				$(".box10").css("display", "block");
 				var FNPhotograph = api.require('FNPhotograph');
@@ -324,18 +325,14 @@
 					fixed: true
 				}, function(ret) {});
 			});
-			
 			function load(){
-				alert(api.fsDir + '/' + 'FNPhotograph' + '/' + '02.jpg');
 				$("#preview").attr("src","");
 				alert("加载图片方法");
 				$("#preview").attr("src", api.fsDir + '/' + 'FNPhotograph' + '/' + '02.jpg');
 			}
 			
-			
-			
 			$(".img10").on("click", function() {
-					$("#preview").attr("src","");
+				$("#preview").attr("src","");
 				var FNPhotograph = api.require('FNPhotograph');
 				FNPhotograph.takePhoto({
 					quality: 'low',
@@ -344,29 +341,26 @@
 				}, function(ret) {
 					$(".box10").css("display", "none");
 					$(".foot10").css("display", "block");
-						alert(api.fsDir + '/' + 'FNPhotograph' + '/' + '02.jpg');
 //				 $("#preview").attr("src", api.fsDir + '/' + 'FNPhotograph' + '/' + '02.jpg');
 					var trans = api.require('trans');
 					trans.decodeImgToBase64({
 						imgPath: api.fsDir + '/' + 'FNPhotograph' + '/' + '02.jpg'
 					}, function(ret, err) {
 						if(ret.status) {
-							alert(api.fsDir + '/' + 'FNPhotograph' + '/' + '02.jpg');
 							f = "data:image/jpeg;base64," + JSON.stringify(ret.base64Str);
 							//alert(f);
+							$("#preview").attr("src", api.fsDir + '/' + 'FNPhotograph' + '/' + '02.jpg');
 						} else {
 							alert(JSON.stringify(err));
 						};
 					})
-				  
-					FNPhotograph.closeCameraView(
-						function(ret) {
-							if(ret) {
-								//alert(JSON.stringify(ret));
-							}
-						})
+					FNPhotograph.closeCameraView(function(ret) {
+						if(ret) {
+							//alert(JSON.stringify(ret));
+						}
+					})
 				})
-                setTimeout(load,1000);
+//              setTimeout(load,1000);
 			});
 
 			$(".foot").on("click", function() {
