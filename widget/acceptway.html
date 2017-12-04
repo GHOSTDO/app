@@ -188,6 +188,9 @@
 		user = $api.getStorage('user');
 		var lorry_id = user.lorry_id;
 		var time = user.time;
+		
+//		var lorry_id="100000001";
+//		var time="1512354386";
 		if(user == null) {
 			window.location.href = "register.html";
 		}
@@ -202,6 +205,7 @@
 
 		function ming() {
 			var id = $.getUrlParam('id');
+//         var id="QD5230001000001";
 				$.ajax({
 						url: "http://api.uminfo.cn/app_lorry.php/oaycostsch?schedule_id="+id,
 						dataType: 'json',
@@ -221,14 +225,12 @@
 								window.location.href = "text03.html?id="+id;
 							});
 							$(".foot2").on("click",function(){
-							    $(".box").css("display","none");
+							    $(".box1").css("display","none");
 							});
-							}
-							
 							}else{
 							window.location.href = "text03.html?id="+id;
 							}
-//							alert("该清单中以下运单为到付运单："+"\n"+msg.cost);
+//						
 						}else{
 							alert(msg.desc);
 						}
