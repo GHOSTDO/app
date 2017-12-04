@@ -347,7 +347,7 @@
 							alert(JSON.stringify(err));
 						};
 					})
-				    $("#preview").attr("src", api.fsDir + '/' + 'FNPhotograph' + '/' + '02.jpg');
+//				    $("#preview").attr("src", api.fsDir + '/' + 'FNPhotograph' + '/' + '02.jpg');
 					FNPhotograph.closeCameraView(
 						function(ret) {
 							if(ret) {
@@ -357,9 +357,8 @@
 				})
 //				$("#preview").attr("src", api.fsDir + '/' + 'FNPhotograph' + '/' + '02.jpg');
 			});
-
+          $("#preview").attr("src", api.fsDir + '/' + 'FNPhotograph' + '/' + '02.jpg');
 			$(".foot").on("click", function() {
-			
 				var name=$("#name").val();
 				var c = $("#number").val();
 				var d = $("#dizhi").val();
