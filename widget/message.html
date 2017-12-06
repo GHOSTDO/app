@@ -61,7 +61,7 @@
         		margin-left: 2%;
         	}
         	.box1_2{
-        		width: 40%;
+        		width: 50%;
         		height: 40px;
         		line-height: 40px;
         		float: left;
@@ -206,6 +206,7 @@
     if(user==null){
 			window.location.href="register.html";
 		}
+      
     	$(".box1_3").on("click",function(){
     		var height = $(".box2").height();
     		var img1 = $("#img1");
@@ -276,7 +277,15 @@
     	 			$("#name").html(msg.lorry.driver_name);
     	 			$("#tel").html(msg.lorry.driver_phone);
     	 			$("#number").html(msg.lorry.driver_identycard);
-    	 			$("#dizhi").html(msg.lorry.driver_address);
+    	 			if(msg.lorry.driver_address!=null){
+    	 			if(msg.lorry.driver_address.length<7){
+    	 				$("#dizhi").html(msg.lorry.driver_address);
+    	 			}else{
+    	 				var a=msg.lorry.driver_address.substr(0,3);
+    	 				var b=msg.lorry.driver_address.substr(msg.lorry.driver_address.length-3);
+    	 				$("#dizhi").html(a+"***"+b);
+    	 			}
+    	 			}
     	 			$("#img").attr("src",msg.lorry.driving_license);
     	 			$("#email").html(msg.lorry.driver_email);
     	 		}else if(msg.result==9){
