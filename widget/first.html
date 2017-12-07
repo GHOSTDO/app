@@ -406,8 +406,19 @@
 		}
 
 		function saoma() {
-			window.location.href = "saoma.html";
-
+//			window.location.href = "saoma.html";
+	       var scanner = api.require('scanner')
+			scanner.open(function(ret, err) {
+				if(ret) {
+					// alert(JSON.stringify(ret));
+					var id = JSON.stringify(ret.msg);
+					id = id.replace("\"", "").replace("\"", "");
+					//alert(id);
+					window.location.href = "sqdh.html?id=" + id;
+				} else {
+					alert(JSON.stringify(err));
+				}
+			})
 		}
 	</script>
 	<script type="text/javascript">
