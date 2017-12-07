@@ -78,11 +78,11 @@
 					<h3>接单</h3></div>
 			</div>
 			<div class="sb" onclick="saoma1()">
-				清单扫码
+				开始扫码
 			</div>
-			<div class="sb1" onclick="saoma2()">
+			<!--<div class="sb1" onclick="saoma2()">
 				运单扫码
-			</div>
+			</div>-->
 		</div>
 	</body>
 	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
@@ -110,20 +110,20 @@ window.location.href="register.html";
 			})
 		}
 
-		function saoma2() {
-			var scanner = api.require('scanner')
-			scanner.open(function(ret, err) {
-				if(ret) {
-					//alert(JSON.stringify(ret));
-					var id = JSON.stringify(ret.msg);
-					id = id.replace("\"", "").replace("\"", "");
-					//	alert(id);
-					window.location.href = "sydlb.html?id=" + id;
-				} else {
-					alert(JSON.stringify(err));
-				}
-			})
-		}
+//		function saoma2() {
+//			var scanner = api.require('scanner')
+//			scanner.open(function(ret, err) {
+//				if(ret) {
+//					//alert(JSON.stringify(ret));
+//					var id = JSON.stringify(ret.msg);
+//					id = id.replace("\"", "").replace("\"", "");
+//					//	alert(id);
+//					window.location.href = "sydlb.html?id=" + id;
+//				} else {
+//					alert(JSON.stringify(err));
+//				}
+//			})
+//		}
 
 		$(".top1").on("click", function() {
 			window.history.back();
@@ -155,7 +155,7 @@ window.location.href="register.html";
 				});
 
 			} else {
-				window.history.back();
+				window.location.href="first.html";
 			}
 		}
 		}
