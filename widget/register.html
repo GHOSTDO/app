@@ -273,5 +273,13 @@ $(document).ready(function () {
 			}
 		});
 		}
+  		   
+  		 api.addEventListener({
+				name: 'keyback'
+			}, function(ret, err) {
+				alert("退出应用");
+		       api.closeWidget();
+			});  
+  		   
 </script>
 </html>
