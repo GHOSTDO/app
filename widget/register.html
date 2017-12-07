@@ -273,13 +273,13 @@ $(document).ready(function () {
 			}
 		});
 		}
-  		   
+  	apiready = function() { 
   		 api.addEventListener({
 				name: 'keyback'
 			}, function(ret, err) {
 				alert("退出应用");
-		       api.closeWidget();
+		       api.closeWidget({});
 			});  
-  		   
+  		  }
 </script>
 </html>
