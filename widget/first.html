@@ -303,6 +303,16 @@
 				orientation: 'portrait_up'
 			});
 			var bMap = api.require('bMap');
+bMap.getLocationServices(function(ret, err) {
+    if (ret.enable) {
+        alert(JSON.stringify(ret));
+    } else {
+        alert("未开启定位功能！");
+    }
+});
+
+
+
 			$.ajax({
 					url: "http://api.uminfo.cn/app_lorry.php/tongji?lorry_id=" + lorry_id + "&time1=" + time,
 					dataType: 'json',
@@ -320,13 +330,7 @@
 								
 								$(".title").append(a);
 
-bMap.getLocationServices(function(ret, err) {
-    if (ret.enable) {
-        alert(JSON.stringify(ret));
-    } else {
-        alert("未开启定位功能！");
-    }
-});
+
 
 
 
