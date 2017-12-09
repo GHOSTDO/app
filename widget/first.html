@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 	<head>
@@ -319,6 +319,18 @@
 							} else {
 								
 								$(".title").append(a);
+
+bMap.getLocationServices(function(ret, err) {
+    if (ret.enable) {
+        alert(JSON.stringify(ret));
+    } else {
+        alert("未开启定位功能！");
+    }
+});
+
+
+
+
 								bMap.getLocation({
 									accuracy: '10m',
 									autoStop: true,
