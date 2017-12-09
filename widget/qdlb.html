@@ -1,114 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
+
+	<head>
+		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
-        <style>
-         *{
-        	margin: 0;
-        	padding: 0;
-        }
-        	.box{
-        		width:100%;
-        		height:100%;
-        		background:white;
-        	}
-        	.top{
-        		width:100%;
-        		height:50px;
-        			position: fixed;
-        		background:#FFCF09;
-        	}
-        	.top1{
-        		width:10%;
-        		height:30px;
-        		float:left;
-        		margin-left:5%;
-        		margin-top:10px;
-        	}
-        	.top1 img{
-        		width:30px;
-        		height:30px;
-        	}
-        	.top2{
-        		width:70%;
-        		height:50px;
-        		text-align:center;
-        		line-height:50px;
-        		float:left;
-        	}
-			.center{
+		<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			.box {
+				width: 100%;
+				height: 100%;
+				background: white;
+			}
+			
+			.top {
+				width: 100%;
+				height: 50px;
+				position: fixed;
+				background: #FFCF09;
+			}
+			
+			.top1 {
+				width: 10%;
+				height: 30px;
+				float: left;
+				margin-left: 5%;
+				margin-top: 10px;
+			}
+			
+			.top1 img {
+				width: 30px;
+				height: 30px;
+			}
+			
+			.top2 {
+				width: 70%;
+				height: 50px;
+				text-align: center;
+				line-height: 50px;
+				float: left;
+			}
+			
+			.center {
 				width: 100%;
 			}
-			.c1{
+			
+			.c1 {
 				width: 96%;
 				float: left;
 				margin-left: 2%;
 				margin-top: 5px;
 				height: 80px;
 			}
-			.xian{
+			
+			.xian {
 				width: 100%;
 				height: 1px;
 				background: #E5E5E5;
 				float: left;
 			}
-
-			.c1_1{
+			
+			.c1_1 {
 				float: left;
 				width: 80%;
 				height: 50px;
 				line-height: 50px;
 			}
-			.c1_2{
+			
+			.c1_2 {
 				float: right;
 				width: 15%;
 				height: 40px;
 				margin-top: 20px;
 			}
-			.c1_2 img{
+			
+			.c1_2 img {
 				width: 40px;
 				height: 40px;
 			}
-			.c1_3{
+			
+			.c1_3 {
 				float: left;
 				width: 80%;
 				height: 30px;
 				line-height: 30px;
 				font-size: 14px;
 			}
-		.centerbox{
-          	width: 100%;
-            top:50px;
-            position: absolute;
-            overflow: auto;
-            bottom: 0;
-          }
-        </style>
-    </head>
-    <body>
-    	<div class="box">
-    		<div class="top">
-    			<div class="top1"><img src="image/back.png" alt=""></div>
-    			<div class="top2"><h3>清单列表</h3></div>
-    		</div>
-    		<div class="centerbox">
-    		<div class="center">
-    			
-    		</div>
-    		</div>
-    	</div>
-    </body>
-    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="js/local.js"></script>
-    <script type="text/javascript" src="js/APICloud-rest.js"></script>
-    <script type="text/javascript" src="js/api.js"></script>
-    <script type="text/javascript">
-    user=$api.getStorage('user');
-    var time=user.time;
-    var lorry_id=user.lorry_id;
-    apiready = function() {
+			
+			.centerbox {
+				width: 100%;
+				top: 50px;
+				position: absolute;
+				overflow: auto;
+				bottom: 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="box">
+			<div class="top">
+				<div class="top1"><img src="image/back.png" alt=""></div>
+				<div class="top2">
+					<h3>清单列表</h3></div>
+			</div>
+			<div class="centerbox">
+				<div class="center">
+
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="js/local.js"></script>
+	<script type="text/javascript" src="js/APICloud-rest.js"></script>
+	<script type="text/javascript" src="js/api.js"></script>
+	<script type="text/javascript">
+		user = $api.getStorage('user');
+		var time = user.time;
+		var lorry_id = user.lorry_id;
+		apiready = function() {
 			api.setScreenOrientation({
 				orientation: 'portrait_up'
 			});
@@ -118,87 +133,90 @@
 				autoStop: true,
 				filter: 1
 			}, function(ret, err) {
-	if(ret.status) {
+				if(ret.status) {
 
-	} else {
-		if(err.code == "505") {
-			var con;
-			con = confirm("本功能需要获取定位才能使用，请确认开启定位");
-			if(con == true) {
-				var mySettingInfo = api.require('mySettingInfo');
-				mySettingInfo.settingInt({
-					'index': 2
-				}, function(ret, err) {
-					alert(JSON.stringify(ret));
-				});
+				} else {
+					bMap.getLocationServices(function(ret, err) {
+						if(ret.enable) {
 
-			} else {
-				window.location.href="first.html";
-			}
+						} else {
+
+							var con;
+							con = confirm("本功能需要获取定位才能使用，请确认开启定位");
+							if(con == true) {
+								var mySettingInfo = api.require('mySettingInfo');
+								mySettingInfo.settingInt({
+									'index': 2
+								}, function(ret, err) {
+									alert(JSON.stringify(ret));
+								});
+
+							} else {
+								window.location.href = "first.html";
+							}
+						}
+					});
+
+					
+				}
+			});
 		}
-		}
-	});
-		}
-	 window.setInterval("apiready()",3600000);
-    
-    
-    
-    
-    
-    
-    	if(lorry_id==null||lorry_id==""){
-			window.location.href="register.html";
-    	}else{
-            $.ajax({
-				url: "http://api.uminfo.cn/app_lorry.php/sbylorry?lorry_id="+lorry_id+"&time1="+time,
+		window.setInterval("apiready()", 3600000);
+
+		if(lorry_id == null || lorry_id == "") {
+			window.location.href = "register.html";
+		} else {
+			$.ajax({
+				url: "http://api.uminfo.cn/app_lorry.php/sbylorry?lorry_id=" + lorry_id + "&time1=" + time,
 				dataType: 'json',
 				type: 'get',
 				ContentType: "application/json;charset=utf-8",
-				data: JSON.stringify({
-				}),
+				data: JSON.stringify({}),
 				success: function(msg) {
 					$(".center").html();
-					if(msg.result==0){
-						if(msg.sch.length>0){
-						for(var x=0;x<msg.sch.length;x++){
-                            var scheduling_id=msg.sch[x].scheduling_id;
-                            var new_scheduling_id=scheduling_id.substring(2);
-                            // onclick='dhao("+msg.sch[x].scheduling_id+")'
-						    var a="<div class='c1' id='c"+new_scheduling_id+"'>";
-                            a+="<div class='c1_1'><p>清单号：<span>"+msg.sch[x].scheduling_id+"</span></p></div>";
-                            a+="<div class='c1_2'><img src='image/more.png' alt='' /></div>";
-                            a+="<div class='c1_3'><p>收货人：<span>"+msg.sch[x].customer_name+"</span></p></div>";
-                            a+="<div class='xian'></div>";
-                            a+="</div>";
-						    $(".center").append(a);
-                            $("#c"+new_scheduling_id).attr("onclick","dhao('"+scheduling_id+"')");
-						}
-						}else{
+					if(msg.result == 0) {
+						if(msg.sch.length > 0) {
+							for(var x = 0; x < msg.sch.length; x++) {
+								var scheduling_id = msg.sch[x].scheduling_id;
+								var new_scheduling_id = scheduling_id.substring(2);
+								// onclick='dhao("+msg.sch[x].scheduling_id+")'
+								var a = "<div class='c1' id='c" + new_scheduling_id + "'>";
+								a += "<div class='c1_1'><p>清单号：<span>" + msg.sch[x].scheduling_id + "</span></p></div>";
+								a += "<div class='c1_2'><img src='image/more.png' alt='' /></div>";
+								a += "<div class='c1_3'><p>收货人：<span>" + msg.sch[x].customer_name + "</span></p></div>";
+								a += "<div class='xian'></div>";
+								a += "</div>";
+								$(".center").append(a);
+								$("#c" + new_scheduling_id).attr("onclick", "dhao('" + scheduling_id + "')");
+							}
+						} else {
 							$(".center").html("尚未有待交付清单");
-							$(".center").css("text-align","center");
-							  $(".center").css("font-size","24px");
+							$(".center").css("text-align", "center");
+							$(".center").css("font-size", "24px");
 						}
-					}else if(msg.result==9){
-						  $api.setStorage("user",null);
-					     alert(msg.desc);
-					     window.location.href="register.html";
-					}else{
+					} else if(msg.result == 9) {
+						$api.setStorage("user", null);
+						alert(msg.desc);
+						window.location.href = "register.html";
+					} else {
 						$(".center").html(msg.desc);
-            	$(".center").css("text-align","center");
-              $(".center").css("font-size","24px");
-					}		
+						$(".center").css("text-align", "center");
+						$(".center").css("font-size", "24px");
+					}
 				},
 				error: function(xhr) {
 					alert("获取后台失败！");
 				}
 			});
-        }	
-        function dhao(id){
-        //    alert(id);
-            window.location.href="inventory.html?id="+id;
-        }
-        $(".top1").on("click",function(){
-            window.history.back();
-        })
-    </script>
+		}
+
+		function dhao(id) {
+			//    alert(id);
+			window.location.href = "inventory.html?id=" + id;
+		}
+		$(".top1").on("click", function() {
+			window.history.back();
+		})
+	</script>
+
 </html>

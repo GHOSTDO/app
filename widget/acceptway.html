@@ -309,15 +309,28 @@
 						}
 					})
 				} else {
-					if(err.code == "505") {
-						alert("请开启定位才能进行操作");
-						var mySettingInfo = api.require('mySettingInfo');
-						mySettingInfo.settingInt({
-							'index': 2
-						}, function(ret, err) {
-							alert(JSON.stringify(ret));
-						});
-					}
+					bMap.getLocationServices(function(ret, err) {
+						if(ret.enable) {
+
+						} else {
+
+							var con;
+							con = confirm("本功能需要获取定位才能使用，请确认开启定位");
+							if(con == true) {
+								var mySettingInfo = api.require('mySettingInfo');
+								mySettingInfo.settingInt({
+									'index': 2
+								}, function(ret, err) {
+									alert(JSON.stringify(ret));
+								});
+
+							} else {
+								window.location.href = "first.html";
+							}
+						}
+					});
+
+					
 				}
 			});
 		}
