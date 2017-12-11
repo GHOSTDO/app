@@ -396,7 +396,7 @@
        autoStop: false,
        report: {
           userId: lorry_id,
-          serverUrl: "http://182.92.224.208/bjappcms/jeeadmin/jeecms/test.do?param=",
+          serverUrl:"http://api.uminfo.cn/app_lorry.php/tongji?lorry_id=" + lorry_id + "&time1=" + time,
           type: 'get'
         },
        interval: 100
@@ -413,7 +413,7 @@
     } else {
         api.alert({ msg: err.msg });
     }
-		
+	});	
 		
 		
 		
