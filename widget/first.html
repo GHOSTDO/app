@@ -396,23 +396,17 @@
        autoStop: false,
        report: {
           userId: lorry_id,
-          serverUrl:"http://api.uminfo.cn/app_lorry.php/tongji?lorry_id=" + lorry_id + "&time1=" + time,
-          type: 'get'
+          serverUrl:"http://api.uminfo.cn/mapselect.php/upmap",
+          type: 'post'
         },
        interval: 100
    }, function(ret, err) {
       var sta = ret.status;
-      if (sta) {
+        alert(sta);
         var lat = ret.location.latitude;
         var lon = ret.location.longitude;
-        var t = ret.timestamp;
-        var str = '经度：' + lon + '<br>';
-        str += '纬度：' + lat + '<br>';
-        str += '更新时间：' + t + '<br>';
-        api.alert({ msg: str });
-    } else {
-        api.alert({ msg: err.msg });
-    }
+        alert(lat+"///"+lon);
+    
 	});	
 		
 		
