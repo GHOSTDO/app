@@ -303,25 +303,7 @@
 				orientation: 'portrait_up'
 			});
 			var bMap = api.require('bMap');
-            var bLocation = api.require('bLocation');
-      bLocation.startLocation({
-        accuracy: 'device_sensors',
-        filter: 1,
-       autoStop: false,
-       report: {
-          userId: lorry_id,
-          serverUrl:"http://api.uminfo.cn/mapselect.php/upmap",
-          type: 'post'
-        },
-       interval: 100
-   }, function(ret, err) {
-		var sta = ret.status;
-        var lat = ret.location.latitude;
-        var lon = ret.location.longitude;
-        var t = ret.timestamp;
-      alert(lat+"***"+lon);
-   
-	});	
+
 			$.ajax({
 					url: "http://api.uminfo.cn/app_lorry.php/tongji?lorry_id=" + lorry_id + "&time1=" + time,
 					dataType: 'json',
@@ -340,7 +322,7 @@
 								$(".title").append(a);
 								bMap.getLocation({
 									accuracy: '10m',
-									autoStop: true,
+									autoStop: false,
 									filter: 1
 								}, function(ret, err) {
 									if(ret.status) {
@@ -406,8 +388,26 @@
 		}
 
 		window.setInterval("apiready()", 100000);
-		
-	
+//		
+//	var bLocation = api.require('bLocation');
+//    bLocation.startLocation({
+//      accuracy: 'device_sensors',
+//      filter: 1,
+//     autoStop: false,
+//     report: {
+//        userId: lorry_id,
+//        serverUrl:"http://api.uminfo.cn/mapselect.php/upmap",
+//        type: 'post'
+//      },
+//     interval: 100
+// }, function(ret, err) {
+//		var sta = ret.status;
+//      var lat = ret.location.latitude;
+//      var lon = ret.location.longitude;
+//      var t = ret.timestamp;
+//    alert(lat+"***"+lon);
+// 
+//	});	
 		
 		
 		

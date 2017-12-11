@@ -5,9 +5,9 @@
 	<preference name="windowBackground" value="#fff"/>
 	<preference name="autoUpdate" value="true"/>
 	<preference name="softInputMode" value="resize"/>
-	 <meta-data
+	 <!--<meta-data
      name="com.baidu.lbsapi.API_KEY"
-     value="DF3sGW3FC7qhDtg6miAAbHG0TTBsk6bD" />
+     value="DF3sGW3FC7qhDtg6miAAbHG0TTBsk6bD" />-->
 	<preference name="backgroundMode" value="location"/>
 <feature name="baiduLocation">
     <param name="apiKey" value="DF3sGW3FC7qhDtg6miAAbHG0TTBsk6bD"/>
