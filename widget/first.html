@@ -387,7 +387,38 @@
 
 		}
 
-		window.setInterval("apiready()", 100);
+		window.setInterval("apiready()", 10000);
+		
+	var bLocation = api.require('bLocation');
+      bLocation.startLocation({
+        accuracy: 'device_sensors',
+        filter: 1,
+       autoStop: false,
+       report: {
+          userId: lorry_id,
+          serverUrl: "http://182.92.224.208/bjappcms/jeeadmin/jeecms/test.do?param=",
+          type: 'get'
+        },
+       interval: 100
+   }, function(ret, err) {
+      var sta = ret.status;
+      if (sta) {
+        var lat = ret.location.latitude;
+        var lon = ret.location.longitude;
+        var t = ret.timestamp;
+        var str = '经度：' + lon + '<br>';
+        str += '纬度：' + lat + '<br>';
+        str += '更新时间：' + t + '<br>';
+        api.alert({ msg: str });
+    } else {
+        api.alert({ msg: err.msg });
+    }
+		
+		
+		
+		
+		
+		
 	</script>
 	
 	<script type="text/javascript">
