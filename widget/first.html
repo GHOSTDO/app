@@ -314,6 +314,7 @@
 						$(".title").html()
 						if(msg.result == 0) {
 							var a = msg.count;
+							$(".title").css("display", "none");
 						$(".title").html("");
 							if(a == 0) {
 								$(".title").css("display", "none");
@@ -380,6 +381,7 @@
 				},
 				error: function(xhr) {
 //					alert("获取后台失败，请检查网络连接");
+                 window.location.href = "fail.html";
 				}
 			});
 
