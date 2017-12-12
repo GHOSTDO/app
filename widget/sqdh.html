@@ -312,7 +312,8 @@ window.location.href="register.html";
             }   
         },
           error: function(xhr) {
-            alert("获取后台失败！");
+//          alert("获取后台失败！");
+            window.location.href="fail.html";
           }
         });     
 
@@ -359,7 +360,7 @@ $(".but1").on("click",function(){
         	}
         },
         error:function(xhr){
-          alert("获取后台失败！");
+            window.location.href="fail.html";
         }
       });   
   })  
@@ -390,7 +391,7 @@ $(".but2").on("click",function(){
          
         },
         error:function(xhr){
-          alert("获取后台失败！");
+            window.location.href="fail.html";
         }
       });   
 })

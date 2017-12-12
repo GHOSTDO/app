@@ -121,7 +121,7 @@
     	<div class="box">
     		<div class="top">
     			<div class="top1"><img src="image/back.png" alt=""></div>
-    			<div class="top2"><h3>添加车辆</h3></div>
+    			<div class="top2"><h3>修改车辆</h3></div>
     		</div>
     		<div class="center">
     			<div class="box1">
@@ -181,7 +181,7 @@
                 }
             },
             error:function(xhr){
-              alert("获取后台失败");
+               window.location.href="fail.html";
             }
         })
     </script>
@@ -226,7 +226,7 @@
             
         },
         error:function(xhr){
-            alert("获取后台失败");
+            window.location.href="fail.html";
         }
     })
      $("#carbox").on("click",function(){
@@ -266,7 +266,7 @@
                    
                 },
                 error:function(xhr){
-                    alert("获取后台失败");
+                    window.location.href="fail.html";
                 }
             })
           

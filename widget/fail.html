@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+		<title></title>
+		<style>
+			 * {
+				margin: 0;
+				padding: 0;
+			}
+			.box {
+				width: 100%;
+				height: 100%;
+				background: white;
+			}
+			.center{
+				width:80%;
+				margin-left:10%;
+				height:100px;
+				margin-top:50px;
+			    word-wrap:break-word;
+			    text-align:center;
+			    font:20px "微软雅黑";
+			}
+			.reload{
+				width:30%;
+				height:50px;
+				margin-left:35%;
+				background-color:rgb(255,208,13);
+				color:white;
+				line-height:50px;
+				text-align: center;
+				border-radius: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+		   <div class="center">获取数据失败，请检查网络连接后点击下面按钮</div>
+			<div class="reload">重新加载</div>
+		</div>
+	</body>
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="js/local.js"></script>
+	<script type="text/javascript" src="js/APICloud-rest.js"></script>
+	<script type="text/javascript" src="js/api.js"></script>
+	<script>
+		$(".reload").on("click",function(){
+			window.location.href="register.html";
+		});
+		
+		apiready = function() { 
+  		 api.addEventListener({
+				name: 'keyback'
+			}, function(ret, err) {
+				window.location.href="fail.html";
+			});  
+  		  }
+	</script>
+</html>

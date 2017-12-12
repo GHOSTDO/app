@@ -349,7 +349,7 @@
 												}
 											},
 											error: function(xhr) {
-												alert("获取后台失败");
+//												alert("获取后台失败");
 											}
 										})
 									} else {
@@ -367,8 +367,6 @@
 										});
  										   }
 										});
-//										 
-									
 									}
 								});
 							}
@@ -381,13 +379,13 @@
 					}
 				},
 				error: function(xhr) {
-					alert("获取后台失败");
+//					alert("获取后台失败，请检查网络连接");
 				}
 			});
 
 		}
 
-		window.setInterval("apiready()", 10000);
+		window.setInterval("apiready()", 600000);
 		
 	</script>
 	

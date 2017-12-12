@@ -170,7 +170,7 @@
 				}
 			},
 			error: function(e) {
-				alert("省份列表信息出错!");
+			window.location.href = "fail.html";
 			}
 		});
 
@@ -192,7 +192,7 @@
 				},
 				error: function(e) {
 					$("#city1").append('<option value="">请选择市</option>');
-					//					alert("城市列表信息出错!");
+					window.location.href = "fail.html";
 				}
 			});
 		}
