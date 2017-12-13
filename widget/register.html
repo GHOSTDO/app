@@ -267,7 +267,7 @@ $(document).ready(function () {
 						}
 					},
 					error: function(xhr) {
-						alert("获取后台失败！");
+						window.location.href = "fail.html";
 					}
 				});
 			}
@@ -277,7 +277,7 @@ $(document).ready(function () {
   		 api.addEventListener({
 				name: 'keyback'
 			}, function(ret, err) {
-				alert("退出应用");
+//				alert("退出应用");
 		       api.closeWidget({});
 			});  
   		  }
