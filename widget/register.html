@@ -116,19 +116,24 @@
 				color: white;
 				font-size: 14px;
 			}
-			/* .box5 {
-				width: 80%;
-				height: 40px;
-				 position: fixed;
-				bottom: 30px;
-				left: 10%;
-				text-align: center;
-				color: white;
-			} */
+		
 			.box5{
 				width:45%;
 				float: left;
 				margin-left: 5%;
+				height: 35px;
+				border-radius: 5px;
+				background: #FECD07;
+				color: white;
+				font-size: 16px;
+				text-align: center;
+				margin-top: 30px;
+				line-height: 35px;
+			}
+			.box6{
+				width:80%;
+				float: left;
+				margin-left: 10%;
 				height: 35px;
 				border-radius: 5px;
 				background: #FECD07;
@@ -203,12 +208,9 @@
 					登 录
 				</div>
 				<div class="box5">注册新用户</div>
+				<div class="box6">退出</div>
 				<div style="clear: both;"></div>
 			</div>
-			<!-- <div class="box5">
-				注册新用户
-				<div class="xian"></div>
-          </div> -->
 		</div>
 	</body>
 	<script src="js/jquery-3.2.1.min.js"></script>
@@ -281,5 +283,8 @@ $(document).ready(function () {
 		       api.closeWidget({});
 			});  
   		  }
+  	$(".box6").on("click",function(){
+  		 api.closeWidget({});
+  	});
 </script>
 </html>
